@@ -13,13 +13,13 @@
     --bg-basalt: #0c0c10;
     --bg-monolith: #121217;
     --bg-elevated: #18181f;
-    --bg-glass: rgba(10, 10, 14, 0.88);
+    --bg-glass: rgba(10, 10, 14, 0.90);
     --text-ivory: #f2efe9;
     --text-ash: #9c9891;
     --text-slate: #635f59;
     --crimson: #a61c1c;
     --crimson-bright: #cc2929;
-    --crimson-glow: rgba(166, 28, 28, 0.32);
+    --crimson-glow: rgba(166, 28, 28, 0.34);
     --crimson-subtle: rgba(166, 28, 28, 0.12);
     --bronze: #c5a059;
     --bronze-subtle: rgba(197, 160, 89, 0.14);
@@ -29,7 +29,6 @@
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --nav-h: 68px;
-    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -44,7 +43,6 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Ambient Atmospheric Lighting */
   body::before {
     content: '';
     position: fixed;
@@ -57,17 +55,16 @@
     z-index: 0;
   }
 
-  /* Subtle Tactile Grain Overlay */
   .grain-overlay {
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: 999;
-    opacity: 0.028;
+    opacity: 0.026;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  /* UPGRADE 1: SINGLE SLIM HEADER WITH INTEGRATED PROGRESS BAR */
+  /* SLIM HEADER WITH INTEGRATED PROGRESS BAR */
   header.site-header {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -83,13 +80,13 @@
 
   .header-inner {
     width: 100%;
-    max-width: 1380px;
+    max-width: 1440px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .scroll-progress-track {
@@ -112,56 +109,59 @@
 
   .brand-logo {
     font-family: var(--font-display);
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.22em;
     color: var(--text-ivory);
     text-decoration: none;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.45rem;
     flex-shrink: 0;
   }
   .brand-logo .dot { color: var(--crimson); }
   .brand-sub {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.15em;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
     color: var(--text-slate);
     border-left: 1px solid var(--border-strong);
-    padding-left: 0.65rem;
+    padding-left: 0.55rem;
     text-transform: uppercase;
   }
 
   .nav-links {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.15rem;
     list-style: none;
+    overflow-x: auto;
+    scrollbar-width: none;
   }
+  .nav-links::-webkit-scrollbar { display: none; }
 
   .nav-links a {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-ash);
     text-decoration: none;
-    padding: 0.5rem 0.75rem;
+    padding: 0.45rem 0.62rem;
     border: 1px solid transparent;
-    transition: all 0.22s ease;
+    transition: all 0.2s ease;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.32rem;
     white-space: nowrap;
   }
 
   .nav-links a .num {
-    color: var(--crimson);
+    color: var(--crimson-bright);
     font-weight: 600;
-    font-size: 0.66rem;
+    font-size: 0.62rem;
   }
 
   .nav-links a:hover,
@@ -178,7 +178,7 @@
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.55rem;
+    gap: 0.45rem;
     flex-shrink: 0;
   }
 
@@ -187,15 +187,15 @@
     border: 1px solid var(--border-strong);
     color: var(--text-ivory);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.48rem 0.8rem;
+    padding: 0.45rem 0.72rem;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
-    transition: all 0.22s ease;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
   }
   .action-btn:hover {
     border-color: var(--crimson);
@@ -204,15 +204,15 @@
   .action-btn kbd {
     background: var(--bg-void);
     border: 1px solid var(--border-strong);
-    padding: 0.08rem 0.35rem;
-    font-size: 0.62rem;
+    padding: 0.06rem 0.3rem;
+    font-size: 0.6rem;
     color: var(--text-ash);
   }
   .codex-count {
     background: var(--crimson);
     color: #fff;
-    padding: 0.05rem 0.4rem;
-    font-size: 0.65rem;
+    padding: 0.05rem 0.38rem;
+    font-size: 0.62rem;
     font-weight: 600;
   }
 
@@ -221,44 +221,44 @@
     background: var(--bg-monolith);
     border: 1px solid var(--border-strong);
     color: var(--text-ivory);
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
   }
 
-  /* UPGRADE 2: FLOATING RIGHT-SIDE SECTION RAIL */
+  /* FLOATING RIGHT-SIDE SECTION RAIL (00–10) */
   .side-rail {
     position: fixed;
-    right: 1.4rem;
+    right: 1.1rem;
     top: 50%;
     transform: translateY(-50%);
     z-index: 120;
     display: flex;
     flex-direction: column;
-    gap: 0.55rem;
-    background: rgba(12, 12, 16, 0.78);
+    gap: 0.35rem;
+    background: rgba(12, 12, 16, 0.82);
     backdrop-filter: blur(10px);
     border: 1px solid var(--border-hairline);
-    padding: 0.65rem 0.45rem;
+    padding: 0.5rem 0.38rem;
   }
 
   .rail-item {
     position: relative;
-    width: 32px;
-    height: 28px;
+    width: 30px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-mono);
-    font-size: 0.66rem;
+    font-size: 0.62rem;
     font-weight: 600;
     color: var(--text-slate);
     background: transparent;
     border: 1px solid transparent;
     cursor: pointer;
-    transition: all 0.22s ease;
+    transition: all 0.2s ease;
   }
 
   .rail-item:hover {
@@ -271,12 +271,10 @@
     color: var(--text-ivory);
     background: var(--crimson-subtle);
     border-color: var(--crimson);
-    box-shadow: 0 0 12px var(--crimson-glow);
+    box-shadow: 0 0 10px var(--crimson-glow);
   }
 
-  .rail-item.hidden-by-mode {
-    opacity: 0.3;
-  }
+  .rail-item.hidden-by-mode { opacity: 0.25; }
 
   .rail-tooltip {
     position: absolute;
@@ -287,15 +285,15 @@
     border: 1px solid var(--border-strong);
     color: var(--text-ivory);
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.35rem 0.65rem;
+    padding: 0.32rem 0.65rem;
     white-space: nowrap;
     pointer-events: none;
     opacity: 0;
-    transition: all 0.2s ease;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    transition: all 0.18s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   }
 
   .rail-item:hover .rail-tooltip {
@@ -305,8 +303,8 @@
 
   /* HERO SECTION */
   .hero {
-    min-height: 88vh;
-    padding: calc(var(--nav-h) + 3.5rem) 2rem 3.5rem;
+    min-height: 86vh;
+    padding: calc(var(--nav-h) + 3rem) 2rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -325,11 +323,11 @@
     background: var(--bg-monolith);
     border: 1px solid var(--border-strong);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.24em;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--bronze);
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.6rem;
   }
   .hero-badge .pulse {
     width: 6px;
@@ -340,12 +338,12 @@
 
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.4rem, 6vw, 4.9rem);
+    font-size: clamp(2.3rem, 5.8vw, 4.7rem);
     font-weight: 800;
     line-height: 1.07;
     letter-spacing: 0.02em;
-    max-width: 980px;
-    margin-bottom: 1.5rem;
+    max-width: 1020px;
+    margin-bottom: 1.35rem;
     text-transform: uppercase;
   }
   .hero h1 em {
@@ -355,36 +353,36 @@
   }
 
   .hero-sub {
-    font-size: clamp(1rem, 1.6vw, 1.18rem);
+    font-size: clamp(0.98rem, 1.5vw, 1.15rem);
     color: var(--text-ash);
-    max-width: 650px;
-    margin-bottom: 2.4rem;
+    max-width: 720px;
+    margin-bottom: 2.2rem;
     line-height: 1.7;
   }
 
   .hero-ctas {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.85rem;
     justify-content: center;
-    margin-bottom: 3.2rem;
+    margin-bottom: 3rem;
   }
 
   .btn-primary {
     background: var(--crimson);
     color: #fff;
     border: 1px solid var(--crimson-bright);
-    padding: 0.95rem 2rem;
+    padding: 0.9rem 1.85rem;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.25s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.55rem;
   }
   .btn-primary:hover {
     background: var(--crimson-bright);
@@ -396,11 +394,11 @@
     background: var(--bg-monolith);
     color: var(--text-ivory);
     border: 1px solid var(--border-strong);
-    padding: 0.95rem 1.8rem;
+    padding: 0.9rem 1.65rem;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 500;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -413,69 +411,64 @@
 
   .hero-telemetry {
     display: grid;
-    grid-template-columns: repeat(4, minmax(130px, 190px));
+    grid-template-columns: repeat(6, minmax(110px, 165px));
     border: 1px solid var(--border-hairline);
-    background: rgba(12, 12, 16, 0.75);
+    background: rgba(12, 12, 16, 0.78);
   }
   .stat-cell {
-    padding: 1.1rem 1.2rem;
+    padding: 1rem 0.9rem;
     border-right: 1px solid var(--border-hairline);
     text-align: center;
   }
   .stat-cell:last-child { border-right: none; }
   .stat-val {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
     color: var(--text-ivory);
     display: block;
   }
   .stat-lbl {
     font-family: var(--font-mono);
-    font-size: 0.63rem;
-    letter-spacing: 0.14em;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-slate);
   }
 
-  /* UPGRADE 4: MASTER MODE SWITCHER BAR */
+  /* STICKY MASTER TOME SWITCHER BAR */
   .mode-switcher-bar {
     position: sticky;
     top: var(--nav-h);
     z-index: 110;
-    background: rgba(9, 9, 13, 0.94);
+    background: rgba(9, 9, 13, 0.95);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border-strong);
-    padding: 0.75rem 2rem;
+    padding: 0.7rem 1.5rem;
   }
 
   .mode-switcher-inner {
-    max-width: 1260px;
+    max-width: 1320px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .mode-label {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-ash);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
-  .mode-label span {
-    color: var(--bronze);
-  }
+  .mode-label span { color: var(--bronze); font-weight: 600; }
 
   .mode-tabs {
     display: flex;
-    gap: 0.45rem;
+    gap: 0.4rem;
     flex-wrap: wrap;
   }
 
@@ -484,15 +477,15 @@
     border: 1px solid var(--border-strong);
     color: var(--text-ash);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.48rem 0.95rem;
+    padding: 0.44rem 0.8rem;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.4rem;
   }
 
   .mode-tab:hover {
@@ -508,8 +501,8 @@
   }
 
   .mode-tab .tag-pill {
-    font-size: 0.6rem;
-    padding: 0.08rem 0.35rem;
+    font-size: 0.58rem;
+    padding: 0.06rem 0.32rem;
     background: rgba(255, 255, 255, 0.06);
     color: var(--bronze);
   }
@@ -518,21 +511,15 @@
   main { position: relative; z-index: 1; }
 
   section.codex-section {
-    padding: 5.5rem 2rem;
+    padding: 5.2rem 2rem;
     border-bottom: 1px solid var(--border-hairline);
-    transition: opacity 0.3s ease;
   }
 
-  section.codex-section.alt-bg {
-    background: var(--bg-basalt);
-  }
-
-  section.codex-section.mode-hidden {
-    display: none !important;
-  }
+  section.codex-section.alt-bg { background: var(--bg-basalt); }
+  section.codex-section.mode-hidden { display: none !important; }
 
   .container {
-    max-width: 1260px;
+    max-width: 1280px;
     margin: 0 auto;
   }
 
@@ -542,25 +529,23 @@
     align-items: flex-end;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin-bottom: 3rem;
-    padding-bottom: 1.5rem;
+    margin-bottom: 2.6rem;
+    padding-bottom: 1.4rem;
     border-bottom: 1px solid var(--border-hairline);
   }
 
-  .section-meta {
-    max-width: 680px;
-  }
+  .section-meta { max-width: 760px; }
 
   .section-index {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.28em;
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
     color: var(--crimson-bright);
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.55rem;
   }
   .section-index::before {
     content: '';
@@ -571,19 +556,38 @@
 
   .section-meta h2 {
     font-family: var(--font-display);
-    font-size: clamp(1.75rem, 3.3vw, 2.55rem);
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
     font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.5rem;
   }
 
   .section-meta p {
     color: var(--text-ash);
-    font-size: 0.98rem;
+    font-size: 0.96rem;
   }
 
-  /* CARD SPOTLIGHT & SHARED ACTIONS */
+  .sub-block-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin: 2.6rem 0 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .sub-block-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-hairline);
+  }
+
+  /* SPOTLIGHT CARD & SHARED ACTIONS */
   .spotlight-card {
     position: relative;
     background: var(--bg-monolith);
@@ -608,20 +612,21 @@
   .card-icon-actions {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.38rem;
+    flex-shrink: 0;
   }
 
   .icon-btn {
     background: var(--bg-void);
     border: 1px solid var(--border-hairline);
     color: var(--text-ash);
-    width: 30px;
-    height: 30px;
+    width: 29px;
+    height: 29px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     transition: all 0.2s ease;
   }
   .icon-btn:hover {
@@ -635,330 +640,237 @@
   }
 
   /* SECTION 01: TOP 5 ESSENTIALS */
-  .top5-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
+  .top5-list { display: flex; flex-direction: column; gap: 0.95rem; }
   .top5-item {
-    padding: 1.65rem 2rem;
+    padding: 1.5rem 1.8rem;
     display: grid;
-    grid-template-columns: 64px 1fr auto;
+    grid-template-columns: 60px 1fr auto;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.4rem;
   }
-
   .top5-num {
     font-family: var(--font-display);
-    font-size: 1.75rem;
+    font-size: 1.7rem;
     font-weight: 800;
     color: var(--crimson-bright);
     border-right: 1px solid var(--border-strong);
-    padding-right: 1rem;
+    padding-right: 0.9rem;
   }
-
   .top5-quote {
     font-family: var(--font-display);
-    font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+    font-size: clamp(1.05rem, 1.7vw, 1.28rem);
     font-weight: 600;
     color: var(--text-ivory);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
   }
-
   .top5-note {
     font-family: var(--font-mono);
-    font-size: 0.76rem;
+    font-size: 0.74rem;
     color: var(--bronze);
     letter-spacing: 0.06em;
     text-transform: uppercase;
   }
 
-  /* UPGRADE 3: SECTION 02 (THE 12 LAWS) WITH COMPACT / FULL SWITCHER */
+  /* CONTROLS BAR FOR SEARCH & FILTERS */
   .laws-controls-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.8rem;
-    padding: 0.9rem 1.2rem;
+    margin-bottom: 1.6rem;
+    padding: 0.85rem 1.1rem;
     background: var(--bg-monolith);
     border: 1px solid var(--border-hairline);
   }
 
-  .laws-search-wrap {
-    flex: 1;
-    min-width: 240px;
-    position: relative;
-  }
-
+  .laws-search-wrap { flex: 1; min-width: 230px; }
   .laws-search-input {
     width: 100%;
     background: var(--bg-void);
     border: 1px solid var(--border-strong);
     color: var(--text-ivory);
     font-family: var(--font-mono);
-    font-size: 0.76rem;
-    padding: 0.6rem 0.9rem;
+    font-size: 0.75rem;
+    padding: 0.58rem 0.85rem;
     outline: none;
   }
-  .laws-search-input:focus {
-    border-color: var(--crimson);
-  }
+  .laws-search-input:focus { border-color: var(--crimson); }
 
-  .laws-view-toggles {
-    display: flex;
-    gap: 0.45rem;
-    flex-wrap: wrap;
-  }
-
+  .laws-view-toggles { display: flex; gap: 0.4rem; flex-wrap: wrap; }
   .mini-toggle-btn {
     background: var(--bg-void);
     border: 1px solid var(--border-strong);
     color: var(--text-ash);
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.5rem 0.85rem;
+    padding: 0.48rem 0.8rem;
     cursor: pointer;
     transition: all 0.2s ease;
   }
-  .mini-toggle-btn:hover {
-    color: var(--text-ivory);
-    border-color: var(--text-slate);
-  }
+  .mini-toggle-btn:hover { color: var(--text-ivory); border-color: var(--text-slate); }
   .mini-toggle-btn.active {
     background: var(--crimson-subtle);
     border-color: var(--crimson);
     color: var(--text-ivory);
   }
 
+  /* SECTION 02: THE 12 LAWS OF MACHIAVELLI */
   .laws-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
+    gap: 1.2rem;
   }
-
   .law-card {
-    padding: 1.6rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1.1rem;
+    gap: 1rem;
   }
-
   .law-cardTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border-hairline);
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.7rem;
   }
-
-  .law-index-group {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
-  }
-
+  .law-index-group { display: flex; align-items: center; gap: 0.5rem; }
   .law-num {
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     color: #fff;
     background: var(--crimson);
-    padding: 0.15rem 0.48rem;
+    padding: 0.14rem 0.45rem;
   }
-
   .law-chapter {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     color: var(--bronze);
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-
   .law-title {
     font-family: var(--font-display);
-    font-size: 1.12rem;
+    font-size: 1.08rem;
     font-weight: 700;
     line-height: 1.35;
     color: var(--text-ivory);
   }
-
   .law-principle-box {
     background: rgba(166, 28, 28, 0.08);
     border-left: 2px solid var(--crimson);
-    padding: 0.75rem 0.9rem;
+    padding: 0.7rem 0.85rem;
   }
   .law-principle-lbl {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: var(--crimson-bright);
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
   }
-  .law-principle-text {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-ivory);
-  }
-
+  .law-principle-text { font-size: 0.88rem; font-weight: 500; color: var(--text-ivory); }
   .law-dossier-details {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem;
+    gap: 0.8rem;
     padding-top: 0.4rem;
     border-top: 1px dashed var(--border-hairline);
   }
-
-  .law-card.compact .law-dossier-details {
-    display: none;
-  }
-
-  .law-context {
-    font-size: 0.86rem;
-    color: var(--text-ash);
-  }
-
+  .law-card.compact .law-dossier-details { display: none; }
+  .law-context { font-size: 0.85rem; color: var(--text-ash); }
   .law-apply-box {
     background: var(--bg-void);
     border: 1px solid var(--border-hairline);
-    padding: 0.75rem 0.9rem;
+    padding: 0.7rem 0.85rem;
   }
   .law-apply-lbl {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 0.14em;
     color: var(--bronze);
     display: block;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
   }
-  .law-apply-text {
-    font-size: 0.86rem;
-    color: var(--text-ivory);
-  }
-
+  .law-apply-text { font-size: 0.85rem; color: var(--text-ivory); }
   .law-expand-trigger {
     background: none;
     border: none;
     color: var(--text-slate);
     font-family: var(--font-mono);
-    font-size: 0.66rem;
+    font-size: 0.64rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
     text-align: left;
-    padding-top: 0.25rem;
-    transition: color 0.2s ease;
   }
-  .law-expand-trigger:hover {
-    color: var(--bronze);
-  }
+  .law-expand-trigger:hover { color: var(--bronze); }
 
-  .laws-footer-bar {
-    margin-top: 1.8rem;
-    text-align: center;
-  }
-
-  /* SECTION 03: THE 10 IRON PILLARS & SELF-COMMAND AUDIT */
+  /* SECTION 03: THE 10 IRON PILLARS */
   .audit-telemetry-panel {
     background: var(--bg-monolith);
     border: 1px solid var(--border-strong);
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 1.8rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
-
-  .audit-score-wrap {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
+  .audit-score-wrap { display: flex; align-items: center; gap: 1.4rem; }
   .audit-score-num {
     font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     font-weight: 800;
     color: var(--crimson-bright);
     line-height: 1;
   }
-
   .audit-rank-badge {
     display: inline-block;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    padding: 0.25rem 0.65rem;
+    padding: 0.22rem 0.6rem;
     background: var(--bronze-subtle);
     border: 1px solid var(--bronze);
     color: var(--bronze);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
   }
-
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.15rem;
-  }
-
-  .pillar-card {
-    padding: 1.45rem 1.6rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-  }
-
-  .pillar-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
+  .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+  .pillar-card { padding: 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; }
+  .pillar-top { display: flex; justify-content: space-between; align-items: center; }
   .pillar-name {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1.06rem;
     font-weight: 700;
     color: var(--text-ivory);
     display: flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: 0.6rem;
   }
-  .pillar-idx {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    color: var(--crimson-bright);
-  }
-
-  .pillar-practice {
-    font-size: 0.92rem;
-    color: var(--text-ash);
-  }
-
+  .pillar-idx { font-family: var(--font-mono); font-size: 0.68rem; color: var(--crimson-bright); }
+  .pillar-practice { font-size: 0.9rem; color: var(--text-ash); }
   .slider-row {
     display: flex;
     align-items: center;
-    gap: 0.9rem;
-    padding-top: 0.5rem;
+    gap: 0.85rem;
+    padding-top: 0.45rem;
     border-top: 1px solid var(--border-hairline);
   }
   .slider-lbl {
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.62rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--text-slate);
-    white-space: nowrap;
   }
   .pillar-slider {
     flex: 1;
@@ -980,126 +892,283 @@
   }
   .slider-val {
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--bronze);
     min-width: 34px;
     text-align: right;
   }
 
-  /* SECTION 04: THE 5 MAXIMS */
-  .maxims-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
+  /* SECTION 04 & 05: MAXIMS & RAZOR */
+  .maxims-stack { display: flex; flex-direction: column; gap: 1.1rem; }
   .maxim-block {
-    padding: 1.85rem 2.2rem;
+    padding: 1.65rem 2rem;
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 1.5rem;
+    gap: 1.4rem;
     align-items: start;
     border-left: 3px solid var(--bronze);
   }
-
   .maxim-source {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--bronze);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
     display: block;
   }
-
   .maxim-quote {
     font-family: var(--font-display);
-    font-size: clamp(1.15rem, 2vw, 1.48rem);
+    font-size: clamp(1.1rem, 1.9vw, 1.4rem);
     font-weight: 700;
     color: var(--text-ivory);
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.55rem;
   }
+  .maxim-meaning { font-size: 0.92rem; color: var(--text-ash); }
 
-  .maxim-meaning {
-    font-size: 0.95rem;
-    color: var(--text-ash);
-  }
-
-  /* SECTION 05: THE RAZOR'S EDGE */
-  .razor-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-    margin-bottom: 2rem;
-  }
-
-  .razor-card {
-    padding: 1.7rem;
-  }
-
+  .razor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.15rem; margin-bottom: 1.8rem; }
+  .razor-card { padding: 1.6rem; }
   .razor-tag {
     font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.16em;
+    font-size: 0.64rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--crimson-bright);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
     display: block;
   }
-
   .razor-title {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 700;
     color: var(--text-ivory);
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.6rem;
   }
-
-  .razor-desc {
-    font-size: 0.92rem;
-    color: var(--text-ash);
-  }
+  .razor-desc { font-size: 0.9rem; color: var(--text-ash); }
 
   .doctrine-banner {
     background: linear-gradient(90deg, rgba(166, 28, 28, 0.16), rgba(18, 18, 23, 0.95));
     border: 1px solid var(--crimson);
-    padding: 1.8rem 2.2rem;
+    padding: 1.65rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.45rem;
+    gap: 0.4rem;
   }
   .doctrine-banner span {
     font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.2em;
+    font-size: 0.66rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--bronze);
   }
   .doctrine-banner p {
     font-family: var(--font-display);
-    font-size: 1.18rem;
+    font-size: 1.12rem;
     font-weight: 600;
     color: var(--text-ivory);
   }
 
-  /* SECTION 06: QUOTE & BIO VAULT */
-  .vault-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.8rem;
+  /* SECTION 06: THE 48 LAWS OF POWER */
+  .foundational-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .foundation-card {
+    padding: 1.4rem 1.5rem;
+    border-top: 2px solid var(--crimson);
+  }
+  .foundation-quote {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text-ivory);
+    margin-bottom: 0.65rem;
+    font-style: italic;
+  }
+  .foundation-note {
+    font-size: 0.85rem;
+    color: var(--text-ash);
   }
 
+  .power48-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+  }
+  .power48-card {
+    padding: 1.15rem 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+  }
+  .power48-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+  .power48-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--bronze);
+    background: var(--bronze-subtle);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    padding: 0.15rem 0.45rem;
+    flex-shrink: 0;
+  }
+  .power48-title {
+    font-family: var(--font-display);
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--text-ivory);
+    line-height: 1.35;
+  }
+
+  /* SECTION 07: THE ART OF SEDUCTION */
+  .seduction-archetypes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+  .archetype-card {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.9rem;
+  }
+  .archetype-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .archetype-name {
+    font-family: var(--font-display);
+    font-size: 1.14rem;
+    font-weight: 700;
+    color: var(--crimson-bright);
+    text-transform: uppercase;
+  }
+  .archetype-trait {
+    font-size: 0.88rem;
+    color: var(--text-ivory);
+    margin-bottom: 0.4rem;
+  }
+  .archetype-quote {
+    font-size: 0.83rem;
+    color: var(--text-ash);
+    border-left: 2px solid var(--bronze);
+    padding-left: 0.75rem;
+    font-style: italic;
+  }
+
+  .phases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+    margin-bottom: 1.8rem;
+  }
+  .phase-card {
+    padding: 1.6rem;
+  }
+  .phase-badge {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 0.35rem;
+    display: block;
+  }
+  .phase-title {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--text-ivory);
+    margin-bottom: 1rem;
+  }
+  .maneuver-chain {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+  }
+  .maneuver-step {
+    background: var(--bg-void);
+    border: 1px solid var(--border-strong);
+    padding: 0.38rem 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-ivory);
+  }
+  .maneuver-arrow {
+    color: var(--crimson-bright);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  /* SECTION 08: SUBCONSCIOUS MIND MASTERY */
+  .subconscious-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.15rem;
+  }
+  .sub-card {
+    padding: 1.55rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.9rem;
+  }
+  .sub-card-tag {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+  .sub-card-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-ivory);
+  }
+  .sub-card-body {
+    font-size: 0.88rem;
+    color: var(--text-ash);
+  }
+  .sub-card-quote {
+    background: var(--bg-void);
+    border-left: 2px solid var(--crimson);
+    padding: 0.65rem 0.8rem;
+    font-size: 0.83rem;
+    color: var(--text-ivory);
+    font-style: italic;
+  }
+
+  /* SECTION 09: ATTRACTION & ESCALATION DYNAMICS */
+  .dynamics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.15rem;
+  }
+
+  /* SECTION 10: QUOTE & BIO VAULT */
+  .vault-tabs { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.6rem; }
   .vault-tab {
     background: var(--bg-monolith);
     border: 1px solid var(--border-strong);
     color: var(--text-ash);
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.55rem 1.1rem;
+    padding: 0.5rem 1rem;
     cursor: pointer;
     transition: all 0.2s ease;
   }
@@ -1109,188 +1178,130 @@
     border-color: var(--crimson-bright);
     color: #fff;
   }
-
-  .quotes-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.1rem;
-    margin-bottom: 3.5rem;
-  }
-
+  .quotes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 3rem; }
   .quote-card {
-    padding: 1.45rem 1.6rem;
+    padding: 1.35rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1.2rem;
+    gap: 1.1rem;
   }
-
   .quote-cat-label {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--bronze);
     display: block;
-    margin-bottom: 0.35rem;
-  }
-
-  .quote-text {
-    font-size: 1.04rem;
-    font-weight: 600;
-    color: var(--text-ivory);
-  }
-
-  .bios-box {
-    background: var(--bg-basalt);
-    border: 1px solid var(--border-strong);
-    padding: 2.2rem;
-  }
-
-  .bios-header {
-    text-align: center;
-    margin-bottom: 1.6rem;
-  }
-  .bios-header h3 {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    text-transform: uppercase;
     margin-bottom: 0.3rem;
   }
-  .bios-header p {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--text-ash);
-  }
+  .quote-text { font-size: 1rem; font-weight: 600; color: var(--text-ivory); }
 
-  .bio-strip {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    justify-content: center;
-  }
-
+  .bios-box { background: var(--bg-basalt); border: 1px solid var(--border-strong); padding: 2rem; }
+  .bios-header { text-align: center; margin-bottom: 1.4rem; }
+  .bios-header h3 { font-family: var(--font-display); font-size: 1.35rem; text-transform: uppercase; margin-bottom: 0.25rem; }
+  .bios-header p { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-ash); }
+  .bio-strip { display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: center; }
   .bio-chip {
     background: var(--bg-monolith);
     border: 1px solid var(--border-strong);
     color: var(--text-ivory);
-    padding: 0.65rem 1.2rem;
+    padding: 0.6rem 1.1rem;
     font-family: var(--font-mono);
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
+    gap: 0.5rem;
   }
   .bio-chip:hover {
     border-color: var(--crimson-bright);
     background: var(--crimson-subtle);
     transform: translateY(-2px);
   }
-  .bio-chip span.copy-hint {
-    font-size: 0.65rem;
-    color: var(--text-slate);
-  }
+  .bio-chip span.copy-hint { font-size: 0.64rem; color: var(--text-slate); }
 
-  /* UPGRADE 5: FLOATING BACK-TO-TOP & MOBILE BOTTOM DOCK */
+  /* FLOATING BACK-TO-TOP & MOBILE DOCK */
   .back-to-top-fab {
     position: fixed;
-    right: 1.4rem;
-    bottom: 1.6rem;
+    right: 1.2rem;
+    bottom: 1.5rem;
     z-index: 125;
     background: var(--bg-monolith);
     border: 1px solid var(--crimson);
     color: var(--text-ivory);
-    padding: 0.65rem 0.9rem;
+    padding: 0.6rem 0.85rem;
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.4rem;
     box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
     opacity: 0;
     pointer-events: none;
     transform: translateY(12px);
     transition: all 0.25s ease;
   }
-  .back-to-top-fab.visible {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-  .back-to-top-fab:hover {
-    background: var(--crimson);
-    color: #fff;
-  }
+  .back-to-top-fab.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+  .back-to-top-fab:hover { background: var(--crimson); color: #fff; }
 
   .mobile-bottom-dock {
     display: none;
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    height: 60px;
+    height: 58px;
     background: rgba(8, 8, 12, 0.96);
     backdrop-filter: blur(16px);
     border-top: 1px solid var(--border-strong);
     z-index: 145;
     grid-template-columns: repeat(5, 1fr);
   }
-
   .dock-btn {
     background: none;
     border: none;
     border-right: 1px solid var(--border-hairline);
     color: var(--text-ash);
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.2rem;
+    gap: 0.18rem;
     cursor: pointer;
   }
   .dock-btn:last-child { border-right: none; }
-  .dock-btn .dock-num {
-    color: var(--crimson-bright);
-    font-weight: 700;
-    font-size: 0.68rem;
-  }
-  .dock-btn.active, .dock-btn:hover {
-    color: var(--text-ivory);
-    background: var(--crimson-subtle);
-  }
+  .dock-btn .dock-num { color: var(--crimson-bright); font-weight: 700; font-size: 0.66rem; }
 
-  /* MODALS & DRAWERS (SEARCH, COUNSEL, CODEX) */
+  /* MODALS */
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.82);
     backdrop-filter: blur(8px);
     z-index: 250;
     display: none;
     align-items: flex-start;
     justify-content: center;
-    padding: 5rem 1.2rem 2rem;
+    padding: 4.5rem 1.2rem 2rem;
   }
   .modal-backdrop.open { display: flex; }
-
   .modal-box {
     width: 100%;
-    max-width: 680px;
+    max-width: 720px;
     background: var(--bg-monolith);
     border: 1px solid var(--border-strong);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
     overflow: hidden;
   }
-
   .modal-header {
-    padding: 1rem 1.4rem;
+    padding: 0.95rem 1.35rem;
     border-bottom: 1px solid var(--border-hairline);
     display: flex;
     justify-content: space-between;
@@ -1298,32 +1309,25 @@
   }
   .modal-header h3 {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
+    font-size: 0.74rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--bronze);
   }
-
   .cmd-input {
     width: 100%;
-    padding: 1.1rem 1.4rem;
+    padding: 1rem 1.35rem;
     background: var(--bg-void);
     border: none;
     border-bottom: 1px solid var(--border-hairline);
     color: var(--text-ivory);
     font-family: var(--font-mono);
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     outline: none;
   }
-
-  .cmd-results {
-    max-height: 360px;
-    overflow-y: auto;
-    padding: 0.6rem;
-  }
-
+  .cmd-results { max-height: 380px; overflow-y: auto; padding: 0.55rem; }
   .cmd-item {
-    padding: 0.8rem 1rem;
+    padding: 0.75rem 0.95rem;
     border-bottom: 1px solid var(--border-hairline);
     cursor: pointer;
     display: flex;
@@ -1331,17 +1335,9 @@
     align-items: center;
     gap: 1rem;
   }
-  .cmd-item:hover {
-    background: var(--bg-elevated);
-  }
-  .cmd-item-type {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    color: var(--crimson-bright);
-    text-transform: uppercase;
-  }
+  .cmd-item:hover { background: var(--bg-elevated); }
+  .cmd-item-type { font-family: var(--font-mono); font-size: 0.6rem; color: var(--crimson-bright); text-transform: uppercase; }
 
-  /* Toast */
   .toast-wrap {
     position: fixed;
     bottom: 1.6rem;
@@ -1351,46 +1347,32 @@
     border: 1px solid var(--bronze);
     color: var(--text-ivory);
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 0.7rem 1.3rem;
+    padding: 0.68rem 1.25rem;
     z-index: 300;
     opacity: 0;
     pointer-events: none;
     transition: all 0.25s ease;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.65);
   }
-  .toast-wrap.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
+  .toast-wrap.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-  /* Footer */
   footer {
     padding: 3.5rem 2rem 5.5rem;
     background: var(--bg-void);
     border-top: 1px solid var(--border-hairline);
     text-align: center;
   }
-  .footer-brand {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: 0.24em;
-    margin-bottom: 0.5rem;
-  }
+  .footer-brand { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; letter-spacing: 0.24em; margin-bottom: 0.45rem; }
   .footer-brand span { color: var(--crimson); }
-  .footer-sub {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--text-slate);
-  }
+  .footer-sub { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-slate); }
 
-  /* RESPONSIVE BREAKPOINTS */
-  @media (max-width: 1120px) {
-    .laws-grid { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 1180px) {
+    .laws-grid, .power48-grid, .seduction-archetypes-grid, .subconscious-grid, .foundational-grid { grid-template-columns: repeat(2, 1fr); }
     .side-rail { display: none; }
+    .hero-telemetry { grid-template-columns: repeat(3, 1fr); }
   }
 
   @media (max-width: 920px) {
@@ -1404,17 +1386,17 @@
       border-left: 1px solid var(--border-strong);
       flex-direction: column;
       align-items: stretch;
-      padding: 1.5rem;
+      padding: 1.4rem;
       transition: right 0.3s ease;
     }
     .nav-links.open { right: 0; }
     .menu-toggle { display: inline-flex; }
+    .laws-grid, .pillars-grid, .razor-grid, .quotes-grid, .power48-grid, .seduction-archetypes-grid, .phases-grid, .subconscious-grid, .dynamics-grid, .foundational-grid { grid-template-columns: 1fr; }
     .hero-telemetry { grid-template-columns: repeat(2, 1fr); }
-    .laws-grid, .pillars-grid, .razor-grid, .quotes-grid { grid-template-columns: 1fr; }
     .top5-item { grid-template-columns: 44px 1fr; }
     .top5-item .card-icon-actions { grid-column: 2; }
     .mobile-bottom-dock { display: grid; }
-    .back-to-top-fab { bottom: 4.6rem; right: 1rem; }
+    .back-to-top-fab { bottom: 4.5rem; right: 1rem; }
   }
 </style>
 </head>
@@ -1422,7 +1404,7 @@
 
 <div class="grain-overlay"></div>
 
-<!-- UPGRADE 1: SINGLE SLIM HEADER WITH SCROLL PROGRESS -->
+<!-- SLIM HEADER WITH SCROLL PROGRESS -->
 <header class="site-header" id="mainHeader">
   <div class="header-inner">
     <a class="brand-logo" data-scroll="hero">
@@ -1431,12 +1413,16 @@
     </a>
 
     <ul class="nav-links" id="navLinks">
-      <li><a data-scroll="top5"><span class="num">01</span>Essentials</a></li>
-      <li><a data-scroll="laws"><span class="num">02</span>12 Laws</a></li>
+      <li><a data-scroll="top5"><span class="num">01</span>Top 5</a></li>
+      <li><a data-scroll="laws"><span class="num">02</span>The Prince</a></li>
       <li><a data-scroll="pillars"><span class="num">03</span>Pillars</a></li>
       <li><a data-scroll="maxims"><span class="num">04</span>Maxims</a></li>
-      <li><a data-scroll="razor"><span class="num">05</span>Calibration</a></li>
-      <li><a data-scroll="vault"><span class="num">06</span>Quote Vault</a></li>
+      <li><a data-scroll="razor"><span class="num">05</span>Razor</a></li>
+      <li><a data-scroll="power48"><span class="num">06</span>48 Laws</a></li>
+      <li><a data-scroll="seduction"><span class="num">07</span>Seduction</a></li>
+      <li><a data-scroll="subconscious"><span class="num">08</span>Subconscious</a></li>
+      <li><a data-scroll="attraction"><span class="num">09</span>Attraction</a></li>
+      <li><a data-scroll="vault"><span class="num">10</span>Quotes</a></li>
     </ul>
 
     <div class="header-actions">
@@ -1459,41 +1445,54 @@
   </div>
 </header>
 
-<!-- UPGRADE 2: FLOATING RIGHT-SIDE SECTION RAIL -->
+<!-- FLOATING RIGHT-SIDE SECTION RAIL -->
 <aside class="side-rail" id="sideRail" aria-label="Section Quick Jump">
   <button class="rail-item active" data-scroll="hero">00<span class="rail-tooltip">Hero — Top</span></button>
   <button class="rail-item" data-scroll="top5">01<span class="rail-tooltip">01 — Top 5 Essentials</span></button>
-  <button class="rail-item" data-scroll="laws">02<span class="rail-tooltip">02 — The 12 Laws</span></button>
+  <button class="rail-item" data-scroll="laws">02<span class="rail-tooltip">02 — The Prince (12 Laws)</span></button>
   <button class="rail-item" data-scroll="pillars">03<span class="rail-tooltip">03 — 10 Iron Pillars</span></button>
   <button class="rail-item" data-scroll="maxims">04<span class="rail-tooltip">04 — 5 Maxims</span></button>
   <button class="rail-item" data-scroll="razor">05<span class="rail-tooltip">05 — Razor's Edge</span></button>
-  <button class="rail-item" data-scroll="vault">06<span class="rail-tooltip">06 — Quote & Bio Vault</span></button>
+  <button class="rail-item" data-scroll="power48">06<span class="rail-tooltip">06 — 48 Laws of Power</span></button>
+  <button class="rail-item" data-scroll="seduction">07<span class="rail-tooltip">07 — Art of Seduction</span></button>
+  <button class="rail-item" data-scroll="subconscious">08<span class="rail-tooltip">08 — Subconscious Mind</span></button>
+  <button class="rail-item" data-scroll="attraction">09<span class="rail-tooltip">09 — Attraction Dynamics</span></button>
+  <button class="rail-item" data-scroll="vault">10<span class="rail-tooltip">10 — Quote & Bio Vault</span></button>
 </aside>
 
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-badge">
     <span class="pulse"></span>
-    <span>Machiavellian Strategy &amp; Masculine Standards</span>
+    <span>Statecraft • Power • Psychology • Subconscious • Frame</span>
   </div>
   <h1>Quiet Power.<br>Unshakable <em>Command</em>.</h1>
-  <p class="hero-sub">Words that sharpen the mind, harden the spine, and translate timeless statecraft into everyday self-mastery, discernment, and sovereign strength.</p>
+  <p class="hero-sub">The unified masculine codex: Machiavellian statecraft, the 48 Laws of Power, the psychology of seduction, subconscious programming, attraction dynamics, and unyielding personal standards.</p>
   <div class="hero-ctas">
-    <button class="btn-primary" data-scroll="laws">Explore The 12 Laws →</button>
-    <button class="btn-secondary" data-scroll="top5">Read Top 5 Essentials</button>
+    <button class="btn-primary" data-scroll="power48">Explore The 48 Laws →</button>
+    <button class="btn-secondary" data-scroll="laws">Machiavelli's 12 Laws</button>
+    <button class="btn-secondary" data-scroll="seduction">Art of Seduction</button>
   </div>
   <div class="hero-telemetry">
     <div class="stat-cell">
       <span class="stat-val">12</span>
-      <span class="stat-lbl">Strategic Laws</span>
+      <span class="stat-lbl">Prince Laws</span>
     </div>
     <div class="stat-cell">
-      <span class="stat-val">10</span>
-      <span class="stat-lbl">Iron Pillars</span>
+      <span class="stat-val">48</span>
+      <span class="stat-lbl">Laws of Power</span>
     </div>
     <div class="stat-cell">
-      <span class="stat-val">29</span>
-      <span class="stat-lbl">Masculine Quotes</span>
+      <span class="stat-val">24</span>
+      <span class="stat-lbl">Seduction Moves</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-val">09</span>
+      <span class="stat-lbl">Archetypes</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-val">39</span>
+      <span class="stat-lbl">Quotes &amp; Bios</span>
     </div>
     <div class="stat-cell">
       <span class="stat-val" id="heroSovereigntyStat">70%</span>
@@ -1502,22 +1501,20 @@
   </div>
 </section>
 
-<!-- UPGRADE 4: STICKY MASTER MODE SWITCHER -->
+<!-- STICKY MASTER TOME SWITCHER -->
 <div class="mode-switcher-bar">
   <div class="mode-switcher-inner">
     <div class="mode-label">
-      <span>Navigation Mode:</span> Filter page layout to reduce scrolling
+      <span>Active Tome Filter:</span> Isolate any doctrine for zero-scroll focus
     </div>
     <div class="mode-tabs" id="masterModeTabs">
-      <button class="mode-tab active" data-mode="all">
-        All Sections <span class="tag-pill">01–06</span>
-      </button>
-      <button class="mode-tab" data-mode="doctrine">
-        Sovereign Doctrine <span class="tag-pill">Machiavelli 02–05</span>
-      </button>
-      <button class="mode-tab" data-mode="quotes">
-        Quote &amp; Bio Vault <span class="tag-pill">Quotes 01 &amp; 06</span>
-      </button>
+      <button class="mode-tab active" data-mode="all">All Tomes <span class="tag-pill">01–10</span></button>
+      <button class="mode-tab" data-mode="prince">The Prince <span class="tag-pill">02–05</span></button>
+      <button class="mode-tab" data-mode="power48">48 Laws <span class="tag-pill">06</span></button>
+      <button class="mode-tab" data-mode="seduction">Art of Seduction <span class="tag-pill">07</span></button>
+      <button class="mode-tab" data-mode="subconscious">Subconscious Mind <span class="tag-pill">08</span></button>
+      <button class="mode-tab" data-mode="attraction">Attraction &amp; Frame <span class="tag-pill">09</span></button>
+      <button class="mode-tab" data-mode="quotes">Quotes &amp; Bios <span class="tag-pill">01 &amp; 10</span></button>
     </div>
   </div>
 </div>
@@ -1538,20 +1535,19 @@
   </section>
 
   <!-- SECTION 02: THE 12 LAWS OF MACHIAVELLI -->
-  <section class="codex-section" id="laws" data-group="doctrine">
+  <section class="codex-section" id="laws" data-group="prince">
     <div class="container">
       <div class="section-top-bar">
         <div class="section-meta">
-          <span class="section-index">Section 02 — Practical Statecraft</span>
+          <span class="section-index">Section 02 — Niccolò Machiavelli • The Prince</span>
           <h2>The 12 Strategic Laws</h2>
           <p>Power, human behaviour, reputation, preparation, and adapting to changing reality.</p>
         </div>
       </div>
 
-      <!-- UPGRADE 3: DENSITY & FILTER BAR -->
       <div class="laws-controls-bar">
         <div class="laws-search-wrap">
-          <input type="text" class="laws-search-input" id="lawsSearchInput" placeholder="Filter laws by keyword (e.g. reputation, fortune, fox, crisis)...">
+          <input type="text" class="laws-search-input" id="lawsSearchInput" placeholder="Filter Machiavelli's 12 laws by keyword (e.g. reputation, fortune, fox, crisis)...">
         </div>
         <div class="laws-view-toggles">
           <button class="mini-toggle-btn active" id="viewFullBtn">Full Dossier View</button>
@@ -1565,7 +1561,7 @@
   </section>
 
   <!-- SECTION 03: THE 10 IRON PILLARS -->
-  <section class="codex-section alt-bg" id="pillars" data-group="doctrine">
+  <section class="codex-section alt-bg" id="pillars" data-group="prince">
     <div class="container">
       <div class="section-top-bar">
         <div class="section-meta">
@@ -1591,7 +1587,7 @@
   </section>
 
   <!-- SECTION 04: THE 5 MAXIMS -->
-  <section class="codex-section" id="maxims" data-group="doctrine">
+  <section class="codex-section" id="maxims" data-group="prince">
     <div class="container">
       <div class="section-top-bar">
         <div class="section-meta">
@@ -1605,7 +1601,7 @@
   </section>
 
   <!-- SECTION 05: THE RAZOR'S EDGE -->
-  <section class="codex-section alt-bg" id="razor" data-group="doctrine">
+  <section class="codex-section alt-bg" id="razor" data-group="prince">
     <div class="container">
       <div class="section-top-bar">
         <div class="section-meta">
@@ -1622,12 +1618,109 @@
     </div>
   </section>
 
-  <!-- SECTION 06: QUOTE & BIO VAULT -->
+  <!-- SECTION 06: THE 48 LAWS OF POWER (ROBERT GREENE) -->
+  <section class="codex-section" id="power48" data-group="power48">
+    <div class="container">
+      <div class="section-top-bar">
+        <div class="section-meta">
+          <span class="section-index">Section 06 — Robert Greene • The 48 Laws of Power</span>
+          <h2>The 48 Laws of Power</h2>
+          <p>Indirection, emotional control, strategic calculation, and the iron hand in a velvet glove.</p>
+        </div>
+      </div>
+
+      <div class="foundational-grid" id="powerFoundationsGrid"></div>
+
+      <div class="laws-controls-bar">
+        <div class="laws-search-wrap">
+          <input type="text" class="laws-search-input" id="power48SearchInput" placeholder="Search all 48 Laws (e.g. master, reputation, absence, mirror, formlessness)...">
+        </div>
+        <div class="laws-view-toggles" id="power48RangeTabs">
+          <button class="mini-toggle-btn active" data-range="all">All 48 Laws</button>
+          <button class="mini-toggle-btn" data-range="1-15">Laws 01–15</button>
+          <button class="mini-toggle-btn" data-range="16-32">Laws 16–32</button>
+          <button class="mini-toggle-btn" data-range="33-48">Laws 33–48</button>
+        </div>
+      </div>
+
+      <div class="power48-grid" id="power48Grid"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 07: THE ART OF SEDUCTION (ROBERT GREENE) -->
+  <section class="codex-section alt-bg" id="seduction" data-group="seduction">
+    <div class="container">
+      <div class="section-top-bar">
+        <div class="section-meta">
+          <span class="section-index">Section 07 — Robert Greene • The Art of Seduction</span>
+          <h2>The Architecture of Seduction</h2>
+          <p>Psychological surrender, outward focus, seductive archetypes, and the 24 maneuvers across four phases.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-block-title">I. Core Philosophy of Seduction</h3>
+      <div class="foundational-grid" id="seductionPhilosophyGrid"></div>
+
+      <h3 class="sub-block-title">II. The 9 Seductive Characters &amp; Anti-Seducer</h3>
+      <div class="seduction-archetypes-grid" id="seductionArchetypesGrid"></div>
+
+      <h3 class="sub-block-title">III. The 24 Maneuvers (4-Phase Campaign)</h3>
+      <div class="phases-grid" id="seductionPhasesGrid"></div>
+
+      <div class="doctrine-banner" id="seductionKeyPrinciples">
+        <span>Key Seduction Principles</span>
+        <p>“A perfectly satisfied person cannot be seduced. Tension and disharmony must be instilled... The greatest mistake in seduction is being too nice... The lower the lows you create, the greater the highs.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 08: THE POWER OF YOUR SUBCONSCIOUS MIND (DR. JOSEPH MURPHY) -->
+  <section class="codex-section" id="subconscious" data-group="subconscious">
+    <div class="container">
+      <div class="section-top-bar">
+        <div class="section-meta">
+          <span class="section-index">Section 08 — Dr. Joseph Murphy • Subconscious Mind</span>
+          <h2>The Power of Your Subconscious Mind</h2>
+          <p>The Law of Belief, the Law of Reversed Effort, drowsy-state programming, and subconscious wealth architecture.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-block-title">I. Dual Nature of the Mind &amp; Law of Belief</h3>
+      <div class="subconscious-grid" id="subDualMindGrid"></div>
+
+      <h3 class="sub-block-title">II. Mental Healing, Reversed Effort &amp; Practical Methods</h3>
+      <div class="subconscious-grid" id="subHealingGrid"></div>
+
+      <h3 class="sub-block-title">III. Wealth, Success, Sleep &amp; Relations</h3>
+      <div class="subconscious-grid" id="subWealthGrid"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 09: ATTRACTION & ESCALATION DYNAMICS (DOMINIC MANN) -->
+  <section class="codex-section alt-bg" id="attraction" data-group="attraction">
+    <div class="container">
+      <div class="section-top-bar">
+        <div class="section-meta">
+          <span class="section-index">Section 09 — Dominic Mann • Unlock Her Legs</span>
+          <h2>Attraction &amp; Frame Dynamics</h2>
+          <p>Investment asymmetry, biological triggers, preselection, higher mission priority, and progressive escalation.</p>
+        </div>
+      </div>
+
+      <h3 class="sub-block-title">I. Mindset &amp; Attraction Dynamics</h3>
+      <div class="dynamics-grid" id="attractionMindsetGrid"></div>
+
+      <h3 class="sub-block-title">II. Flirting &amp; Escalation Protocol</h3>
+      <div class="subconscious-grid" id="attractionEscalationGrid"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: QUOTE & BIO VAULT -->
   <section class="codex-section" id="vault" data-group="quotes">
     <div class="container">
       <div class="section-top-bar">
         <div class="section-meta">
-          <span class="section-index">Section 06 — The Quote &amp; Bio Vault</span>
+          <span class="section-index">Section 10 — The Quote &amp; Bio Vault</span>
           <h2>Words of Quiet Strength</h2>
           <p>Filter by archetype or click any line to copy or save to your personal codex.</p>
         </div>
@@ -1645,7 +1738,7 @@
 
       <div class="bios-box">
         <div class="bios-header">
-          <h3>05 — Short &amp; Sharp</h3>
+          <h3>Short &amp; Sharp Bio Tags</h3>
           <p>For the bio. For the feed. Click any tag to copy immediately.</p>
         </div>
         <div class="bio-strip" id="bioStrip"></div>
@@ -1654,17 +1747,17 @@
   </section>
 </main>
 
-<!-- UPGRADE 5: FLOATING BACK TO TOP & MOBILE BOTTOM DOCK -->
+<!-- FLOATING BACK TO TOP & MOBILE BOTTOM DOCK -->
 <button class="back-to-top-fab" id="backToTopFab" data-scroll="hero" title="Return to Top">
   <span>↑ Top</span>
   <span id="fabScrollPct">0%</span>
 </button>
 
 <nav class="mobile-bottom-dock" aria-label="Mobile Quick Navigation">
-  <button class="dock-btn" data-scroll="top5"><span class="dock-num">01</span><span>Top 5</span></button>
-  <button class="dock-btn" data-scroll="laws"><span class="dock-num">02</span><span>Laws</span></button>
-  <button class="dock-btn" data-scroll="pillars"><span class="dock-num">03</span><span>Pillars</span></button>
-  <button class="dock-btn" data-scroll="vault"><span class="dock-num">06</span><span>Vault</span></button>
+  <button class="dock-btn" data-scroll="laws"><span class="dock-num">02</span><span>Prince</span></button>
+  <button class="dock-btn" data-scroll="power48"><span class="dock-num">06</span><span>48 Laws</span></button>
+  <button class="dock-btn" data-scroll="seduction"><span class="dock-num">07</span><span>Seduce</span></button>
+  <button class="dock-btn" data-scroll="subconscious"><span class="dock-num">08</span><span>Mind</span></button>
   <button class="dock-btn" id="mobileSearchDockBtn"><span class="dock-num">⌘K</span><span>Search</span></button>
 </nav>
 
@@ -1672,10 +1765,10 @@
 <div class="modal-backdrop" id="searchModal">
   <div class="modal-box">
     <div class="modal-header">
-      <h3>Global Archive Search</h3>
+      <h3>Global Archive Search (All 6 Tomes)</h3>
       <button class="mini-toggle-btn" id="closeSearchBtn">ESC</button>
     </div>
-    <input type="text" class="cmd-input" id="globalSearchInput" placeholder="Search laws, quotes, pillars, maxims...">
+    <input type="text" class="cmd-input" id="globalSearchInput" placeholder="Search 48 laws, Machiavelli, seduction archetypes, subconscious mind, quotes...">
     <div class="cmd-results" id="globalSearchResults"></div>
   </div>
 </div>
@@ -1719,7 +1812,7 @@
 
 <script>
   // ==========================================
-  // ARCHIVE DATA
+  // COMPLETE ARCHIVE DATA
   // ==========================================
   const TOP_5 = [
     { id: 't1', num: '01', quote: 'Master yourself before you try to master the world.', note: 'Masculinity through self-control.' },
@@ -1730,90 +1823,18 @@
   ];
 
   const LAWS_12 = [
-    {
-      id: 'l1', num: '01', chapter: 'Chapter XV',
-      title: 'See reality as it is, not as you wish it to be',
-      context: 'Machiavelli distinguishes how people actually behave from how they ought to behave.',
-      learning: 'Judge situations by evidence, behaviour and consequences rather than wishful thinking.',
-      apply: 'If someone repeatedly disappoints you, evaluate the pattern instead of relying only on their promises.'
-    },
-    {
-      id: 'l2', num: '02', chapter: 'Chapters XIII–XIV & XXV',
-      title: 'Build your own strength instead of depending on rescue',
-      context: 'Emphasizes having forces of your own and preparing for adversity instead of depending entirely on others.',
-      learning: 'Your skills, savings, judgment and discipline are your own resources.',
-      apply: 'Build financial reserves, improve your work skills and develop the ability to solve problems independently.'
-    },
-    {
-      id: 'l3', num: '03', chapter: 'Chapter XXV',
-      title: 'Adapt when circumstances change',
-      context: 'A method that succeeds in one situation can fail when circumstances shift.',
-      learning: 'Being consistent with your goals does not mean using the same strategy forever.',
-      apply: 'If your current way of studying, working or managing money is failing, change the method rather than blindly repeating it.'
-    },
-    {
-      id: 'l4', num: '04', chapter: 'Chapters III, XIX & XXI',
-      title: 'Consider consequences before acting',
-      context: 'Examines how one decision creates further consequences, including unintended dangers.',
-      learning: 'Do not judge an action only by its immediate reward.',
-      apply: 'Before spending money, reacting emotionally or making a commitment, ask: What will this decision cost me tomorrow, next month and next year?'
-    },
-    {
-      id: 'l5', num: '05', chapter: 'Chapter XIX',
-      title: 'Protect your reputation through consistency',
-      context: 'Warns against becoming an object of contempt through indecision, fearfulness and inconsistent behaviour.',
-      learning: 'People form judgments from repeated actions.',
-      apply: 'Keep commitments you can realistically fulfil, own your mistakes and make decisions without constantly changing your position to gain approval.'
-    },
-    {
-      id: 'l6', num: '06', chapter: 'Chapter XVIII',
-      title: 'Combine strength with intelligence',
-      context: 'Uses the lion and fox as symbols: the lion represents strength, while the fox recognizes traps.',
-      learning: 'Strength without judgment is vulnerable; cleverness without the ability to act is limited.',
-      apply: 'Be assertive when necessary, but read the situation, understand the risks and choose your response deliberately.'
-    },
-    {
-      id: 'l7', num: '07', chapter: 'Chapters XVII & XIX',
-      title: 'Do not build your life around approval',
-      context: 'Examines the limits of relying on other people’s affection and the importance of maintaining respect.',
-      learning: 'Other people’s feelings and opinions are not fully under your control.',
-      apply: 'Make decisions based on your priorities and principles, not solely to gain attention, avoid rejection or keep everyone pleased.'
-    },
-    {
-      id: 'l8', num: '08', chapter: 'Chapter XXV',
-      title: 'Prepare before a crisis arrives',
-      context: 'Compares fortune to a flooding river: people cannot stop every flood, but they can build protections before it comes.',
-      learning: 'Preparation reduces how much bad luck can damage you.',
-      apply: 'Maintain savings, develop transferable skills and establish routines before you urgently need them.'
-    },
-    {
-      id: 'l9', num: '09', chapter: 'Chapter XXIII',
-      title: 'Seek honest feedback, not flattery',
-      context: 'Advises seeking counsel deliberately, listening patiently to truthful advice and exercising independent judgment.',
-      learning: 'Praise can make you feel capable without helping you improve.',
-      apply: 'Ask specific questions about your weaknesses, listen without immediately defending yourself and decide what evidence supports the feedback.'
-    },
-    {
-      id: 'l10', num: '10', chapter: 'Chapters VI–VII',
-      title: 'Do not confuse a lucky start with lasting ability',
-      context: 'Contrasts power gained through one’s own abilities with power gained through fortune or another person’s support.',
-      learning: 'An opportunity may open a door, but your capabilities determine how well you use it.',
-      apply: 'When you get a job, promotion or opportunity, turn it into competence you can carry into your next situation.'
-    },
-    {
-      id: 'l11', num: '11', chapter: 'Chapter XXI',
-      title: 'Choose the least damaging option when no option is perfect',
-      context: 'Recognizes that decisions carry unavoidable risks; sound judgment involves assessing the dangers and choosing between them.',
-      learning: 'Waiting for a risk-free choice can prevent you from making a necessary decision.',
-      apply: 'Compare realistic alternatives, their costs and likely outcomes, then choose the option that best serves your longer-term objectives.'
-    },
-    {
-      id: 'l12', num: '12', chapter: 'Chapter XXV',
-      title: 'Understand what you can control and what you cannot',
-      context: 'Gives fortune a major role in human affairs while maintaining that people influence outcomes through preparation and action.',
-      learning: 'Do not waste all your energy trying to control circumstances or other people.',
-      apply: 'Focus on your preparation, decisions and response while accepting that results are never completely guaranteed.'
-    }
+    { id: 'l1', num: '01', chapter: 'Chapter XV', title: 'See reality as it is, not as you wish it to be', context: 'Machiavelli distinguishes how people actually behave from how they ought to behave.', learning: 'Judge situations by evidence, behaviour and consequences rather than wishful thinking.', apply: 'If someone repeatedly disappoints you, evaluate the pattern instead of relying only on their promises.' },
+    { id: 'l2', num: '02', chapter: 'Chapters XIII–XIV & XXV', title: 'Build your own strength instead of depending on rescue', context: 'Emphasizes having forces of your own and preparing for adversity instead of depending entirely on others.', learning: 'Your skills, savings, judgment and discipline are your own resources.', apply: 'Build financial reserves, improve your work skills and develop the ability to solve problems independently.' },
+    { id: 'l3', num: '03', chapter: 'Chapter XXV', title: 'Adapt when circumstances change', context: 'A method that succeeds in one situation can fail when circumstances shift.', learning: 'Being consistent with your goals does not mean using the same strategy forever.', apply: 'If your current way of studying, working or managing money is failing, change the method rather than blindly repeating it.' },
+    { id: 'l4', num: '04', chapter: 'Chapters III, XIX & XXI', title: 'Consider consequences before acting', context: 'Examines how one decision creates further consequences, including unintended dangers.', learning: 'Do not judge an action only by its immediate reward.', apply: 'Before spending money, reacting emotionally or making a commitment, ask: What will this decision cost me tomorrow, next month and next year?' },
+    { id: 'l5', num: '05', chapter: 'Chapter XIX', title: 'Protect your reputation through consistency', context: 'Warns against becoming an object of contempt through indecision, fearfulness and inconsistent behaviour.', learning: 'People form judgments from repeated actions.', apply: 'Keep commitments you can realistically fulfil, own your mistakes and make decisions without constantly changing your position to gain approval.' },
+    { id: 'l6', num: '06', chapter: 'Chapter XVIII', title: 'Combine strength with intelligence', context: 'Uses the lion and fox as symbols: the lion represents strength, while the fox recognizes traps.', learning: 'Strength without judgment is vulnerable; cleverness without the ability to act is limited.', apply: 'Be assertive when necessary, but read the situation, understand the risks and choose your response deliberately.' },
+    { id: 'l7', num: '07', chapter: 'Chapters XVII & XIX', title: 'Do not build your life around approval', context: 'Examines the limits of relying on other people’s affection and the importance of maintaining respect.', learning: 'Other people’s feelings and opinions are not fully under your control.', apply: 'Make decisions based on your priorities and principles, not solely to gain attention, avoid rejection or keep everyone pleased.' },
+    { id: 'l8', num: '08', chapter: 'Chapter XXV', title: 'Prepare before a crisis arrives', context: 'Compares fortune to a flooding river: people cannot stop every flood, but they can build protections before it comes.', learning: 'Preparation reduces how much bad luck can damage you.', apply: 'Maintain savings, develop transferable skills and establish routines before you urgently need them.' },
+    { id: 'l9', num: '09', chapter: 'Chapter XXIII', title: 'Seek honest feedback, not flattery', context: 'Advises seeking counsel deliberately, listening patiently to truthful advice and exercising independent judgment.', learning: 'Praise can make you feel capable without helping you improve.', apply: 'Ask specific questions about your weaknesses, listen without immediately defending yourself and decide what evidence supports the feedback.' },
+    { id: 'l10', num: '10', chapter: 'Chapters VI–VII', title: 'Do not confuse a lucky start with lasting ability', context: 'Contrasts power gained through one’s own abilities with power gained through fortune or another person’s support.', learning: 'An opportunity may open a door, but your capabilities determine how well you use it.', apply: 'When you get a job, promotion or opportunity, turn it into competence you can carry into your next situation.' },
+    { id: 'l11', num: '11', chapter: 'Chapter XXI', title: 'Choose the least damaging option when no option is perfect', context: 'Recognizes that decisions carry unavoidable risks; sound judgment involves assessing the dangers and choosing between them.', learning: 'Waiting for a risk-free choice can prevent you from making a necessary decision.', apply: 'Compare realistic alternatives, their costs and likely outcomes, then choose the option that best serves your longer-term objectives.' },
+    { id: 'l12', num: '12', chapter: 'Chapter XXV', title: 'Understand what you can control and what you cannot', context: 'Gives fortune a major role in human affairs while maintaining that people influence outcomes through preparation and action.', learning: 'Do not waste all your energy trying to control circumstances or other people.', apply: 'Focus on your preparation, decisions and response while accepting that results are never completely guaranteed.' }
   ];
 
   const PILLARS_10 = [
@@ -1830,53 +1851,223 @@
   ];
 
   const MAXIMS_5 = [
-    {
-      id: 'm1', source: 'Chapter XVIII — The Lion & The Fox',
-      quote: 'The lion cannot protect himself from traps, and the fox cannot defend himself from wolves.',
-      meaning: 'Combine courage with awareness. Do not be so trusting that you miss risks, or so aggressive that you fail to think.'
-    },
-    {
-      id: 'm2', source: 'Chapter XXV — The Flooding River',
-      quote: 'Prepare for the storm while the weather is fair.',
-      meaning: 'Build your financial, professional and personal foundations before you need them.'
-    },
-    {
-      id: 'm3', source: 'Chapter XXV — Fortune & Adaptation',
-      quote: 'A successful approach today may fail tomorrow.',
-      meaning: 'Be committed to your objectives, but flexible about your methods.'
-    },
-    {
-      id: 'm4', source: 'Chapter XXIII — Sovereign Counsel',
-      quote: 'Seek advice, but retain responsibility for your decisions.',
-      meaning: 'Listen to people who understand the subject, test their reasoning and make your own informed decision.'
-    },
-    {
-      id: 'm5', source: 'Chapters VI–VII & XXIV–XXV — True Capability',
-      quote: 'Do not confuse the appearance of success with lasting strength.',
-      meaning: 'Build real ability rather than relying on status, temporary opportunities or other people’s support.'
-    }
+    { id: 'm1', source: 'Chapter XVIII — The Lion & The Fox', quote: 'The lion cannot protect himself from traps, and the fox cannot defend himself from wolves.', meaning: 'Combine courage with awareness. Do not be so trusting that you miss risks, or so aggressive that you fail to think.' },
+    { id: 'm2', source: 'Chapter XXV — The Flooding River', quote: 'Prepare for the storm while the weather is fair.', meaning: 'Build your financial, professional and personal foundations before you need them.' },
+    { id: 'm3', source: 'Chapter XXV — Fortune & Adaptation', quote: 'A successful approach today may fail tomorrow.', meaning: 'Be committed to your objectives, but flexible about your methods.' },
+    { id: 'm4', source: 'Chapter XXIII — Sovereign Counsel', quote: 'Seek advice, but retain responsibility for your decisions.', meaning: 'Listen to people who understand the subject, test their reasoning and make your own informed decision.' },
+    { id: 'm5', source: 'Chapters VI–VII & XXIV–XXV — True Capability', quote: 'Do not confuse the appearance of success with lasting strength.', meaning: 'Build real ability rather than relying on status, temporary opportunities or other people’s support.' }
   ];
 
   const RAZOR_4 = [
+    { tag: 'Calibration 01', title: 'Fear is not the same as respect.', desc: 'Political security for a ruler is not a blueprint for personal friendships. Command respect through competence and boundaries, not intimidation.' },
+    { tag: 'Calibration 02', title: 'Being strategic is not manipulating everyone.', desc: 'Strategic awareness is most powerful when used to read incentives, anticipate consequences, and navigate risk with integrity.' },
+    { tag: 'Calibration 03', title: 'Appearing strong is not being strong.', desc: 'Public perception crumbles quickly when tested by adversity. True resilience comes from verified skill, reserves, and self-mastery.' },
+    { tag: 'Calibration 04', title: 'Results matter, but character matters too.', desc: 'Raw effectiveness without moral grounding hollows out a man. Build victories you can respect when looking in the mirror.' }
+  ];
+
+  // THE 48 LAWS OF POWER DATA
+  const POWER_FOUNDATIONS = [
+    { quote: '“Any man who tries to be good all the time is bound to come to ruin among the great number who are not good.”', note: 'Modern power requires indirection, strategic awareness, and an iron hand in a velvet glove.' },
+    { quote: '“An emotional response to a situation is the single greatest barrier to power...”', note: 'Master your emotional reactions; never let anger or vanity cloud long-term calculation.' },
+    { quote: '“Power is essentially amoral...”', note: 'Judge moves by their strategic effect and consequences rather than moralizing wishful thinking.' }
+  ];
+
+  const LAWS_48 = [
+    'Never outshine the master.',
+    'Never put too much trust in friends; learn to use enemies.',
+    'Conceal your intentions.',
+    'Always say less than necessary.',
+    'Guard reputation with your life.',
+    'Court attention at all cost.',
+    'Get others to do the work; take the credit.',
+    'Make others come to you — use bait if necessary.',
+    'Win through actions, never through argument.',
+    'Avoid the unhappy and unlucky (infection).',
+    'Keep people dependent on you.',
+    'Use selective honesty and generosity to disarm.',
+    'When asking for help, appeal to self-interest, never mercy or gratitude.',
+    'Pose as a friend, work as a spy.',
+    'Crush the enemy totally.',
+    'Use absence to increase respect.',
+    'Cultivate unpredictability.',
+    'Avoid isolation.',
+    'Know who you’re dealing with.',
+    'Do not commit to anyone.',
+    'Seem dumber than your mark.',
+    'Use the surrender tactic.',
+    'Concentrate your forces.',
+    'Play the perfect courtier.',
+    'Re-create yourself.',
+    'Keep your hands clean.',
+    'Create a cult-like following.',
+    'Enter action with boldness.',
+    'Plan all the way to the end.',
+    'Make accomplishments seem effortless.',
+    'Control the options.',
+    'Play to people’s fantasies.',
+    'Discover each man’s thumbscrew.',
+    'Act like a king to be treated like one.',
+    'Master timing.',
+    'Disdain what you cannot have.',
+    'Create compelling spectacles.',
+    'Think as you like but behave like others.',
+    'Stir up waters to catch fish.',
+    'Despise the free lunch.',
+    'Avoid stepping into a great man’s shoes.',
+    'Strike the shepherd.',
+    'Work on hearts and minds.',
+    'Use the Mirror Effect.',
+    'Preach change but reform gradually.',
+    'Never appear too perfect.',
+    'Do not go past the mark.',
+    'Assume formlessness.'
+  ];
+
+  // THE ART OF SEDUCTION DATA
+  const SEDUCTION_PHILOSOPHY = [
     {
-      tag: 'Calibration 01',
-      title: 'Fear is not the same as respect.',
-      desc: 'Political security for a ruler is not a blueprint for personal friendships. Command respect through competence and boundaries, not intimidation.'
+      quote: '“Seduction is a game of psychology, not beauty, and it is within the grasp of any person to become a master at the game.”',
+      note: 'Seduction is a strategic psychological game, not about physical force or innate beauty. It works by inducing surrender through the mind, stirring fantasies, and alternating hope and frustration.'
     },
     {
-      tag: 'Calibration 02',
-      title: 'Being strategic is not manipulating everyone.',
-      desc: 'Strategic awareness is most powerful when used to read incentives, anticipate consequences, and navigate risk with integrity.'
+      quote: '“As the first seductresses knew, it is much more effective to create love than lust. A person in love is emotional, pliable, and easily misled.”',
+      note: 'Engage the imagination and deeper emotions rather than mere surface appetite.'
     },
     {
-      tag: 'Calibration 03',
-      title: 'Appearing strong is not being strong.',
-      desc: 'Public perception crumbles quickly when tested by adversity. True resilience comes from verified skill, reserves, and self-mastery.'
+      quote: '“Seducers are never self-absorbed. Their gaze is directed outward, not inward. When they meet someone their first move is to get inside that person’s skin, to see the world through their eyes.”',
+      note: 'Stay outward-focused, treat life as theater, and adapt to fill the target’s internal voids.'
+    }
+  ];
+
+  const SEDUCTION_ARCHETYPES = [
+    { id: 'sa1', name: 'The Siren', trait: 'Embodies heightened fantasy presence combined with danger or innocence.', quote: 'From Cleopatra we learn that it is not beauty that makes a Siren but rather a theatrical streak that allows a woman to embody a man’s fantasies.' },
+    { id: 'sa2', name: 'The Rake', trait: 'Projects unbridled desire and uses suggestive language; reputation for danger increases appeal.', quote: 'The Ardent Rake teaches us a simple lesson: intense desire has a distracting power on a woman... Remember: it is the form that matters, not the content.' },
+    { id: 'sa3', name: 'The Ideal Lover', trait: 'Reflects exactly what is missing in the target’s life (romance, adventure, greatness).', quote: 'Appeal only to people’s physical side... and they will resent you... But appeal to their better selves... and they will hardly notice that they have been seduced.' },
+    { id: 'sa4', name: 'The Dandy', trait: 'Cultivates ambiguity, androgyny, and radical independence.', quote: 'The key to such power is ambiguity... Be both masculine and feminine, impudent and charming, subtle and outrageous.' },
+    { id: 'sa5', name: 'The Natural', trait: 'Exaggerates childhood traits (spontaneity, innocence) to lower defenses.', quote: 'Defensiveness is deadly in seduction... The undefensive lover... lowers the inhibitions of his or her target...' },
+    { id: 'sa6', name: 'The Coquette', trait: 'Masters delayed satisfaction and calculated withdrawal.', quote: 'Remember: the essence of the Coquette lies not in the tease and temptation but in the subsequent step back, the emotional withdrawal.' },
+    { id: 'sa7', name: 'The Charmer', trait: 'Makes the target the star, soothes, mirrors, and validates ego.', quote: 'And the secret to capturing people’s attention... is to strike at the things they have the least control over: their ego, their vanity, and their self-esteem.' },
+    { id: 'sa8', name: 'The Charismatic', trait: 'Radiates purpose and mystery while remaining inwardly detached.', quote: 'Charisma is not a mysterious quality that inhabits you outside your control; it is an illusion in the eyes of those who see you as having what they lack.' },
+    { id: 'sa9', name: 'The Star / Anti-Seducer', trait: 'Stars invite projection through distance and dreamlike presence.', quote: 'Anti-Seducers repel through insecurity, neediness, and self-absorption. Eliminate every anti-seductive trait.' }
+  ];
+
+  const SEDUCTION_PHASES = [
+    {
+      phase: 'Phase 01',
+      title: 'Separation — Stir Interest & Desire',
+      steps: ['Choose the right victim', 'Create false security', 'Send mixed signals', 'Appear desirable via competition', 'Create need & anxiety', 'Insinuate ideas', 'Enter their spirit', 'Create temptation']
     },
     {
-      tag: 'Calibration 04',
-      title: 'Results matter, but character matters too.',
-      desc: 'Raw effectiveness without moral grounding hollows out a man. Build victories you can respect when looking in the mirror.'
+      phase: 'Phase 02',
+      title: 'Lead Astray — Pleasure & Confusion',
+      steps: ['Keep in suspense', 'Use words to flatter & confuse', 'Pay attention to detail', 'Poeticize presence (presence + absence)', 'Disarm with strategic weakness', 'Confuse desire and reality', 'Isolate from normal milieu']
+    },
+    {
+      phase: 'Phase 03',
+      title: 'The Precipice — Deepen the Spell',
+      steps: ['Prove yourself', 'Effect regression', 'Stir the taboo', 'Use spiritual lures', 'Mix pleasure with pain']
+    },
+    {
+      phase: 'Phase 04',
+      title: 'Moving In for the Kill',
+      steps: ['Give space so they pursue', 'Use physical lures', 'Bold move', 'Manage aftereffects']
+    }
+  ];
+
+  // THE POWER OF YOUR SUBCONSCIOUS MIND DATA
+  const SUB_DUAL_MIND = [
+    {
+      id: 'sm1', tag: 'The Navigator', title: 'Conscious Captain vs. Subconscious Crew',
+      body: 'The conscious mind reasons and chooses; the subconscious is impersonal, accepts whatever is impressed upon it, and runs the body.',
+      quote: 'You are like a captain navigating a ship... you must give the right orders (thoughts and images) to your subconscious mind...'
+    },
+    {
+      id: 'sm2', tag: 'Mental Soil', title: 'Impersonal Acceptance of Seeds',
+      body: 'Whatever you habitually think and feel sinks into the subconscious and manifests according to its nature.',
+      quote: 'Your subconscious mind is like the soil, which accepts any kind of seed, good or bad.'
+    },
+    {
+      id: 'sm3', tag: 'The Law of Belief', title: 'Inner Conviction Over Ritual',
+      body: 'Results come from belief in the mind, not external rituals. Suggestions from others only have power if you mentally accept them.',
+      quote: 'Remember, it is not the thing believed in, but the belief in your own mind, which brings about the result.'
+    }
+  ];
+
+  const SUB_HEALING = [
+    {
+      id: 'sm4', tag: 'Expectant Faith', title: 'The Universal Healing Principle',
+      body: 'The healing power is the subconscious mind; faith (confident expectancy) is the process that activates it.',
+      quote: 'There is only one process of healing and that is faith. There is only one healing power, namely, your subconscious mind.'
+    },
+    {
+      id: 'sm5', tag: 'Law of Reversed Effort', title: 'Imagination Defeats Forced Willpower',
+      body: 'Avoid forced willpower. Use relaxed, drowsy states (right before sleep and upon waking) to bypass conscious resistance.',
+      quote: 'When your desires and imagination are in conflict, your imagination invariably gains the day. Never try to compel the subconscious mind to accept your idea by exercising will power.'
+    },
+    {
+      id: 'sm6', tag: '3 Practical Protocols', title: 'Subconscious Imprinting Techniques',
+      body: '1. Visualization / Mental Movie: Play the vivid end-result scene.\n2. Baudoin (Lullaby) Technique: Repeat a short, condensed phrase in a drowsy state.\n3. Thank-You / Affirmative Method: Feel genuine gratitude in advance as if already accomplished.',
+      quote: 'Enter the sleepy, drowsy state where effort is reduced to a minimum, and impress the fulfilled desire.'
+    }
+  ];
+
+  const SUB_WEALTH = [
+    {
+      id: 'sm7', tag: 'Subconscious Bank', title: 'Wealth Conviction & Non-Envy',
+      body: 'Wealth is a subconscious conviction. Never condemn money or envy others’ prosperity, as doing so programs scarcity.',
+      quote: 'The feeling of wealth produces wealth... Your subconscious mind is like a bank...'
+    },
+    {
+      id: 'sm8', tag: 'Architecture of Achievement', title: 'The Three Steps to Success',
+      body: '1. Love the work you do.\n2. Specialize deeply and master the domain.\n3. Make your work benefit humanity and others.',
+      quote: 'True success is aligned with purpose, mastery, and contribution.'
+    },
+    {
+      id: 'sm9', tag: 'Nocturnal Counsel & Substitution', title: 'Sleep, Forgiveness & Habit Mastery',
+      body: 'Sleep is highly productive for the subconscious—turn problems over before rest. Happiness is a chosen habit; true forgiveness removes the emotional sting. Break habits via substitution (focusing on the desired opposite). Age is mental, not chronological.',
+      quote: 'Your future is your current habitual thinking made manifest.'
+    }
+  ];
+
+  // ATTRACTION & ESCALATION DYNAMICS (DOMINIC MANN)
+  const ATTRACTION_MINDSET = [
+    {
+      id: 'ad1', tag: 'Law 01 — Investment Asymmetry', title: 'Eliminate Neediness & Over-Investment',
+      body: 'Neediness is the most repulsive trait. Over-investing early kills attraction. Her investment in you—not yours in her—drives emotional attachment.',
+      quote: 'The more you invest in a woman, the less attracted to you she is.'
+    },
+    {
+      id: 'ad2', tag: 'Law 02 — The Evaluator Frame', title: 'Flip the Qualification Dynamic',
+      body: 'Shift permanently from “I hope she likes me” to “Let’s find out if I like her.” Hold high standards beyond mere physical appearance.',
+      quote: 'A man’s behavior is the most important factor when it comes to female attraction.'
+    },
+    {
+      id: 'ad3', tag: 'Law 03 — Biological Triggers', title: 'Confidence, Indifference & Preselection',
+      body: 'Attraction is biological and behavioral. Women respond viscerally to composure, dominance, outcome independence, and social proof.',
+      quote: 'If girls think that other girls are fighting over you, you become 10X more attractive...'
+    },
+    {
+      id: 'ad4', tag: 'Law 04 — Sovereign Priority', title: 'Higher Mission & Emperor-Like Respect',
+      body: 'Pursue a higher Mission first. Ambitious men naturally display the traits that create attraction and eliminate pedestalization. Aim for “emperor-like” respect rather than friendly, asexual approval.',
+      quote: 'Your mission comes first; attraction is the natural byproduct of a man building an empire.'
+    }
+  ];
+
+  const ATTRACTION_ESCALATION = [
+    {
+      id: 'ae1', tag: 'Protocol 01 — Verbal Polarity', title: 'Implication, Push-Pull & Chase Framing',
+      body: 'Create electric tension via subtext and implication rather than dry small talk. Alternate warmth with playful withdrawal (Push-Pull) and use Chase Framing—playfully accusing her of pursuing you.',
+      quote: 'Tension is built in the space between validation and challenge.'
+    },
+    {
+      id: 'ae2', tag: 'Protocol 02 — Kinesthetic Ladder', title: 'Progressive Physical Escalation',
+      body: 'Escalate physical touch progressively and naturally from the very beginning. Never wait until the end of an interaction to cross the physical barrier.',
+      quote: 'Always be escalating—make physical comfort normal and effortless.'
+    },
+    {
+      id: 'ae3', tag: 'Protocol 03 — The Close', title: 'The Kiss & Plausible Deniability',
+      body: 'For the kiss: establish physical comfort, hold strong eye contact + glance at her lips, then lean in decisively. When transitioning to private locations, always provide plausible deniability so she can rationalize that “it just happened” without feeling judged.',
+      quote: 'Lead smoothly so every transition feels natural, unforced, and inevitable.'
     }
   ];
 
@@ -1887,21 +2078,18 @@
     { id: 'q4', cat: 'Quiet Confidence', text: 'Not everyone needs to understand me.' },
     { id: 'q5', cat: 'Quiet Confidence', text: 'I don’t compete for attention. I build my own worth.' },
     { id: 'q6', cat: 'Quiet Confidence', text: 'Less talk. More character.' },
-
     { id: 'q7', cat: 'Discipline & Strength', text: 'Master yourself before you try to master the world.' },
     { id: 'q8', cat: 'Discipline & Strength', text: 'Discipline over desire. Principles over pleasure.' },
     { id: 'q9', cat: 'Discipline & Strength', text: 'A man is built by what he does when nobody is watching.' },
     { id: 'q10', cat: 'Discipline & Strength', text: 'Control your impulses, or they will control you.' },
     { id: 'q11', cat: 'Discipline & Strength', text: 'Comfort makes promises that discipline keeps.' },
     { id: 'q12', cat: 'Discipline & Strength', text: 'The strongest man is the one who can govern himself.' },
-
     { id: 'q13', cat: 'Dark & Mysterious', text: 'More than meets the eye.' },
     { id: 'q14', cat: 'Dark & Mysterious', text: 'Private life. Clear intentions. Quiet ambition.' },
     { id: 'q15', cat: 'Dark & Mysterious', text: 'I have nothing to prove and everything to build.' },
     { id: 'q16', cat: 'Dark & Mysterious', text: 'Depth over attention. Substance over appearance.' },
     { id: 'q17', cat: 'Dark & Mysterious', text: 'I outgrew the need to be understood by everyone.' },
     { id: 'q18', cat: 'Dark & Mysterious', text: 'Not cold. Just selective with my energy.' },
-
     { id: 'q19', cat: 'Self-Respect & Standards', text: 'Never negotiate your self-respect for temporary pleasure.' },
     { id: 'q20', cat: 'Self-Respect & Standards', text: 'A man with standards will never be owned by his impulses.' },
     { id: 'q21', cat: 'Self-Respect & Standards', text: 'Walk away from anything that costs you your peace.' },
@@ -1926,10 +2114,11 @@
   // ==========================================
   // STATE MANAGEMENT
   // ==========================================
-  let savedCodex = JSON.parse(localStorage.getItem('aether_codex_v2') || '[]');
-  let pillarScores = JSON.parse(localStorage.getItem('aether_pillars_v2') || '{"p1":7,"p2":7,"p3":7,"p4":7,"p5":7,"p6":7,"p7":7,"p8":7,"p9":7,"p10":7}');
+  let savedCodex = JSON.parse(localStorage.getItem('aether_codex_v3') || '[]');
+  let pillarScores = JSON.parse(localStorage.getItem('aether_pillars_v3') || '{"p1":7,"p2":7,"p3":7,"p4":7,"p5":7,"p6":7,"p7":7,"p8":7,"p9":7,"p10":7}');
   let lawsCompactMode = false;
   let lawsLimitSix = false;
+  let activePowerRange = 'all';
   let activeQuoteCat = 'all';
 
   function showToast(msg) {
@@ -1953,7 +2142,7 @@
       savedCodex.push({ id, text, label });
       showToast('Saved to Personal Codex');
     }
-    localStorage.setItem('aether_codex_v2', JSON.stringify(savedCodex));
+    localStorage.setItem('aether_codex_v3', JSON.stringify(savedCodex));
     updateCodexBadge();
     renderAll();
   }
@@ -1966,9 +2155,9 @@
   // RENDERERS
   // ==========================================
   function renderTop5() {
-    const container = document.getElementById('top5Container');
-    container.innerHTML = TOP_5.map(item => {
+    document.getElementById('top5Container').innerHTML = TOP_5.map(item => {
       const isSaved = savedCodex.some(b => b.id === item.id);
+      const esc = item.quote.replace(/'/g, "\\'");
       return `
         <div class="top5-item spotlight-card">
           <div class="top5-num">${item.num}</div>
@@ -1977,8 +2166,8 @@
             <p class="top5-note">${item.note}</p>
           </div>
           <div class="card-icon-actions">
-            <button class="icon-btn" onclick="copyText('${item.quote.replace(/'/g, "\\'")}')" title="Copy Quote">⧉</button>
-            <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${item.id}', '${item.quote.replace(/'/g, "\\'")}', 'Top 5 Essential')" title="Save to Codex">★</button>
+            <button class="icon-btn" onclick="copyText('${esc}')" title="Copy Quote">⧉</button>
+            <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${item.id}', '${esc}', 'Top 5 Essential')" title="Save to Codex">★</button>
           </div>
         </div>
       `;
@@ -1993,13 +2182,9 @@
       l.apply.toLowerCase().includes(query) ||
       l.chapter.toLowerCase().includes(query)
     );
+    if (lawsLimitSix && !query) filtered = filtered.slice(0, 6);
 
-    if (lawsLimitSix && !query) {
-      filtered = filtered.slice(0, 6);
-    }
-
-    const grid = document.getElementById('lawsGrid');
-    grid.innerHTML = filtered.map(l => {
+    document.getElementById('lawsGrid').innerHTML = filtered.map(l => {
       const isSaved = savedCodex.some(b => b.id === l.id);
       const copyPayload = `${l.title} — ${l.learning} Application: ${l.apply}`.replace(/'/g, "\\'");
       return `
@@ -2012,16 +2197,15 @@
               </div>
               <div class="card-icon-actions">
                 <button class="icon-btn" onclick="copyText('${copyPayload}')" title="Copy Law">⧉</button>
-                <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${l.id}', '${copyPayload}', 'Law ${l.num}')" title="Bookmark">★</button>
+                <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${l.id}', '${copyPayload}', 'The Prince • Law ${l.num}')" title="Bookmark">★</button>
               </div>
             </div>
-            <h3 class="law-title" style="margin: 0.9rem 0;">${l.title}</h3>
+            <h3 class="law-title" style="margin: 0.85rem 0;">${l.title}</h3>
             <div class="law-principle-box">
               <span class="law-principle-lbl">Core Principle</span>
               <p class="law-principle-text">${l.learning}</p>
             </div>
           </div>
-
           <div class="law-dossier-details">
             <p class="law-context">${l.context}</p>
             <div class="law-apply-box">
@@ -2029,27 +2213,24 @@
               <p class="law-apply-text">${l.apply}</p>
             </div>
           </div>
-
           <button class="law-expand-trigger" onclick="toggleSingleLawCard('${l.id}')">
             ${lawsCompactMode ? '+ Expand Tactical Dossier' : '− Collapse Details'}
           </button>
         </article>
       `;
     }).join('');
-    bindSpotlightCards();
   }
 
   window.toggleSingleLawCard = function(id) {
     const card = document.getElementById('card-' + id);
     if (!card) return;
     card.classList.toggle('compact');
-    const btn = card.querySelector('.law-expand-trigger');
-    btn.textContent = card.classList.contains('compact') ? '+ Expand Tactical Dossier' : '− Collapse Details';
+    card.querySelector('.law-expand-trigger').textContent =
+      card.classList.contains('compact') ? '+ Expand Tactical Dossier' : '− Collapse Details';
   };
 
   function renderPillars() {
-    const grid = document.getElementById('pillarsGrid');
-    grid.innerHTML = PILLARS_10.map(p => {
+    document.getElementById('pillarsGrid').innerHTML = PILLARS_10.map(p => {
       const val = pillarScores[p.id] || 7;
       return `
         <div class="pillar-card spotlight-card">
@@ -2072,7 +2253,7 @@
   window.updatePillarScore = function(id, val) {
     pillarScores[id] = parseInt(val, 10);
     document.getElementById('val-' + id).textContent = val + '/10';
-    localStorage.setItem('aether_pillars_v2', JSON.stringify(pillarScores));
+    localStorage.setItem('aether_pillars_v3', JSON.stringify(pillarScores));
     updateAuditTelemetry();
   };
 
@@ -2090,8 +2271,7 @@
   }
 
   function renderMaxims() {
-    const stack = document.getElementById('maximsStack');
-    stack.innerHTML = MAXIMS_5.map(m => {
+    document.getElementById('maximsStack').innerHTML = MAXIMS_5.map(m => {
       const isSaved = savedCodex.some(b => b.id === m.id);
       const payload = `${m.quote} — ${m.meaning}`.replace(/'/g, "\\'");
       return `
@@ -2120,6 +2300,129 @@
     `).join('');
   }
 
+  // RENDER SECTION 06: 48 LAWS OF POWER
+  function renderPower48() {
+    document.getElementById('powerFoundationsGrid').innerHTML = POWER_FOUNDATIONS.map(f => `
+      <div class="foundation-card spotlight-card">
+        <p class="foundation-quote">${f.quote}</p>
+        <p class="foundation-note">${f.note}</p>
+      </div>
+    `).join('');
+
+    const q = document.getElementById('power48SearchInput').value.toLowerCase().trim();
+    const indexed = LAWS_48.map((text, i) => ({
+      id: `pw${i + 1}`,
+      num: String(i + 1).padStart(2, '0'),
+      idx: i + 1,
+      text
+    }));
+
+    const filtered = indexed.filter(item => {
+      if (q && !item.text.toLowerCase().includes(q) && !item.num.includes(q)) return false;
+      if (!q && activePowerRange === '1-15') return item.idx >= 1 && item.idx <= 15;
+      if (!q && activePowerRange === '16-32') return item.idx >= 16 && item.idx <= 32;
+      if (!q && activePowerRange === '33-48') return item.idx >= 33 && item.idx <= 48;
+      return true;
+    });
+
+    document.getElementById('power48Grid').innerHTML = filtered.map(item => {
+      const isSaved = savedCodex.some(b => b.id === item.id);
+      const payload = `Law ${item.num}: ${item.text}`.replace(/'/g, "\\'");
+      return `
+        <div class="power48-card spotlight-card">
+          <div class="power48-left">
+            <span class="power48-num">LAW ${item.num}</span>
+            <h4 class="power48-title">${item.text}</h4>
+          </div>
+          <div class="card-icon-actions">
+            <button class="icon-btn" onclick="copyText('${payload}')" title="Copy Law">⧉</button>
+            <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${item.id}', '${payload}', '48 Laws of Power')" title="Save">★</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // RENDER SECTION 07: THE ART OF SEDUCTION
+  function renderSeduction() {
+    document.getElementById('seductionPhilosophyGrid').innerHTML = SEDUCTION_PHILOSOPHY.map(p => `
+      <div class="foundation-card spotlight-card">
+        <p class="foundation-quote">${p.quote}</p>
+        <p class="foundation-note">${p.note}</p>
+      </div>
+    `).join('');
+
+    document.getElementById('seductionArchetypesGrid').innerHTML = SEDUCTION_ARCHETYPES.map(a => {
+      const isSaved = savedCodex.some(b => b.id === a.id);
+      const payload = `${a.name}: ${a.trait} — "${a.quote}"`.replace(/'/g, "\\'");
+      return `
+        <div class="archetype-card spotlight-card">
+          <div>
+            <div class="archetype-header">
+              <h4 class="archetype-name">${a.name}</h4>
+              <div class="card-icon-actions">
+                <button class="icon-btn" onclick="copyText('${payload}')" title="Copy Archetype">⧉</button>
+                <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${a.id}', '${payload}', 'Seductive Archetype')" title="Save">★</button>
+              </div>
+            </div>
+            <p class="archetype-trait" style="margin-top: 0.55rem;">${a.trait}</p>
+          </div>
+          <p class="archetype-quote">“${a.quote}”</p>
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('seductionPhasesGrid').innerHTML = SEDUCTION_PHASES.map(p => `
+      <div class="phase-card spotlight-card">
+        <span class="phase-badge">${p.phase}</span>
+        <h4 class="phase-title">${p.title}</h4>
+        <div class="maneuver-chain">
+          ${p.steps.map((s, idx) => `
+            <span class="maneuver-step">${s}</span>
+            ${idx < p.steps.length - 1 ? '<span class="maneuver-arrow">→</span>' : ''}
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // RENDER SECTION 08: SUBCONSCIOUS MIND
+  function renderSubconsciousGroup(arr, containerId, labelTag) {
+    document.getElementById(containerId).innerHTML = arr.map(item => {
+      const isSaved = savedCodex.some(b => b.id === item.id);
+      const payload = `${item.title}: ${item.body.replace(/\n/g, ' ')} — "${item.quote}"`.replace(/'/g, "\\'");
+      return `
+        <div class="sub-card spotlight-card">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.45rem;">
+              <span class="sub-card-tag">${item.tag}</span>
+              <div class="card-icon-actions">
+                <button class="icon-btn" onclick="copyText('${payload}')" title="Copy">⧉</button>
+                <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${item.id}', '${payload}', '${labelTag}')" title="Save">★</button>
+              </div>
+            </div>
+            <h4 class="sub-card-title" style="margin-bottom:0.55rem;">${item.title}</h4>
+            <p class="sub-card-body" style="white-space: pre-line;">${item.body}</p>
+          </div>
+          <div class="sub-card-quote">“${item.quote}”</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderSubconscious() {
+    renderSubconsciousGroup(SUB_DUAL_MIND, 'subDualMindGrid', 'Subconscious Mind');
+    renderSubconsciousGroup(SUB_HEALING, 'subHealingGrid', 'Subconscious Healing');
+    renderSubconsciousGroup(SUB_WEALTH, 'subWealthGrid', 'Subconscious Wealth');
+  }
+
+  // RENDER SECTION 09: ATTRACTION DYNAMICS
+  function renderAttraction() {
+    renderSubconsciousGroup(ATTRACTION_MINDSET, 'attractionMindsetGrid', 'Attraction Mindset');
+    renderSubconsciousGroup(ATTRACTION_ESCALATION, 'attractionEscalationGrid', 'Escalation Protocol');
+  }
+
+  // RENDER SECTION 10: QUOTE VAULT
   function renderQuotes() {
     const filtered = activeQuoteCat === 'all'
       ? QUOTES_24
@@ -2156,12 +2459,16 @@
     renderPillars();
     renderMaxims();
     renderRazor();
+    renderPower48();
+    renderSeduction();
+    renderSubconscious();
+    renderAttraction();
     renderQuotes();
     bindSpotlightCards();
   }
 
   // ==========================================
-  // NAVIGATION & UPGRADES LOGIC
+  // NAVIGATION & MASTER MODE LOGIC
   // ==========================================
   function setMasterMode(mode) {
     document.querySelectorAll('#masterModeTabs .mode-tab').forEach(btn => {
@@ -2174,30 +2481,22 @@
       sec.classList.toggle('mode-hidden', !shouldShow);
     });
 
-    // Update side rail visual state
     document.querySelectorAll('#sideRail .rail-item').forEach(item => {
       const targetId = item.getAttribute('data-scroll');
       if (targetId === 'hero') return;
       const sec = document.getElementById(targetId);
-      if (sec) {
-        item.classList.toggle('hidden-by-mode', sec.classList.contains('mode-hidden'));
-      }
+      if (sec) item.classList.toggle('hidden-by-mode', sec.classList.contains('mode-hidden'));
     });
   }
 
   function scrollToSection(id) {
     const el = document.getElementById(id);
     if (!el) return;
-
-    // If section is hidden by Master Mode, switch to 'all' automatically so navigation always works
-    if (el.classList.contains('mode-hidden')) {
-      setMasterMode('all');
-    }
+    if (el.classList.contains('mode-hidden')) setMasterMode('all');
 
     const offset = 115;
     const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
     window.scrollTo({ top, behavior: 'smooth' });
-
     document.getElementById('navLinks').classList.remove('open');
   }
 
@@ -2209,36 +2508,44 @@
     }
   });
 
-  // Master Mode Tab clicks
   document.querySelectorAll('#masterModeTabs .mode-tab').forEach(btn => {
     btn.addEventListener('click', () => {
       setMasterMode(btn.dataset.mode);
-      showToast(`Mode: ${btn.textContent.trim()}`);
+      showToast(`Tome Filter: ${btn.textContent.trim()}`);
     });
   });
 
-  // Laws View Controls
+  // Machiavelli Laws Controls
   document.getElementById('lawsSearchInput').addEventListener('input', renderLaws);
-
   document.getElementById('viewFullBtn').addEventListener('click', () => {
     lawsCompactMode = false;
     document.getElementById('viewFullBtn').classList.add('active');
     document.getElementById('viewCompactBtn').classList.remove('active');
     renderLaws();
   });
-
   document.getElementById('viewCompactBtn').addEventListener('click', () => {
     lawsCompactMode = true;
     document.getElementById('viewCompactBtn').classList.add('active');
     document.getElementById('viewFullBtn').classList.remove('active');
     renderLaws();
   });
-
   document.getElementById('toggleLimitBtn').addEventListener('click', function() {
     lawsLimitSix = !lawsLimitSix;
     this.textContent = lawsLimitSix ? 'Showing: First 6 (Show All 12)' : 'Showing: All 12';
     this.classList.toggle('active', lawsLimitSix);
     renderLaws();
+  });
+
+  // 48 Laws Controls
+  document.getElementById('power48SearchInput').addEventListener('input', renderPower48);
+  document.querySelectorAll('#power48RangeTabs .mini-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#power48RangeTabs .mini-toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activePowerRange = btn.dataset.range;
+      renderPower48();
+      bindSpotlightCards();
+    });
   });
 
   // Quote Vault Tabs
@@ -2252,20 +2559,18 @@
     });
   });
 
-  // Reset Audit
   document.getElementById('resetAuditBtn').addEventListener('click', () => {
     PILLARS_10.forEach(p => pillarScores[p.id] = 7);
-    localStorage.setItem('aether_pillars_v2', JSON.stringify(pillarScores));
+    localStorage.setItem('aether_pillars_v3', JSON.stringify(pillarScores));
     renderPillars();
     showToast('Audit Reset to 70%');
   });
 
-  // Mobile Menu
   document.getElementById('menuToggle').addEventListener('click', () => {
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  // Scroll Telemetry & Active Section Spy
+  // Scroll Telemetry & Section Spy
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
     const docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
@@ -2273,18 +2578,15 @@
 
     document.getElementById('scrollProgressBar').style.width = pct + '%';
     document.getElementById('fabScrollPct').textContent = pct + '%';
+    document.getElementById('backToTopFab').classList.toggle('visible', scrollTop > 420);
 
-    const fab = document.getElementById('backToTopFab');
-    fab.classList.toggle('visible', scrollTop > 420);
-
-    // Active section tracking
-    const sections = ['hero', 'top5', 'laws', 'pillars', 'maxims', 'razor', 'vault'];
+    const sections = ['hero', 'top5', 'laws', 'pillars', 'maxims', 'razor', 'power48', 'seduction', 'subconscious', 'attraction', 'vault'];
     let current = 'hero';
     for (const id of sections) {
       const el = document.getElementById(id);
       if (el && !el.classList.contains('mode-hidden')) {
         const rect = el.getBoundingClientRect();
-        if (rect.top <= 220) current = id;
+        if (rect.top <= 230) current = id;
       }
     }
 
@@ -2297,7 +2599,7 @@
   });
 
   // ==========================================
-  // SEARCH, COUNSEL & CODEX MODALS
+  // GLOBAL SEARCH, COUNSEL & CODEX MODALS
   // ==========================================
   const searchModal = document.getElementById('searchModal');
   const globalSearchInput = document.getElementById('globalSearchInput');
@@ -2325,15 +2627,17 @@
   function renderGlobalSearch(q) {
     const query = q.toLowerCase().trim();
     const pool = [
-      ...LAWS_12.map(l => ({ type: `Law ${l.num}`, text: `${l.title} — ${l.learning}`, sec: 'laws' })),
-      ...PILLARS_10.map(p => ({ type: `Pillar ${p.idx}`, text: `${p.name}: ${p.practice}`, sec: 'pillars' })),
-      ...MAXIMS_5.map(m => ({ type: 'Maxim', text: m.quote, sec: 'maxims' })),
+      ...LAWS_12.map(l => ({ type: `The Prince • Law ${l.num}`, text: `${l.title} — ${l.learning}`, sec: 'laws' })),
+      ...LAWS_48.map((t, i) => ({ type: `48 Laws • Law ${String(i + 1).padStart(2, '0')}`, text: t, sec: 'power48' })),
+      ...SEDUCTION_ARCHETYPES.map(a => ({ type: `Seduction Archetype`, text: `${a.name}: ${a.trait}`, sec: 'seduction' })),
+      ...SUB_DUAL_MIND.concat(SUB_HEALING, SUB_WEALTH).map(s => ({ type: `Subconscious Mind`, text: `${s.title} — ${s.quote}`, sec: 'subconscious' })),
+      ...ATTRACTION_MINDSET.concat(ATTRACTION_ESCALATION).map(a => ({ type: `Attraction & Frame`, text: `${a.title} — ${a.quote}`, sec: 'attraction' })),
       ...QUOTES_24.map(qt => ({ type: qt.cat, text: qt.text, sec: 'vault' }))
     ];
 
     const matches = query
       ? pool.filter(item => item.text.toLowerCase().includes(query) || item.type.toLowerCase().includes(query))
-      : pool.slice(0, 10);
+      : pool.slice(0, 12);
 
     document.getElementById('globalSearchResults').innerHTML = matches.map(m => `
       <div class="cmd-item" onclick="jumpFromSearch('${m.sec}', '${m.text.replace(/'/g, "\\'")}')">
@@ -2358,8 +2662,11 @@
   const counselModal = document.getElementById('counselModal');
   function drawRandomCounsel() {
     const pool = [
-      ...LAWS_12.map(l => ({ type: `LAW ${l.num} • ${l.chapter}`, quote: l.title, sub: l.apply })),
-      ...MAXIMS_5.map(m => ({ type: m.source, quote: m.quote, sub: m.meaning })),
+      ...LAWS_12.map(l => ({ type: `THE PRINCE • LAW ${l.num}`, quote: l.title, sub: l.apply })),
+      ...LAWS_48.map((t, i) => ({ type: `48 LAWS OF POWER • LAW ${String(i + 1).padStart(2, '0')}`, quote: t, sub: 'Maintain emotional control, indirection, and strategic foresight.' })),
+      ...SEDUCTION_ARCHETYPES.map(a => ({ type: `ART OF SEDUCTION • ${a.name.toUpperCase()}`, quote: a.quote, sub: a.trait })),
+      ...SUB_DUAL_MIND.concat(SUB_HEALING, SUB_WEALTH).map(s => ({ type: `SUBCONSCIOUS MIND • ${s.tag.toUpperCase()}`, quote: s.quote, sub: s.body })),
+      ...ATTRACTION_MINDSET.map(a => ({ type: `ATTRACTION DYNAMICS • ${a.tag.toUpperCase()}`, quote: a.quote, sub: a.body })),
       ...TOP_5.map(t => ({ type: `ESSENTIAL STANDARD ${t.num}`, quote: t.quote, sub: t.note }))
     ];
     const pick = pool[Math.floor(Math.random() * pool.length)];
@@ -2385,7 +2692,7 @@
   function renderSavedCodexModal() {
     const container = document.getElementById('codexListContainer');
     if (savedCodex.length === 0) {
-      container.innerHTML = `<p style="color: var(--text-ash); font-family: var(--font-mono); font-size: 0.8rem; text-align: center; padding: 2rem 0;">Your Personal Codex is empty. Click the ★ icon on any law, maxim, or quote to save it here.</p>`;
+      container.innerHTML = `<p style="color: var(--text-ash); font-family: var(--font-mono); font-size: 0.8rem; text-align: center; padding: 2rem 0;">Your Personal Codex is empty. Click the ★ icon on any law, archetype, principle, or quote to save it here.</p>`;
       return;
     }
     container.innerHTML = savedCodex.map(item => `
@@ -2408,14 +2715,12 @@
   });
   document.getElementById('closeCodexBtn').addEventListener('click', () => codexModal.classList.remove('open'));
 
-  // Close modals on backdrop click
   document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
     backdrop.addEventListener('click', e => {
       if (e.target === backdrop) backdrop.classList.remove('open');
     });
   });
 
-  // Cursor spotlight tracking
   function bindSpotlightCards() {
     document.querySelectorAll('.spotlight-card').forEach(card => {
       card.onmousemove = e => {
@@ -2426,7 +2731,6 @@
     });
   }
 
-  // Init
   updateCodexBadge();
   renderAll();
 </script>
