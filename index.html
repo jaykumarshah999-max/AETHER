@@ -1,38 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMPERIUM — Executive Leverage, Behavioral Gravity & Self-Command</title>
+<meta name="description" content="An interactive strategic codex for modern men: pragmatic realism, executive leverage, social gravity, cognitive conditioning, and tactical decision drills.">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#d4af37">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  /* ... other css styles ... */
+  :root {
+    --bg-abyss: #05080e;
+    --bg-deep: #090e17;
+    --bg-slate: #0f1623;
+    --bg-elevated: #162032;
+    --bg-glass: rgba(9, 14, 23, 0.92);
+    --text-platinum: #f3f6fa;
+    --text-steel: #94a3b8;
+    --text-muted: #58677d;
+    --gold: #d4af37;
+    --gold-bright: #ecc94b;
+    --gold-glow: rgba(212, 175, 55, 0.28);
+    --gold-subtle: rgba(212, 175, 55, 0.11);
+    --emerald: #10b981;
+    --emerald-subtle: rgba(16, 185, 129, 0.12);
+    --crimson: #ef4444;
+    --border-dim: #1c273a;
+    --border-bright: #2b3b55;
+    --font-display: 'Cinzel', serif;
+    --font-sans: 'Space Grotesk', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --nav-h: 70px;
+  }
+
+  html.light-theme {
+    --bg-abyss: #f4f7fc;
+    --bg-deep: #e8ecf4;
+    --bg-slate: #ffffff;
+    --bg-elevated: #e2e8f0;
+    --bg-glass: rgba(244, 247, 252, 0.94);
+    --text-platinum: #0f172a;
+    --text-steel: #475569;
+    --text-muted: #94a3b8;
+    --gold: #b7791f;
+    --gold-bright: #975a16;
+    --gold-glow: rgba(183, 121, 31, 0.22);
+    --gold-subtle: rgba(183, 121, 31, 0.08);
+    --emerald: #059669;
+    --emerald-subtle: rgba(5, 150, 105, 0.1);
+    --border-dim: #cbd5e1;
+    --border-bright: #94a3b8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: var(--bg-abyss); color: var(--text-platinum); }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-abyss);
+    color: var(--text-platinum);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 75% 50% at 15% -10%, rgba(212, 175, 55, 0.12), transparent 65%),
+      radial-gradient(ellipse 60% 45% at 88% 15%, rgba(16, 185, 129, 0.06), transparent 65%),
+      radial-gradient(ellipse 70% 45% at 50% 108%, rgba(212, 175, 55, 0.08), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* HEADER */
+  header.site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: var(--nav-h);
+    z-index: 200;
+    background: var(--bg-glass);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border-dim);
+    display: flex;
+    align-items: center;
+  }
+
+  .header-inner {
+    width: 100%;
+    max-width: 1460px;
+    margin: 0 auto;
+    padding: 0 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+  }
+
+  .brand-logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--text-platinum);
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+  }
+  .brand-logo .gold-dot { color: var(--gold); }
 
   .page-nav {
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.15rem;
     list-style: none;
-    overflow-x: auto;
-    scrollbar-width: none;
   }
-  .page-nav::-webkit-scrollbar { display: none; }
 
-  /* REPLACE YOUR OLD .page-link WITH THIS: */
   .page-link {
     font-family: var(--font-mono);
-    font-size: 0.64rem;
-    letter-spacing: 0.05em;
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--text-steel);
     background: transparent;
     border: 1px solid transparent;
-    padding: 0.4rem 0.5rem; /* Tighter padding */
+    padding: 0.4rem 0.45rem;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.2rem;
     white-space: nowrap;
   }
 
-  .page-link .p-num {
-    color: var(--gold);
-    font-weight: 600;
-    font-size: 0.62rem;
+  .page-link .p-num { color: var(--gold); font-weight: 600; font-size: 0.58rem; }
+  .page-link:hover { color: var(--text-platinum); background: rgba(128,128,128,0.06); border-color: var(--border-dim); }
+  .page-link.active { color: var(--bg-abyss); background: var(--gold); border-color: var(--gold-bright); font-weight: 600; }
+  .page-link.active .p-num { color: var(--bg-abyss); }
+
+  .header-tools {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
   }
-  /* ... rest of your styles ... */
+
+  .tool-btn {
+    background: var(--bg-slate);
+    border: 1px solid var(--border-bright);
+    color: var(--text-platinum);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.42rem 0.65rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: all 0.2s ease;
+  }
+  .tool-btn:hover { border-color: var(--gold); color: var(--gold-bright); }
+  .tool-badge { background: var(--gold); color: var(--bg-abyss); font-weight: 700; font-size: 0.6rem; padding: 0.04rem 0.3rem; }
+
+  .mobile-menu-btn {
+    display: none;
+    background: var(--bg-slate);
+    border: 1px solid var(--border-bright);
+    color: var(--text-platinum);
+    width: 36px; height: 36px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* DEDICATED MOBILE BOTTOM DOCK (Hidden on Desktop) */
+  .mobile-bottom-dock {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-bright);
+    z-index: 210;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .dock-btn {
+    background: none;
+    border: none;
+    border-right: 1px solid var(--border-dim);
+    color: var(--text-steel);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    cursor: pointer;
+  }
+  .dock-btn:last-child { border-right: none; }
+  .dock-btn .dock-icon { font-size: 1.05rem; }
+  .dock-btn.active, .dock-btn:hover { color: var(--gold); background: var(--gold-subtle); }
+
+  /* VIEWPORT */
+  main.app-viewport {
+    position: relative;
+    z-index: 1;
+    padding-top: var(--nav-h);
+    min-height: calc(100vh - 80px);
+  }
+
+  .page-view {
+    display: none;
+    animation: pageFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 3.2rem 2rem 6rem;
+  }
+  .page-view.active { display: block; }
+
+  @keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .container { max-width: 1280px; margin: 0 auto; }
+
+  /* BANNER & CARDS */
+  .page-banner {
+    background: linear-gradient(135deg, var(--bg-slate), var(--bg-deep));
+    border: 1px solid var(--border-bright);
+    border-left: 4px solid var(--gold);
+    padding: 2.4rem 2.6rem;
+    margin-bottom: 2.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-banner::after {
+    content: attr(data-watermark);
+    position: absolute;
+    right: 1.5rem; bottom: -1rem;
+    font-family: var(--font-display);
+    font-size: 6rem; font-weight: 800;
+    color: rgba(212, 175, 55, 0.04);
+    pointer-events: none; user-select: none;
+  }
+  .banner-kicker { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.55rem; display: block; }
+  .page-banner h1 { font-family: var(--font-display); font-size: clamp(1.85rem, 3.6vw, 2.85rem); font-weight: 800; text-transform: uppercase; margin-bottom: 0.55rem; }
+  .page-banner p { color: var(--text-steel); max-width: 680px; font-size: 0.98rem; }
+
+  .lux-card {
+    background: var(--bg-slate);
+    border: 1px solid var(--border-dim);
+    padding: 1.55rem;
+    position: relative;
+    transition: all 0.24s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .lux-card:hover { border-color: var(--border-bright); transform: translateY(-2px); box-shadow: 0 14px 34px rgba(0,0,0,0.2); }
+
+  .card-top-row { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; border-bottom: 1px solid var(--border-dim); padding-bottom: 0.7rem; }
+  .badge-gold { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bg-abyss); background: var(--gold); padding: 0.14rem 0.5rem; }
+  .badge-outline { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(212,175,55,0.35); background: var(--gold-subtle); padding: 0.14rem 0.5rem; }
+  .badge-emerald { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--emerald); border: 1px solid rgba(16,185,129,0.35); background: var(--emerald-subtle); padding: 0.14rem 0.5rem; }
+
+  .icon-actions { display: flex; gap: 0.35rem; }
+  .mini-icon-btn { background: var(--bg-abyss); border: 1px solid var(--border-dim); color: var(--text-steel); width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font-size: 0.74rem; transition: all 0.2s ease; }
+  .mini-icon-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .mini-icon-btn.saved { background: var(--gold-subtle); border-color: var(--gold); color: var(--gold-bright); }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+  .section-subhead {
+    font-family: var(--font-display); font-size: 1.22rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 2.5rem 0 1.2rem; display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-subhead::after { content: ''; flex: 1; height: 1px; background: var(--border-dim); }
+
+  .command-hero-grid { display: grid; grid-template-columns: 1.45fr 1fr; gap: 1.4rem; margin-bottom: 2.2rem; }
+  .oracle-panel { background: linear-gradient(145deg, var(--bg-slate), var(--bg-deep)); border: 1px solid var(--gold); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.2rem; }
+  .oracle-quote { font-family: var(--font-display); font-size: clamp(1.2rem, 2.1vw, 1.55rem); font-weight: 700; color: var(--text-platinum); line-height: 1.38; }
+  .oracle-sub { font-size: 0.92rem; color: var(--text-steel); border-left: 2px solid var(--emerald); padding-left: 0.85rem; }
+
+  .btn-gold { background: var(--gold); color: var(--bg-abyss); border: 1px solid var(--gold-bright); padding: 0.78rem 1.4rem; font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 0.5rem; }
+  .btn-gold:hover { background: var(--gold-bright); box-shadow: 0 0 22px var(--gold-glow); }
+  .btn-slate { background: var(--bg-abyss); color: var(--text-platinum); border: 1px solid var(--border-bright); padding: 0.78rem 1.3rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.2s ease; }
+  .btn-slate:hover { border-color: var(--gold); color: var(--gold); }
+
+  .portal-card { cursor: pointer; border-top: 2px solid transparent; }
+  .portal-card:hover { border-top-color: var(--gold); background: var(--bg-elevated); }
+
+  .filter-bar { background: var(--bg-slate); border: 1px solid var(--border-dim); padding: 0.9rem 1.15rem; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; justify-content: space-between; }
+  .search-input { flex: 1; min-width: 240px; background: var(--bg-abyss); border: 1px solid var(--border-bright); color: var(--text-platinum); font-family: var(--font-mono); font-size: 0.76rem; padding: 0.6rem 0.95rem; outline: none; }
+  .search-input:focus { border-color: var(--gold); }
+
+  .chip-group { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .filter-chip { background: var(--bg-abyss); border: 1px solid var(--border-bright); color: var(--text-steel); font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.46rem 0.82rem; cursor: pointer; transition: all 0.2s ease; }
+  .filter-chip:hover { color: var(--text-platinum); }
+  .filter-chip.active { background: var(--gold-subtle); border-color: var(--gold); color: var(--gold-bright); font-weight: 600; }
+
+  .arena-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+  .flashcard-stage { perspective: 1000px; height: 310px; margin-bottom: 1.2rem; cursor: pointer; }
+  .flashcard-inner { position: relative; width: 100%; height: 100%; transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1); transform-style: preserve-3d; }
+  .flashcard-stage.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-face { position: absolute; inset: 0; backface-visibility: hidden; background: linear-gradient(145deg, var(--bg-slate), var(--bg-deep)); border: 1px solid var(--gold); padding: 2.2rem; display: flex; flex-direction: column; justify-content: space-between; }
+  .flashcard-back { transform: rotateY(180deg); border-color: var(--emerald); }
+
+  .scenario-option { width: 100%; text-align: left; background: var(--bg-abyss); border: 1px solid var(--border-bright); color: var(--text-platinum); padding: 0.95rem 1.15rem; font-family: var(--font-sans); font-size: 0.9rem; cursor: pointer; margin-bottom: 0.65rem; transition: all 0.2s ease; }
+  .scenario-option:hover { border-color: var(--gold); background: var(--bg-elevated); }
+  .scenario-option.correct { border-color: var(--emerald); background: var(--emerald-subtle); color: var(--text-platinum); }
+  .scenario-option.wrong { border-color: var(--crimson); background: rgba(239, 68, 68, 0.14); }
+
+  .journal-composer { background: var(--bg-slate); border: 1px solid var(--border-bright); padding: 1.6rem; margin-bottom: 1.8rem; }
+  .journal-textarea { width: 100%; min-height: 100px; background: var(--bg-abyss); border: 1px solid var(--border-bright); color: var(--text-platinum); font-family: var(--font-sans); font-size: 0.94rem; padding: 0.9rem; margin: 0.8rem 0; outline: none; resize: vertical; }
+  .journal-textarea:focus { border-color: var(--gold); }
+
+  .page-stepper { margin-top: 3.8rem; padding-top: 1.8rem; border-top: 1px solid var(--border-dim); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(3, 6, 12, 0.75); backdrop-filter: blur(8px); z-index: 300; display: none; align-items: flex-start; justify-content: center; padding: 4.5rem 1.2rem 2rem; }
+  .modal-backdrop.open { display: flex; }
+  .modal-box { width: 100%; max-width: 720px; background: var(--bg-slate); border: 1px solid var(--gold); box-shadow: 0 25px 60px rgba(0,0,0,0.4); }
+
+  .toast { position: fixed; bottom: 1.6rem; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--bg-slate); border: 1px solid var(--gold); color: var(--text-platinum); font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.7rem 1.3rem; z-index: 400; opacity: 0; pointer-events: none; transition: all 0.25s ease; }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* MOBILE RESPONSIVE BREAKPOINT */
+  @media (max-width: 1050px) {
+    .grid-3, .grid-4, .command-hero-grid, .arena-layout { grid-template-columns: repeat(2, 1fr); }
+    .page-nav { display: none; } /* Hide desktop nav on smaller screens */
+    .mobile-menu-btn { display: inline-flex; }
+  }
+
+  @media (max-width: 768px) {
+    .grid-3, .grid-2, .grid-4, .command-hero-grid, .arena-layout { grid-template-columns: 1fr; }
+    .page-view { padding: 2rem 1.1rem 5.5rem; }
+    .mobile-bottom-dock { display: grid; } /* Enable mobile dock */
+  }
 </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand-logo" onclick="navigateTo('command')">
+      IMPERIUM<span class="gold-dot">.</span>
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <nav class="page-nav" id="pageNav">
+      <button class="page-link active" data-page="command"><span class="p-num">01</span>Cmd</button>
+      <button class="page-link" data-page="statecraft"><span class="p-num">02</span>Realism</button>
+      <button class="page-link" data-page="leverage"><span class="p-num">03</span>Leverage</button>
+      <button class="page-link" data-page="magnetism"><span class="p-num">04</span>Gravity</button>
+      <button class="page-link" data-page="mind"><span class="p-num">05</span>Cognition</button>
+      <button class="page-link" data-page="frame"><span class="p-num">06</span>Frame</button>
+      <button class="page-link" data-page="arena"><span class="p-num">07</span>Arena</button>
+      <button class="page-link" data-page="warroom"><span class="p-num">08</span>War Room</button>
+    </nav>
+
+    <div class="header-tools">
+      <button class="tool-btn" id="themeToggleBtn" title="Toggle Day/Night Mode">
+        <span id="themeIcon">☀️</span>
+        <span id="themeText" style="display:none; @media(min-width:500px){display:inline;}">Night</span>
+      </button>
+      <button class="tool-btn" id="openSearchModalBtn" title="Global Search">
+        <span>Search</span>
+      </button>
+      <button class="tool-btn" onclick="navigateTo('warroom')" title="Saved Bookmarks">
+        <span>Vault</span>
+        <span class="tool-badge" id="headerSavedCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE BOTTOM ACTION DOCK -->
+<nav class="mobile-bottom-dock" aria-label="Mobile Navigation">
+  <button class="dock-btn active" data-page="command" onclick="navigateTo('command')">
+    <span class="dock-icon">⚡</span>
+    <span>Cmd</span>
+  </button>
+  <button class="dock-btn" data-page="statecraft" onclick="navigateTo('statecraft')">
+    <span class="dock-icon">🏛️</span>
+    <span>Realpolitik</span>
+  </button>
+  <button class="dock-btn" data-page="arena" onclick="navigateTo('arena')">
+    <span class="dock-icon">⚔️</span>
+    <span>Arena</span>
+  </button>
+  <button class="dock-btn" onclick="openSearchModal()">
+    <span class="dock-icon">🔍</span>
+    <span>Search</span>
+  </button>
+  <button class="dock-btn" data-page="warroom" onclick="navigateTo('warroom')">
+    <span class="dock-icon">🛡️</span>
+    <span>Vault</span>
+  </button>
+</nav>
+
+<main class="app-viewport">
+
+  <!-- PAGE 01: COMMAND CENTER -->
+  <section class="page-view active" id="page-command">
+    <div class="container">
+      <div class="page-banner" data-watermark="IMPERIUM">
+        <div>
+          <span class="banner-kicker">Page 01 // Executive Command Center</span>
+          <h1>Self-Mastery. Strategic Leverage. Quiet Gravity.</h1>
+          <p>An eight-wing operational architecture covering pragmatic realism, asymmetric leverage, social charisma, cognitive conditioning, and live tactical drills.</p>
+        </div>
+        <div style="display:flex; gap:0.7rem;">
+          <button class="btn-gold" onclick="navigateTo('arena')">Enter Tactical Arena →</button>
+          <button class="btn-slate" onclick="navigateTo('warroom')">Open War Room</button>
+        </div>
+      </div>
+
+      <div class="command-hero-grid">
+        <div class="oracle-panel">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <span class="badge-gold" id="oracleCategory">STRATEGIC BRIEFING</span>
+              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-steel);">ACTIVE DIRECTIVE</span>
+            </div>
+            <p class="oracle-quote" id="oracleMainText"></p>
+            <p class="oracle-sub" id="oracleSubText" style="margin-top:0.9rem;"></p>
+          </div>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap; padding-top:1rem; border-top:1px solid var(--border-dim);">
+            <button class="btn-gold" id="newOracleBtn">Cycle Briefing</button>
+            <button class="btn-slate" id="copyOracleBtn">Copy Briefing</button>
+          </div>
+        </div>
+
+        <div class="lux-card" style="justify-content:center; gap:1.3rem;">
+          <div class="card-top-row">
+            <span class="badge-emerald">OPERATOR TELEMETRY</span>
+            <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--gold);" id="dashRankLabel">HIGH COMMANDER</span>
+          </div>
+          <div class="grid-2" style="gap:0.9rem;">
+            <div style="background:var(--bg-abyss); padding:1rem; border:1px solid var(--border-dim);">
+              <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--gold);" id="dashCommandPct">70%</span>
+              <span style="display:block; font-family:var(--font-mono); font-size:0.62rem; color:var(--text-steel); text-transform:uppercase;">Self-Command Index</span>
+            </div>
+            <div style="background:var(--bg-abyss); padding:1rem; border:1px solid var(--border-dim);">
+              <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--emerald);" id="dashArenaScore">0 XP</span>
+              <span style="display:block; font-family:var(--font-mono); font-size:0.62rem; color:var(--text-steel); text-transform:uppercase;">Tactical Arena XP</span>
+            </div>
+            <div style="background:var(--bg-abyss); padding:1rem; border:1px solid var(--border-dim);">
+              <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--text-platinum);">08</span>
+              <span style="display:block; font-family:var(--font-mono); font-size:0.62rem; color:var(--text-steel); text-transform:uppercase;">Operational Wings</span>
+            </div>
+            <div style="background:var(--bg-abyss); padding:1rem; border:1px solid var(--border-dim);">
+              <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--text-platinum);" id="dashVaultCount">0</span>
+              <span style="display:block; font-family:var(--font-mono); font-size:0.62rem; color:var(--text-steel); text-transform:uppercase;">War Room Logs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="section-subhead">Operational Wings (Select Any Wing to Launch)</h2>
+      <div class="grid-4" id="wingPortalGrid"></div>
+    </div>
+  </section>
+
+  <!-- PAGE 02: REALPOLITIK & STATECRAFT -->
+  <section class="page-view" id="page-statecraft">
+    <div class="container">
+      <div class="page-banner" data-watermark="REALISM">
+        <div>
+          <span class="banner-kicker">Page 02 // Pragmatic Statecraft &amp; Realism</span>
+          <h1>Sovereign Statecraft &amp; Realism</h1>
+          <p>Objective observation, proprietary capability, strategic adaptability, second-order consequence mapping, and the Self-Command Audit.</p>
+        </div>
+      </div>
+
+      <h2 class="section-subhead">I. Core Principles of Pragmatic Realism</h2>
+      <div class="grid-3" id="realpolitikGrid"></div>
+
+      <h2 class="section-subhead">II. Self-Command Audit (Interactive Calibration)</h2>
+      <div class="lux-card" style="margin-bottom:1.4rem; flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+        <div>
+          <span class="badge-gold">LIVE CALIBRATION</span>
+          <h3 style="font-family:var(--font-display); font-size:1.3rem; margin-top:0.4rem;">Sovereignty Index: <span id="pillarTotalPct" style="color:var(--gold);">70%</span></h3>
+          <p style="font-size:0.86rem; color:var(--text-steel);">Calibrate each operational pillar from 1 to 10 to audit your daily discipline.</p>
+        </div>
+        <button class="btn-slate" id="resetPillarsBtn">Reset Sliders</button>
+      </div>
+      <div class="grid-2" id="pillarsAuditGrid"></div>
+
+      <h2 class="section-subhead">III. Strategic Guardrails &amp; Calibration</h2>
+      <div class="grid-2" id="calibrationGrid"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('command')">← 01 Command Center</button>
+        <button class="btn-gold" onclick="navigateTo('leverage')">03 Leverage Matrix →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 03: EXECUTIVE LEVERAGE MATRIX -->
+  <section class="page-view" id="page-leverage">
+    <div class="container">
+      <div class="page-banner" data-watermark="LEVERAGE">
+        <div>
+          <span class="banner-kicker">Page 03 // Asymmetric Positioning &amp; Influence</span>
+          <h1>The Executive Leverage Matrix</h1>
+          <p>Navigate organizational hierarchies, guard informational advantage, fortify reputation capital, and execute with impeccable timing.</p>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-bottom:2rem;" id="leverageFoundationsGrid"></div>
+
+      <div class="filter-bar">
+        <input type="text" class="search-input" id="leverageSearchInput" placeholder="Search leverage principles by keyword...">
+        <div class="chip-group" id="leverageDomainChips">
+          <button class="filter-chip active" data-domain="all">All Domains</button>
+          <button class="filter-chip" data-domain="Positioning">Positioning</button>
+          <button class="filter-chip" data-domain="Optics">Optics</button>
+          <button class="filter-chip" data-domain="Alliances">Alliances</button>
+          <button class="filter-chip" data-domain="Execution">Execution</button>
+        </div>
+      </div>
+
+      <div class="grid-3" id="leverageMatrixGrid"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('statecraft')">← 02 Realpolitik</button>
+        <button class="btn-gold" onclick="navigateTo('magnetism')">04 Social Gravity →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 04: SOCIAL GRAVITY -->
+  <section class="page-view" id="page-magnetism">
+    <div class="container">
+      <div class="page-banner" data-watermark="GRAVITY">
+        <div>
+          <span class="banner-kicker">Page 04 // Outward Presence &amp; Psychological Pull</span>
+          <h1>The Architecture of Social Gravity</h1>
+          <p>Generate natural fascination through outward focus, emotional contrast, charismatic archetypes, and the four-stage connection arc.</p>
+        </div>
+      </div>
+
+      <h2 class="section-subhead">I. Three Pillars of Magnetic Presence</h2>
+      <div class="grid-3" id="magnetismPillarsGrid"></div>
+
+      <h2 class="section-subhead">II. High-Gravity Archetypes &amp; Anti-Patterns</h2>
+      <div class="grid-3" id="personasGrid"></div>
+
+      <h2 class="section-subhead">III. The Four-Stage Gravity Arc</h2>
+      <div class="grid-2" id="influencePhasesGrid"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('leverage')">← 03 Leverage Matrix</button>
+        <button class="btn-gold" onclick="navigateTo('mind')">05 Cognitive Architecture →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 05: COGNITION -->
+  <section class="page-view" id="page-mind">
+    <div class="container">
+      <div class="page-banner" data-watermark="COGNITION">
+        <div>
+          <span class="banner-kicker">Page 05 // Internal Programming &amp; Mental Models</span>
+          <h1>Cognitive Conditioning Architecture</h1>
+          <p>Align conscious direction with automatic execution, resolve the Friction Paradox, and imprint high-conviction mental blueprints before sleep.</p>
+        </div>
+      </div>
+
+      <h2 class="section-subhead">I. Conscious Directive vs. Automatic Execution</h2>
+      <div class="grid-3" id="mindLawsGrid"></div>
+
+      <h2 class="section-subhead">II. Alpha-State Imprinting &amp; The Friction Paradox</h2>
+      <div class="grid-3" id="mindProtocolsGrid"></div>
+
+      <h2 class="section-subhead">III. Abundance Mindset, Craft Mastery &amp; Nocturnal Synthesis</h2>
+      <div class="grid-3" id="mindAbundanceGrid"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('magnetism')">← 04 Social Gravity</button>
+        <button class="btn-gold" onclick="navigateTo('frame')">06 Frame &amp; Polarity →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 06: FRAME & POLARITY -->
+  <section class="page-view" id="page-frame">
+    <div class="container">
+      <div class="page-banner" data-watermark="POLARITY">
+        <div>
+          <span class="banner-kicker">Page 06 // Behavioral Authority &amp; Relational Dynamics</span>
+          <h1>Frame Control &amp; Polarity Dynamics</h1>
+          <p>Outcome independence, the Evaluator Stance, Mission-First priority, playful tension, and calibrated physical leadership.</p>
+        </div>
+      </div>
+
+      <h2 class="section-subhead">I. Core Frame &amp; Investment Asymmetry</h2>
+      <div class="grid-2" id="frameMindsetGrid"></div>
+
+      <h2 class="section-subhead">II. Verbal Polarity &amp; Progressive Leadership</h2>
+      <div class="grid-3" id="frameEscalationGrid"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('mind')">← 05 Cognitive Architecture</button>
+        <button class="btn-gold" onclick="navigateTo('arena')">07 Tactical Arena →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 07: TACTICAL ARENA -->
+  <section class="page-view" id="page-arena">
+    <div class="container">
+      <div class="page-banner" data-watermark="ARENA">
+        <div>
+          <span class="banner-kicker">Page 07 // Interactive Recall &amp; Decision Drills</span>
+          <h1>The Tactical Arena</h1>
+          <p>Sharpen your strategic recall with 3D-flip flashcards and test your judgment against high-pressure social and executive scenarios.</p>
+        </div>
+      </div>
+
+      <div class="arena-layout">
+        <div>
+          <h2 class="section-subhead" style="margin-top:0;">I. 3D Strategic Flashcard Drill</h2>
+          <div class="flashcard-stage" id="flashcardStage" onclick="flipFlashcard()">
+            <div class="flashcard-inner">
+              <div class="flashcard-face">
+                <div class="card-top-row">
+                  <span class="badge-gold" id="fcDeckTag">STRATEGIC DRILL</span>
+                  <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-steel);" id="fcCounter">1 / 8</span>
+                </div>
+                <div>
+                  <p style="font-family:var(--font-mono); font-size:0.68rem; color:var(--gold); text-transform:uppercase; margin-bottom:0.5rem;">Prompt / Principle</p>
+                  <h3 style="font-family:var(--font-display); font-size:1.45rem;" id="fcFrontTitle"></h3>
+                </div>
+                <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--text-steel);">[ Click Card to Flip for Tactical Execution ]</span>
+              </div>
+
+              <div class="flashcard-face flashcard-back">
+                <div class="card-top-row">
+                  <span class="badge-emerald">TACTICAL EXECUTION</span>
+                  <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--emerald);">VERIFIED DOCTRINE</span>
+                </div>
+                <div>
+                  <p style="font-size:1.02rem; color:var(--text-platinum);" id="fcBackBody"></p>
+                </div>
+                <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--text-steel);">[ Click to Flip Back ]</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; gap:0.75rem;">
+            <button class="btn-slate" onclick="prevFlashcard()">← Previous</button>
+            <button class="btn-slate" onclick="flipFlashcard()">Flip Card ↻</button>
+            <button class="btn-gold" onclick="nextFlashcard()">Next Card →</button>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="section-subhead" style="margin-top:0;">II. Live Scenario Simulator</h2>
+          <div class="lux-card">
+            <div class="card-top-row">
+              <span class="badge-outline" id="simScenarioNum">SCENARIO 01</span>
+              <span class="badge-emerald" id="simXpDisplay">XP: 0</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.18rem;" id="simQuestion"></h3>
+            <div id="simOptionsBox" style="margin-top:0.5rem;"></div>
+            <div id="simFeedbackBox" style="display:none; padding:0.9rem; background:var(--bg-abyss); border-left:3px solid var(--gold); font-size:0.88rem; color:var(--text-steel);"></div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button class="btn-gold" onclick="nextScenario()">Next Scenario →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('frame')">← 06 Frame &amp; Polarity</button>
+        <button class="btn-gold" onclick="navigateTo('warroom')">08 War Room &amp; Vault →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAGE 08: WAR ROOM & APHORISM VAULT -->
+  <section class="page-view" id="page-warroom">
+    <div class="container">
+      <div class="page-banner" data-watermark="VAULT">
+        <div>
+          <span class="banner-kicker">Page 08 // Personal Strategy Log &amp; Aphorism Vault</span>
+          <h1>Sovereign War Room &amp; Aphorism Vault</h1>
+          <p>Record your personal field notes, manage your bookmarked principles, and copy distilled masculine aphorisms and bio signatures.</p>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-bottom:2.8rem;">
+        <div>
+          <h2 class="section-subhead" style="margin-top:0;">I. Personal Strategy Journal</h2>
+          <div class="journal-composer">
+            <span class="badge-gold">NEW FIELD LOG</span>
+            <textarea class="journal-textarea" id="journalInput" placeholder="Write a personal rule, strategic observation, or commitment..."></textarea>
+            <button class="btn-gold" id="addJournalBtn">Save to War Room Log</button>
+          </div>
+          <div id="journalList" style="display:flex; flex-direction:column; gap:0.8rem;"></div>
+        </div>
+
+        <div>
+          <h2 class="section-subhead" style="margin-top:0;">II. Saved Bookmarks (<span id="warroomSavedCount">0</span>)</h2>
+          <div id="savedBookmarksList" style="display:flex; flex-direction:column; gap:0.8rem;"></div>
+        </div>
+      </div>
+
+      <h2 class="section-subhead">III. The Sovereign Aphorism Vault</h2>
+      <div class="filter-bar">
+        <div class="chip-group" id="vaultCatChips">
+          <button class="filter-chip active" data-cat="all">All Aphorisms</button>
+          <button class="filter-chip" data-cat="Stillness">Stillness &amp; Gravity</button>
+          <button class="filter-chip" data-cat="Self-Rule">Self-Rule &amp; Iron</button>
+          <button class="filter-chip" data-cat="Mystery">Depth &amp; Mystery</button>
+          <button class="filter-chip" data-cat="Boundaries">Unbending Standards</button>
+        </div>
+      </div>
+      <div class="grid-2" id="aphorismsGrid" style="margin-bottom:2.6rem;"></div>
+
+      <h2 class="section-subhead">IV. Distilled Bio Signatures (One-Click Copy)</h2>
+      <div class="chip-group" id="bioSignaturesStrip"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('arena')">← 07 Tactical Arena</button>
+        <button class="btn-gold" onclick="navigateTo('command')">Return to 01 Command Center ↺</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- GLOBAL SEARCH MODAL -->
+<div class="modal-backdrop" id="searchModal">
+  <div class="modal-box">
+    <div style="padding:1rem 1.4rem; border-bottom:1px solid var(--border-dim); display:flex; justify-content:space-between; align-items:center;">
+      <span class="badge-gold">GLOBAL MULTI-PAGE SEARCH</span>
+      <button class="filter-chip" id="closeSearchModalBtn">ESC</button>
+    </div>
+    <input type="text" class="search-input" id="globalSearchInput" style="width:100%; border:none; border-bottom:1px solid var(--border-dim); padding:1.1rem 1.4rem;" placeholder="Search across all 8 wings...">
+    <div id="globalSearchResults" style="max-height:360px; overflow-y:auto; padding:0.7rem;"></div>
+  </div>
+</div>
+
+<div class="toast" id="toastMsg">Copied to Clipboard</div>
+
+<script>
+  const WING_PORTALS = [
+    { page: 'statecraft', num: '02', title: 'Realpolitik & Statecraft', desc: 'Pragmatic realism, second-order consequence mapping, and the interactive Self-Command Audit.' },
+    { page: 'leverage', num: '03', title: 'Executive Leverage Matrix', desc: 'Domain-organized principles for status positioning, strategic silence, and asymmetric execution.' },
+    { page: 'magnetism', num: '04', title: 'Social Gravity', desc: 'Outward attention, charismatic archetypes, and the four-stage psychological connection arc.' },
+    { page: 'mind', num: '05', title: 'Cognitive Conditioning', desc: 'Mental imprinting, resolving the Friction Paradox, and alpha-state visualization protocols.' },
+    { page: 'frame', num: '06', title: 'Frame & Polarity', desc: 'Outcome independence, the Evaluator Stance, Mission-First priority, and kinesthetic leadership.' },
+    { page: 'arena', num: '07', title: 'Tactical Arena', desc: 'Interactive 3D flashcards and live decision scenarios to test your strategic reflexes.' },
+    { page: 'warroom', num: '08', title: 'War Room & Vault', desc: 'Private browser-saved strategy journal, bookmarked directives, and original aphorisms.' },
+    { page: 'command', num: '01', title: 'Command Telemetry', desc: 'Central executive overview, live Sovereignty Index, and Strategic Briefing generator.' }
+  ];
+
+  const REALPOLITIK_PRINCIPLES = [
+    { id: 'rp1', code: 'RP-01', tag: 'Objective Realism', title: 'Assess the World by Demonstrated Action', principle: 'Separate idealistic wishes from observable human patterns.', execution: 'Audit repeated behavior rather than verbal assurances when extending trust.' },
+    { id: 'rp2', code: 'RP-02', tag: 'Sovereign Capacity', title: 'Forge Independent Reserves', principle: 'Borrowed leverage evaporates the moment interests diverge.', execution: 'Build proprietary skills, liquid capital, and emotional self-sufficiency.' },
+    { id: 'rp3', code: 'RP-03', tag: 'Tactical Fluidity', title: 'Pivot When the Terrain Shifts', principle: 'Yesterday’s winning formula becomes tomorrow’s liability if markets or environments evolve.', execution: 'Stay rigid on your ultimate objective but ruthlessly adaptable in your methodology.' },
+    { id: 'rp4', code: 'RP-04', tag: 'Second-Order Vision', title: 'Calculate Third-Order Consequences', principle: 'Immediate relief often masks long-term structural cost.', execution: 'Before committing capital or emotion, map out the repercussions 6 and 24 months ahead.' },
+    { id: 'rp5', code: 'RP-05', tag: 'Unwavering Gravity', title: 'Anchor Your Reputation in Consistency', principle: 'Vacillation and chronic people-pleasing invite disrespect.', execution: 'Speak rarely, honor commitments with precision, and stand firm once a decision is made.' },
+    { id: 'rp6', code: 'RP-06', tag: 'Force & Vigilance', title: 'Unite Decisive Strength with Situational Awareness', principle: 'Raw courage without discernment walks into traps; cleverness without backbone stalls.', execution: 'Pair assertive execution with sharp analysis of hidden incentives.' },
+    { id: 'rp7', code: 'RP-07', tag: 'Internal Validation', title: 'Sever Dependence on External Applause', principle: 'Public sentiment fluctuates with convenience; respect endures through boundaries.', execution: 'Anchor choices in your own code rather than chasing universal popularity.' },
+    { id: 'rp8', code: 'RP-08', tag: 'Preemptive Fortification', title: 'Construct Levees During Fair Weather', principle: 'Chaos strikes without warning; only prior preparation limits the damage.', execution: 'Automate financial buffers, physical conditioning, and backup options while conditions are calm.' },
+    { id: 'rp9', code: 'RP-09', tag: 'Unvarnished Counsel', title: 'Invite Candor, Reject Flattery', principle: 'Echo chambers dull your edge while targeted critique accelerates mastery.', execution: 'Solicit direct feedback from proven operators while retaining final ownership of the call.' },
+    { id: 'rp10', code: 'RP-10', tag: 'Earned Foundation', title: 'Convert Fortunate Openings into Permanent Skill', principle: 'Circumstance may open the gate, but only competence holds the territory.', execution: 'When handed an advantage, immediately build the underlying mastery required to sustain it.' },
+    { id: 'rp11', code: 'RP-11', tag: 'Pragmatic Tradeoffs', title: 'Select the Least Costly Imperfect Path', principle: 'Waiting for a zero-risk option guarantees paralysis.', execution: 'Weigh realistic probabilities, accept the manageable downside, and move decisively.' },
+    { id: 'rp12', code: 'RP-12', tag: 'Sovereign Dichotomy', title: 'Command Your Effort, Release the Uncontrollable', principle: 'External volatility is inevitable; your preparation and response belong entirely to you.', execution: 'Pour 100% of your bandwidth into execution and adaptability rather than lamenting luck.' }
+  ];
+
+  const PILLARS_10 = [
+    { id: 'pl1', idx: '01', name: 'Impulse Governance', desc: 'Refuse to let fleeting moods or appetites dictate your next move.' },
+    { id: 'pl2', idx: '02', name: 'Self-Reliance', desc: 'Maintain financial, professional, and emotional autonomy.' },
+    { id: 'pl3', idx: '03', name: 'Long-Horizon Strategy', desc: 'Trade short-term dopamine for compounding multi-year leverage.' },
+    { id: 'pl4', idx: '04', name: 'Methodological Agility', desc: 'Discard ineffective tactics immediately when data disproves them.' },
+    { id: 'pl5', idx: '05', name: 'Behavioral Integrity', desc: 'Align your private habits with the standards you project publicly.' },
+    { id: 'pl6', idx: '06', name: 'Pattern Discernment', desc: 'Read incentives and track records rather than flattering words.' },
+    { id: 'pl7', idx: '07', name: 'Antifragile Preparation', desc: 'Maintain redundancy before turbulence arrives.' },
+    { id: 'pl8', idx: '08', name: 'Deliberate Execution', desc: 'Assess the risk, lock in the vector, and act without hesitation.' },
+    { id: 'pl9', idx: '09', name: 'Independent Judgment', desc: 'Extract value from criticism without surrendering your sovereignty.' },
+    { id: 'pl10', idx: '10', name: 'Measured Restraint', desc: 'Know when holding fire carries greater power than striking.' }
+  ];
+
+  const CALIBRATIONS_4 = [
+    { tag: 'Calibration I', title: 'Respect Outlasts Intimidation', desc: 'Coercion breeds covert resistance; genuine authority is built on competence, fairness, and firm boundaries.' },
+    { tag: 'Calibration II', title: 'Strategic Awareness Is Not Paranoia', desc: 'Understanding human incentives allows you to build mutually beneficial alliances without naive blind spots.' },
+    { tag: 'Calibration III', title: 'Substance Over Theatrics', desc: 'Posturing collapses under real pressure. Quiet reserves and verified capability require no advertisement.' },
+    { tag: 'Calibration IV', title: 'Effectiveness Anchored in Honor', desc: 'Ambition divorced from personal integrity hollows out the victor. Build an empire you respect in solitude.' }
+  ];
+
+  const LEVERAGE_FOUNDATIONS = [
+    { tag: 'Pillar I', title: 'Emotional Equilibrium', desc: 'Reactive anger or vanity clouds strategic vision. The operator who governs his internal state governs the room.' },
+    { tag: 'Pillar II', title: 'Strategic Indirection', desc: 'Telegraphing every move invites counter-force. Advance smoothly with velvet diplomacy backed by iron resolve.' },
+    { tag: 'Pillar III', title: 'Incentive Realism', desc: 'Evaluate social and professional arenas through the lens of human self-interest and structural leverage.' }
+  ];
+
+  const LEVERAGE_MATRIX = [
+    { domain: 'Positioning', text: 'Ensure senior stakeholders feel securely elevated by your contributions.' },
+    { domain: 'Alliances', text: 'Verify loyalty through aligned incentives rather than blind familiarity.' },
+    { domain: 'Optics', text: 'Keep upcoming initiatives private until execution is irreversible.' },
+    { domain: 'Optics', text: 'Practice strategic brevity; measured silence amplifies authority.' },
+    { domain: 'Positioning', text: 'Treat your reputation as your primary capital asset.' },
+    { domain: 'Optics', text: 'Command distinct visibility rather than fading into mediocrity.' },
+    { domain: 'Alliances', text: 'Orchestrate collective effort and anchor the strategic vision.' },
+    { domain: 'Positioning', text: 'Draw counterparts onto your home turf through compelling value.' },
+    { domain: 'Execution', text: 'Demonstrate superiority through undeniable results, never petty debate.' },
+    { domain: 'Alliances', text: 'Quarantine yourself from chronic cynics and chaotic spirals.' },
+    { domain: 'Positioning', text: 'Become the indispensable linchpin within your ecosystem.' },
+    { domain: 'Alliances', text: 'Disarm skepticism through genuine, unexpected acts of candor.' },
+    { domain: 'Alliances', text: 'Frame proposals around the counterpart’s clear self-interest.' },
+    { domain: 'Optics', text: 'Gather thorough intelligence through observant, cordial presence.' },
+    { domain: 'Execution', text: 'Resolve persistent structural threats completely so they cannot resurface.' },
+    { domain: 'Positioning', text: 'Regulate your availability; scarcity heightens perceived value.' },
+    { domain: 'Execution', text: 'Prevent competitors from mapping your habits through calculated variety.' },
+    { domain: 'Alliances', text: 'Remain connected to the pulse of the network; avoid walled isolation.' },
+    { domain: 'Alliances', text: 'Assess the temperament and leverage of every counterpart before engaging.' },
+    { domain: 'Positioning', text: 'Preserve your autonomy above partisan entanglements.' },
+    { domain: 'Optics', text: 'Understate your hand so rivals underestimate your preparation.' },
+    { domain: 'Execution', text: 'Yield tactical ground temporarily to regroup and overtake later.' },
+    { domain: 'Execution', text: 'Focus your resources on a single decisive breakthrough point.' },
+    { domain: 'Positioning', text: 'Master subtle diplomacy, composure, and institutional grace.' },
+    { domain: 'Positioning', text: 'Author your own identity rather than accepting societal labels.' },
+    { domain: 'Positioning', text: 'Maintain spotless conduct and delegate high-friction tasks wisely.' },
+    { domain: 'Alliances', text: 'Unite people around a bold, transcendent mission.' },
+    { domain: 'Execution', text: 'Execute with unmistakable conviction; hesitation breeds doubt.' },
+    { domain: 'Execution', text: 'Architect the entire endgame before taking the first step.' },
+    { domain: 'Optics', text: 'Conceal the sweat behind your mastery so execution looks effortless.' },
+    { domain: 'Positioning', text: 'Structure the choices so every path advances your objective.' },
+    { domain: 'Optics', text: 'Speak to people’s highest aspirations rather than bleak mundanity.' },
+    { domain: 'Alliances', text: 'Identify the core motivator driving each individual.' },
+    { domain: 'Positioning', text: 'Carry yourself with regal self-respect to command corresponding treatment.' },
+    { domain: 'Execution', text: 'Read the macro-rhythm of events and strike at the inflection point.' },
+    { domain: 'Optics', text: 'Starve trivial provocations by refusing to acknowledge them.' },
+    { domain: 'Optics', text: 'Anchor your message in vivid, memorable symbols and experiences.' },
+    { domain: 'Optics', text: 'Maintain unconventional clarity inwardly while blending smoothly outwardly.' },
+    { domain: 'Execution', text: 'Remain the calm center while competitors react to turbulence.' },
+    { domain: 'Positioning', text: 'Pay full price for value; "free" favors carry hidden obligations.' },
+    { domain: 'Positioning', text: 'Carve an original path rather than living in a predecessor’s shadow.' },
+    { domain: 'Alliances', text: 'Address the root source of group resistance to realign the whole.' },
+    { domain: 'Alliances', text: 'Win genuine buy-in by aligning with others’ emotional drivers.' },
+    { domain: 'Optics', text: 'Reflect counterparts’ reality calmly to neutralize their aggression.' },
+    { domain: 'Execution', text: 'Introduce bold innovations through familiar, reassuring forms.' },
+    { domain: 'Optics', text: 'Allow relatable human traits to prevent envious backlash.' },
+    { domain: 'Execution', text: 'Consolidate victory at the peak rather than overextending.' },
+    { domain: 'Execution', text: 'Stay fluid, adaptable, and impossible to corner.' }
+  ];
+
+  const MAGNETISM_PILLARS = [
+    { tag: 'Gravity 01', title: 'Psychological Intrigue', desc: 'True magnetism operates on the imagination. It alternates warmth with mystery, leaving space for the other person’s mind to invest.' },
+    { tag: 'Gravity 02', title: 'Emotional Resonance Over Surface Impulse', desc: 'Fleeting excitement fades quickly; inspiring deep emotional wonder and shared meaning creates lasting pull.' },
+    { tag: 'Gravity 03', title: 'Radical Outward Presence', desc: 'Self-consciousness kills charisma. Direct your radar entirely outward to read unspoken desires and make the counterpart feel deeply understood.' }
+  ];
+
+  const PERSONAS_9 = [
+    { id: 'mp1', name: 'The Catalyst', trait: 'Radiates elevated sensory presence and liberation from routine.', tactic: 'Combine poise, visual distinction, and an aura of rare adventure.' },
+    { id: 'mp2', name: 'The Unapologetic Pursuer', trait: 'Projects focused, shameless appreciation and expressive intensity.', tactic: 'Communicate bold admiration without fear of judgment or hesitation.' },
+    { id: 'mp3', name: 'The Mirror of Greatness', trait: 'Reflects the counterpart’s highest unfulfilled ideal and noble potential.', tactic: 'Identify what is missing in their world and embody that exact elevation.' },
+    { id: 'mp4', name: 'The Sovereign Nonconformist', trait: 'Defies predictable categories with effortless, self-contained style.', tactic: 'Walk your own line with playful independence and zero need for permission.' },
+    { id: 'mp5', name: 'The Disarming Natural', trait: 'Melts guarded cynicism through genuine spontaneity and warmth.', tactic: 'Drop defensive armor and bring playful, unscripted lightness into heavy rooms.' },
+    { id: 'mp6', name: 'The Master of Contrast', trait: 'Alternates warm engagement with composed, self-sufficient space.', tactic: 'Never over-saturate; let strategic absence sharpen anticipation.' },
+    { id: 'mp7', name: 'The Ego Alchemist', trait: 'Makes counterparts feel articulate, fascinating, and validated.', tactic: 'Spotlight their strengths, listen intently, and sidestep fruitless friction.' },
+    { id: 'mp8', name: 'The Visionary Dynamo', trait: 'Commands gravity through unshakable conviction and inner detachment.', tactic: 'Anchor yourself in a mission larger than yourself while staying calm under fire.' },
+    { id: 'mp9', name: 'The Anti-Magnet (Guardrail)', trait: 'Repels connection through neediness, over-explaining, and self-absorption.', tactic: 'Eliminate validation-seeking, rigid pedantry, and impatience from your conduct.' }
+  ];
+
+  const INFLUENCE_PHASES = [
+    { phase: 'Stage 01', title: 'Spark Intrigue & Distinct Presence', steps: ['Select receptive ground', 'Establish disarming rapport', 'Project intriguing complexity', 'Demonstrate social value', 'Identify unfulfilled aspirations', 'Plant evocative possibilities', 'Enter their worldview', 'Ignite curiosity'] },
+    { phase: 'Stage 02', title: 'Deepen Engagement & Contrast', steps: ['Maintain playful unpredictability', 'Speak with evocative imagery', 'Notice subtle personal details', 'Balance warm presence with space', 'Show relatable humanity', 'Elevate ordinary moments', 'Create a shared private world'] },
+    { phase: 'Stage 03', title: 'Heighten Emotional Investment', steps: ['Demonstrate decisive action', 'Awaken carefree spontaneity', 'Challenge stale conventions', 'Connect on higher ideals', 'Contrast challenge with warmth'] },
+    { phase: 'Stage 04', title: 'Consolidate the Bond', steps: ['Step back to invite pursuit', 'Lead with composed physical warmth', 'Make the decisive move', 'Sustain mystery after victory'] }
+  ];
+
+  const MIND_LAWS = [
+    { id: 'ml1', tag: 'The Dual Helm', title: 'Conscious Architect, Automatic Engine', body: 'Your conscious mind selects the coordinates; your deeper mind executes whatever blueprint is habitually impressed upon it without questioning.', takeaway: 'Guard your internal monologue—every repeated thought is a command to the engine.' },
+    { id: 'ml2', tag: 'Fertile Ground', title: 'The Principle of Impersonal Growth', body: 'Just as soil nurtures any seed planted within it, the deeper mind brings both empowering convictions and neglected doubts into behavioral reality.', takeaway: 'Uproot scarcity narratives and deliberately plant clear, constructive expectations.' },
+    { id: 'ml3', tag: 'Inner Conviction', title: 'Belief as the Catalyst', body: 'External rituals hold zero power on their own; outcomes shift the moment an standard is accepted as true at the core identity level.', takeaway: 'Align your emotional conviction with your stated objective.' }
+  ];
+
+  const MIND_PROTOCOLS = [
+    { id: 'mp_1', tag: 'The Friction Paradox', title: 'Why Imagination Defeats Straining Force', body: 'When white-knuckled effort clashes with internal imagination, imagination always wins. Straining reinforces the feeling of lack.', takeaway: 'Replace tense force with relaxed, confident expectancy.' },
+    { id: 'mp_2', tag: 'Alpha Threshold', title: 'Pre-Sleep & Waking Imprinting', body: 'The 10 minutes before sleep and immediately upon waking bypass conscious skepticism, offering direct access to deep conditioning.', takeaway: 'Never review anxieties in bed; feed your mind the completed vision before rest.' },
+    { id: 'mp_3', tag: 'Three Protocols', title: 'Mental Cinema, Mantras & Prior Gratitude', body: '1. Mental Cinema: Replay a vivid 10-second scene of the achieved goal.\n2. Condensed Directive: Loop a calm, 3-word declaration in a drowsy state.\n3. Prior Gratitude: Experience the calm satisfaction of completion in advance.', takeaway: 'Feel the reality of the outcome until it becomes natural.' }
+  ];
+
+  const MIND_ABUNDANCE = [
+    { id: 'ma1', tag: 'Abundance Conditioning', title: 'Eliminate Resentment Toward Prosperity', body: 'Disparaging success or envying peers programs your own mind to view wealth as alien. Celebrate excellence wherever you see it.', takeaway: 'Treat your mind as a compounding vault of value and capability.' },
+    { id: 'ma2', tag: 'The Mastery Triad', title: 'Three Pillars of Lasting Achievement', body: '1. Cultivate deep passion for the craft.\n2. Specialize until your skill is unmistakable.\n3. Ensure your work delivers real leverage to others.', takeaway: 'Competence paired with service creates unstoppable momentum.' },
+    { id: 'ma3', tag: 'Nocturnal Synthesis', title: 'Overnight Problem Resolution & Habit Swapping', body: 'Review complex challenges calmly before sleep and let your deeper mind synthesize solutions overnight. Replace unwanted habits by focusing entirely on the desired opposite.', takeaway: 'Release resentment quickly to free mental bandwidth for creation.' }
+  ];
+
+  const FRAME_MINDSET = [
+    { id: 'fm1', tag: 'Dynamic 01 — Investment Balance', title: 'Outcome Independence & Non-Neediness', body: 'Eagerness to please signals low self-valuation. Attraction and respect grow in direct proportion to what the other person invests in earning your attention.', takeaway: 'Match and slightly trail investment early; never over-extend to buy approval.' },
+    { id: 'fm2', tag: 'Dynamic 02 — The Evaluator Stance', title: 'Screen for Standards Beyond Surface Looks', body: 'Replace "I hope I impress her" with "Let’s see if her character, energy, and values match my standards." Qualifying others flips the entire dynamic.', takeaway: 'You hold the frame when you genuinely vet who enters your inner circle.' },
+    { id: 'fm3', tag: 'Dynamic 03 — Behavioral Gravity', title: 'Composure, Decisiveness & Social Proof', body: 'Calm authority, unbothered humor, and visible social preselection act as biological amplifiers of respect and attraction.', takeaway: 'Let your conduct demonstrate that you are comfortable in any environment.' },
+    { id: 'fm4', tag: 'Dynamic 04 — Sovereign Mission', title: 'Purpose First, Romance Second', body: 'A man consumed by a compelling life mission naturally radiates ambition, scarcity of time, and emotional stability.', takeaway: 'Command respect like an architect building a legacy, never a supplicant seeking validation.' }
+  ];
+
+  const FRAME_ESCALATION = [
+    { id: 'fe1', tag: 'Polarity 01', title: 'Subtext, Push-Pull & Playful Challenge', body: 'Avoid sterile interview mode. Use teasing implication, alternate warm validation with playful challenge, and playfully frame her as the one pursuing you.', takeaway: 'Spark emotion through contrast rather than predictable agreement.' },
+    { id: 'fe2', tag: 'Polarity 02', title: 'Progressive Kinesthetic Leadership', body: 'Establish warm, natural physical touch early—handshakes, guiding a shoulder, high-fives—so physical closeness feels effortless rather than abrupt.', takeaway: 'Lead progressively and calibrate smoothly to comfort.' },
+    { id: 'fe3', tag: 'Polarity 03', title: 'Decisive Leadership & Smooth Transitions', body: 'When tension peaks, hold calm eye contact and lead without hesitation. Frame logistical transitions naturally so every step forward feels spontaneous and unforced.', takeaway: 'Confidence removes awkwardness; hesitation creates it.' }
+  ];
+
+  const APHORISMS_24 = [
+    { id: 'ap1', cat: 'Stillness', text: 'Speak less than expected; let your preparation carry the room.' },
+    { id: 'ap2', cat: 'Stillness', text: 'Build in private until the outcome requires no explanation.' },
+    { id: 'ap3', cat: 'Stillness', text: 'Unmoved by noise. Anchored in execution.' },
+    { id: 'ap4', cat: 'Stillness', text: 'Composure under fire is the rarest form of authority.' },
+    { id: 'ap5', cat: 'Stillness', text: 'Those who know their weight never scramble for the spotlight.' },
+    { id: 'ap6', cat: 'Stillness', text: 'Fewer declarations. Higher standards.' },
+    { id: 'ap7', cat: 'Self-Rule', text: 'Conquer your own impulses before seeking to lead anyone else.' },
+    { id: 'ap8', cat: 'Self-Rule', text: 'Discipline keeps the promises that comfort breaks.' },
+    { id: 'ap9', cat: 'Self-Rule', text: 'Your true rank is revealed by what you do in unobserved hours.' },
+    { id: 'ap10', cat: 'Self-Rule', text: 'Govern your appetite, or be governed by anyone who dangles bait.' },
+    { id: 'ap11', cat: 'Self-Rule', text: 'Relentless consistency outlasts bursts of unchanneled intensity.' },
+    { id: 'ap12', cat: 'Self-Rule', text: 'Self-command is the bedrock of all external freedom.' },
+    { id: 'ap13', cat: 'Mystery', text: 'Reveal your work, never your entire blueprint.' },
+    { id: 'ap14', cat: 'Mystery', text: 'Private counsel. Clear vector. Unhurried ambition.' },
+    { id: 'ap15', cat: 'Mystery', text: 'Nothing to prove to the crowd; everything to build for the legacy.' },
+    { id: 'ap16', cat: 'Mystery', text: 'Depth over theatrics. Sovereignty over applause.' },
+    { id: 'ap17', cat: 'Mystery', text: 'Outgrow the need to explain your trajectory to spectators.' },
+    { id: 'ap18', cat: 'Mystery', text: 'Selective with access. Generous with allies.' },
+    { id: 'ap19', cat: 'Boundaries', text: 'Never trade long-term self-respect for momentary relief.' },
+    { id: 'ap20', cat: 'Boundaries', text: 'A man with non-negotiable standards cannot be bought cheaply.' },
+    { id: 'ap21', cat: 'Boundaries', text: 'Step away cleanly from any table that taxes your peace.' },
+    { id: 'ap22', cat: 'Boundaries', text: 'Become the operator you respect when the room is empty.' },
+    { id: 'ap23', cat: 'Boundaries', text: 'Stop auditioning for approval; set the standard instead.' },
+    { id: 'ap24', cat: 'Boundaries', text: 'Treat your word as an iron contract.' }
+  ];
+
+  const BIO_SIGNATURES = [
+    'Forged, not borrowed.',
+    'Quiet velocity.',
+    'Composed under pressure.',
+    'Earned in full.',
+    'Unshaken. Unhurried.',
+    'Mission over mood.',
+    'Anchored in iron.',
+    'Sovereign by design.',
+    'Substance over spectacle.',
+    'Clarity. Command. Consistency.'
+  ];
+
+  const FLASHCARDS_DECK = [
+    { tag: 'REALPOLITIK // RP-01', q: 'How should a sovereign operator evaluate people and alliances?', a: 'By demonstrated behavioral patterns and aligned incentives—never by verbal promises or wishful idealism.' },
+    { tag: 'REALPOLITIK // RP-06', q: 'Why must decisive force always be paired with situational vigilance?', a: 'Raw strength without discernment walks into hidden traps, while cleverness without backbone fails to deter aggression.' },
+    { tag: 'LEVERAGE // OPTICS', q: 'Why does strategic brevity amplify executive authority?', a: 'Saying less than necessary prevents accidental leaks, creates interpretive gravity, and forces others to fill the silence.' },
+    { tag: 'LEVERAGE // EXECUTION', q: 'What is the principle of Endgame Architecture?', a: 'Map the entire sequence, potential counter-moves, and exit conditions before taking the first public step.' },
+    { tag: 'SOCIAL GRAVITY // 03', q: 'What is the #1 killer of social charisma?', a: 'Inward self-absorption and anxiety. Magnetic presence directs attention 100% outward to read and captivate the counterpart.' },
+    { tag: 'SOCIAL GRAVITY // 06', q: 'How does the Master of Contrast sustain high desire?', a: 'By alternating warm, undivided presence with purposeful space and autonomy—preventing over-saturation.' },
+    { tag: 'COGNITION // PARADOX', q: 'What does the Friction Paradox state about willpower?', a: 'When tense willpower conflicts with internal imagination, imagination wins. Imprint goals in a calm, alpha state without strain.' },
+    { tag: 'FRAME // DYNAMIC 02', q: 'What is the Evaluator Stance in social dynamics?', a: 'Shifting from "Do they approve of me?" to "Do their values, energy, and character meet my standards?"' }
+  ];
+
+  const SCENARIOS = [
+    {
+      num: 'SCENARIO 01 // EXECUTIVE LEVERAGE',
+      q: 'In a high-stakes executive meeting, a peer attempts to bait you with a sharp, emotional critique of your project timeline. What is the sovereign response?',
+      options: [
+        { text: 'Launch an immediate, loud counter-attack to prove dominance.', correct: false, feedback: 'Reactive emotion lowers your status and validates their bait.' },
+        { text: 'Pause calmly, address the core data point without defensiveness, and pivot to the solution you already prepared.', correct: true, feedback: 'Correct (+25 XP). Emotional equilibrium + prepared competence neutralizes provocation instantly.' },
+        { text: 'Apologize profusely and promise to work weekends to make everyone happy.', correct: false, feedback: 'Supplication invites further contempt and erodes your boundaries.' }
+      ]
+    },
+    {
+      num: 'SCENARIO 02 // SOCIAL POLARITY & FRAME',
+      q: 'You meet someone intriguing who gives you a playful tease testing your confidence. How do you hold the Evaluator Frame?',
+      options: [
+        { text: 'Over-explain your accomplishments so she realizes you are impressive.', correct: false, feedback: 'Auditioning and seeking validation breaks magnetic tension.' },
+        { text: 'Smirk with unbothered amusement, agree-and-amplify playfully, and flip the qualification back onto her.', correct: true, feedback: 'Correct (+25 XP). Playful composure and qualification demonstrate outcome independence.' },
+        { text: 'Become visibly defensive and withdraw from the conversation.', correct: false, feedback: 'Defensiveness signals a fragile ego.' }
+      ]
+    },
+    {
+      num: 'SCENARIO 03 // COGNITIVE CONDITIONING',
+      q: 'You are working toward a major financial and professional milestone, but find yourself straining anxiously before sleep. What protocol applies?',
+      options: [
+        { text: 'Force yourself to stay awake for 3 more hours worrying about every obstacle.', correct: false, feedback: 'Anxious straining triggers the Friction Paradox and programs scarcity.' },
+        { text: 'Enter a relaxed, drowsy state and loop a vivid 10-second mental scene of the completed milestone with calm gratitude.', correct: true, feedback: 'Correct (+25 XP). Alpha-state visualization bypasses conscious resistance and programs expectant conviction.' },
+        { text: 'Wait for external luck before believing you are capable.', correct: false, feedback: 'Inner conviction precedes external execution.' }
+      ]
+    }
+  ];
+
+  let savedItems = JSON.parse(localStorage.getItem('imperium_saved_v2') || '[]');
+  let journalEntries = JSON.parse(localStorage.getItem('imperium_journal_v2') || '[{"id":"j0","date":"2026","text":"Directive 01: Guard my time, compound my skills in silence, and judge every alliance by demonstrated action."}]');
+  let pillarScores = JSON.parse(localStorage.getItem('imperium_pillars_v2') || '{"pl1":7,"pl2":7,"pl3":7,"pl4":7,"pl5":7,"pl6":7,"pl7":7,"pl8":7,"pl9":7,"pl10":7}');
+  let arenaXp = parseInt(localStorage.getItem('imperium_xp_v2') || '0', 10);
+  let activeLeverageDomain = 'all';
+  let activeVaultCat = 'all';
+  let fcIndex = 0;
+  let simIndex = 0;
+
+  const savedTheme = localStorage.getItem('imperium_theme') || 'dark';
+  if (savedTheme === 'light') {
+    document.documentElement.classList.add('light-theme');
+    document.getElementById('themeIcon').textContent = '🌙';
+  }
+
+  document.getElementById('themeToggleBtn').addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light-theme');
+    localStorage.setItem('imperium_theme', isLight ? 'light' : 'dark');
+    document.getElementById('themeIcon').textContent = isLight ? '🌙' : '☀️';
+    showToast(isLight ? 'Day Mode Engaged' : 'Night Mode Engaged');
+  });
+
+  function showToast(msg) {
+    const t = document.getElementById('toastMsg');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(window._tTimer);
+    window._tTimer = setTimeout(() => t.classList.remove('show'), 2200);
+  }
+
+  function copyToClipboard(txt) {
+    navigator.clipboard.writeText(txt).then(() => showToast('Copied to Clipboard'));
+  }
+
+  function toggleSave(id, title, body, badge) {
+    const idx = savedItems.findIndex(x => x.id === id);
+    if (idx > -1) {
+      savedItems.splice(idx, 1);
+      showToast('Removed from Vault');
+    } else {
+      savedItems.push({ id, title, body, badge });
+      showToast('Saved to War Room Vault');
+    }
+    localStorage.setItem('imperium_saved_v2', JSON.stringify(savedItems));
+    renderAll();
+  }
+
+  window.navigateTo = function(pageId) {
+    document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + pageId);
+    if (target) target.classList.add('active');
+
+    document.querySelectorAll('#pageNav .page-link').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.page === pageId);
+    });
+    document.querySelectorAll('.mobile-bottom-dock .dock-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.page === pageId);
+    });
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  document.querySelectorAll('#pageNav .page-link').forEach(btn => {
+    btn.addEventListener('click', () => navigateTo(btn.dataset.page));
+  });
+
+  function renderCommandCenter() {
+    document.getElementById('wingPortalGrid').innerHTML = WING_PORTALS.map(w => `
+      <div class="lux-card portal-card" onclick="navigateTo('${w.page}')">
+        <div class="card-top-row">
+          <span class="badge-gold">WING ${w.num}</span>
+          <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--gold);">LAUNCH →</span>
+        </div>
+        <h3 style="font-family:var(--font-display); font-size:1.12rem;">${w.title}</h3>
+        <p style="font-size:0.86rem; color:var(--text-steel);">${w.desc}</p>
+      </div>
+    `).join('');
+
+    document.getElementById('dashArenaScore').textContent = arenaXp + ' XP';
+    document.getElementById('dashVaultCount').textContent = savedItems.length + journalEntries.length;
+    document.getElementById('headerSavedCount').textContent = savedItems.length;
+  }
+
+  function generateOracle() {
+    const pool = [
+      ...REALPOLITIK_PRINCIPLES.map(r => ({ cat: `REALPOLITIK // ${r.code}`, main: r.title, sub: r.execution })),
+      ...LEVERAGE_MATRIX.map(d => ({ cat: `LEVERAGE MATRIX // ${d.domain.toUpperCase()}`, main: d.text, sub: 'Operate with emotional composure and long-term calculation.' })),
+      ...APHORISMS_24.map(a => ({ cat: `APHORISM // ${a.cat.toUpperCase()}`, main: a.text, sub: 'Internalize the standard and let actions speak.' }))
+    ];
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    document.getElementById('oracleCategory').textContent = pick.cat;
+    document.getElementById('oracleMainText').textContent = `“${pick.main}”`;
+    document.getElementById('oracleSubText').textContent = pick.sub;
+  }
+
+  document.getElementById('newOracleBtn').addEventListener('click', generateOracle);
+  document.getElementById('copyOracleBtn').addEventListener('click', () => {
+    copyToClipboard(`${document.getElementById('oracleMainText').textContent} — ${document.getElementById('oracleSubText').textContent}`);
+  });
+
+  function renderRealpolitik() {
+    document.getElementById('realpolitikGrid').innerHTML = REALPOLITIK_PRINCIPLES.map(r => {
+      const isSaved = savedItems.some(x => x.id === r.id);
+      const esc = `${r.title}: ${r.principle} (${r.execution})`.replace(/'/g, "\\'");
+      return `
+        <div class="lux-card">
+          <div>
+            <div class="card-top-row">
+              <span class="badge-gold">${r.code}</span>
+              <span class="badge-outline">${r.tag}</span>
+              <div class="icon-actions">
+                <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+                <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${r.id}', '${r.title.replace(/'/g,"\\'")}', '${r.execution.replace(/'/g,"\\'")}', '${r.code}')">★</button>
+              </div>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.08rem; margin:0.85rem 0 0.5rem;">${r.title}</h3>
+            <p style="font-size:0.88rem; color:var(--text-platinum); margin-bottom:0.65rem;">${r.principle}</p>
+          </div>
+          <div style="background:var(--bg-abyss); border-left:2px solid var(--emerald); padding:0.7rem 0.85rem; font-size:0.84rem; color:var(--text-steel);">
+            <strong style="color:var(--emerald); font-family:var(--font-mono); font-size:0.62rem; text-transform:uppercase; display:block;">Execution:</strong>
+            ${r.execution}
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('pillarsAuditGrid').innerHTML = PILLARS_10.map(p => {
+      const val = pillarScores[p.id] || 7;
+      return `
+        <div class="lux-card" style="padding:1.25rem 1.4rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="font-family:var(--font-display); font-size:1.02rem;"><span style="color:var(--gold); font-family:var(--font-mono); margin-right:0.4rem;">${p.idx}</span>${p.name}</strong>
+            <span style="font-family:var(--font-mono); font-size:0.78rem; color:var(--gold);" id="pval-${p.id}">${val}/10</span>
+          </div>
+          <p style="font-size:0.86rem; color:var(--text-steel);">${p.desc}</p>
+          <input type="range" min="1" max="10" value="${val}" style="width:100%; accent-color:var(--gold); cursor:pointer;" oninput="updatePillar('${p.id}', this.value)">
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('calibrationGrid').innerHTML = CALIBRATIONS_4.map(c => `
+      <div class="lux-card">
+        <span class="badge-outline" style="align-self:flex-start;">${c.tag}</span>
+        <h3 style="font-family:var(--font-display); font-size:1.12rem;">${c.title}</h3>
+        <p style="font-size:0.88rem; color:var(--text-steel);">${c.desc}</p>
+      </div>
+    `).join('');
+
+    updatePillarTotals();
+  }
+
+  window.updatePillar = function(id, val) {
+    pillarScores[id] = parseInt(val, 10);
+    document.getElementById('pval-' + id).textContent = val + '/10';
+    localStorage.setItem('imperium_pillars_v2', JSON.stringify(pillarScores));
+    updatePillarTotals();
+  };
+
+  function updatePillarTotals() {
+    const sum = Object.values(pillarScores).reduce((a, b) => a + b, 0);
+    document.getElementById('pillarTotalPct').textContent = sum + '%';
+    document.getElementById('dashCommandPct').textContent = sum + '%';
+    let rank = 'INITIATE';
+    if (sum >= 88) rank = 'SOVEREIGN ARCHITECT';
+    else if (sum >= 72) rank = 'HIGH COMMANDER';
+    else if (sum >= 55) rank = 'CENTURION';
+    document.getElementById('dashRankLabel').textContent = rank;
+  }
+
+  document.getElementById('resetPillarsBtn').addEventListener('click', () => {
+    PILLARS_10.forEach(p => pillarScores[p.id] = 7);
+    localStorage.setItem('imperium_pillars_v2', JSON.stringify(pillarScores));
+    renderRealpolitik();
+    showToast('Calibration Reset to 70%');
+  });
+
+  function renderLeverageMatrix() {
+    document.getElementById('leverageFoundationsGrid').innerHTML = LEVERAGE_FOUNDATIONS.map(f => `
+      <div class="lux-card" style="border-top:2px solid var(--gold);">
+        <span class="badge-outline" style="align-self:flex-start;">${f.tag}</span>
+        <h3 style="font-family:var(--font-display); font-size:1.08rem;">${f.title}</h3>
+        <p style="font-size:0.88rem; color:var(--text-steel);">${f.desc}</p>
+      </div>
+    `).join('');
+
+    const q = document.getElementById('leverageSearchInput').value.toLowerCase().trim();
+    const list = LEVERAGE_MATRIX.map((item, idx) => ({
+      id: `lm_${idx + 1}`,
+      code: `LV-${String(idx + 1).padStart(2, '0')}`,
+      domain: item.domain,
+      text: item.text
+    })).filter(item => {
+      if (q && !item.text.toLowerCase().includes(q) && !item.domain.toLowerCase().includes(q)) return false;
+      if (!q && activeLeverageDomain !== 'all') return item.domain === activeLeverageDomain;
+      return true;
+    });
+
+    document.getElementById('leverageMatrixGrid').innerHTML = list.map(item => {
+      const isSaved = savedItems.some(x => x.id === item.id);
+      const esc = `[${item.domain}] ${item.text}`.replace(/'/g, "\\'");
+      return `
+        <div class="lux-card" style="padding:1.25rem 1.35rem;">
+          <div class="card-top-row">
+            <span class="badge-gold">${item.code}</span>
+            <span class="badge-outline">${item.domain}</span>
+            <div class="icon-actions">
+              <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+              <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${item.id}', '${item.domain} Principle', '${item.text.replace(/'/g,"\\'")}', '${item.code}')">★</button>
+            </div>
+          </div>
+          <p style="font-size:0.94rem; font-weight:500; margin-top:0.3rem;">${item.text}</p>
+        </div>
+      `;
+    }).join('');
+  }
+
+  document.getElementById('leverageSearchInput').addEventListener('input', renderLeverageMatrix);
+  document.querySelectorAll('#leverageDomainChips .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#leverageDomainChips .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeLeverageDomain = chip.dataset.domain;
+      renderLeverageMatrix();
+    });
+  });
+
+  function renderMagnetism() {
+    document.getElementById('magnetismPillarsGrid').innerHTML = MAGNETISM_PILLARS.map(p => `
+      <div class="lux-card">
+        <span class="badge-gold" style="align-self:flex-start;">${p.tag}</span>
+        <h3 style="font-family:var(--font-display); font-size:1.1rem;">${p.title}</h3>
+        <p style="font-size:0.88rem; color:var(--text-steel);">${p.desc}</p>
+      </div>
+    `).join('');
+
+    document.getElementById('personasGrid').innerHTML = PERSONAS_9.map(p => {
+      const isSaved = savedItems.some(x => x.id === p.id);
+      const esc = `${p.name}: ${p.trait} (${p.tactic})`.replace(/'/g, "\\'");
+      return `
+        <div class="lux-card">
+          <div>
+            <div class="card-top-row">
+              <strong style="font-family:var(--font-display); color:var(--gold); font-size:1.05rem;">${p.name}</strong>
+              <div class="icon-actions">
+                <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+                <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${p.id}', '${p.name}', '${p.tactic.replace(/'/g,"\\'")}', 'Archetype')">★</button>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; margin-top:0.7rem;">${p.trait}</p>
+          </div>
+          <p style="font-size:0.82rem; color:var(--emerald); border-left:2px solid var(--emerald); padding-left:0.65rem;">${p.tactic}</p>
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('influencePhasesGrid').innerHTML = INFLUENCE_PHASES.map(ph => `
+      <div class="lux-card">
+        <div>
+          <span class="badge-outline">${ph.phase}</span>
+          <h3 style="font-family:var(--font-display); font-size:1.15rem; margin:0.55rem 0 0.9rem;">${ph.title}</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+            ${ph.steps.map((s, i) => `
+              <span style="background:var(--bg-abyss); border:1px solid var(--border-bright); padding:0.32rem 0.65rem; font-family:var(--font-mono); font-size:0.7rem;">
+                <strong style="color:var(--gold);">${i+1}.</strong> ${s}
+              </span>
+            `).join('')}
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function renderCardDeck(arr, containerId, badgeLabel) {
+    document.getElementById(containerId).innerHTML = arr.map(item => {
+      const isSaved = savedItems.some(x => x.id === item.id);
+      const esc = `${item.title}: ${item.body.replace(/\n/g,' ')} — ${item.takeaway}`.replace(/'/g, "\\'");
+      return `
+        <div class="lux-card">
+          <div>
+            <div class="card-top-row">
+              <span class="badge-outline">${item.tag}</span>
+              <div class="icon-actions">
+                <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+                <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${item.id}', '${item.title.replace(/'/g,"\\'")}', '${item.takeaway.replace(/'/g,"\\'")}', '${badgeLabel}')">★</button>
+              </div>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.08rem; margin:0.75rem 0 0.5rem;">${item.title}</h3>
+            <p style="font-size:0.88rem; color:var(--text-steel); white-space:pre-line;">${item.body}</p>
+          </div>
+          <div style="background:var(--bg-abyss); border-left:2px solid var(--gold); padding:0.65rem 0.8rem; font-size:0.83rem; color:var(--text-platinum);">
+            ${item.takeaway}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderMindAndFrame() {
+    renderCardDeck(MIND_LAWS, 'mindLawsGrid', 'Cognition');
+    renderCardDeck(MIND_PROTOCOLS, 'mindProtocolsGrid', 'Cognition');
+    renderCardDeck(MIND_ABUNDANCE, 'mindAbundanceGrid', 'Cognition');
+    renderCardDeck(FRAME_MINDSET, 'frameMindsetGrid', 'Frame Dynamics');
+    renderCardDeck(FRAME_ESCALATION, 'frameEscalationGrid', 'Polarity');
+  }
+
+  function renderFlashcard() {
+    const item = FLASHCARDS_DECK[fcIndex];
+    document.getElementById('flashcardStage').classList.remove('flipped');
+    document.getElementById('fcDeckTag').textContent = item.tag;
+    document.getElementById('fcCounter').textContent = `${fcIndex + 1} / ${FLASHCARDS_DECK.length}`;
+    document.getElementById('fcFrontTitle').textContent = item.q;
+    document.getElementById('fcBackBody').textContent = item.a;
+  }
+
+  window.flipFlashcard = function() {
+    document.getElementById('flashcardStage').classList.toggle('flipped');
+  };
+  window.nextFlashcard = function() {
+    fcIndex = (fcIndex + 1) % FLASHCARDS_DECK.length;
+    renderFlashcard();
+  };
+  window.prevFlashcard = function() {
+    fcIndex = (fcIndex - 1 + FLASHCARDS_DECK.length) % FLASHCARDS_DECK.length;
+    renderFlashcard();
+  };
+
+  function renderScenario() {
+    const s = SCENARIOS[simIndex];
+    document.getElementById('simScenarioNum').textContent = s.num;
+    document.getElementById('simXpDisplay').textContent = `XP: ${arenaXp}`;
+    document.getElementById('simQuestion').textContent = s.q;
+    const fb = document.getElementById('simFeedbackBox');
+    fb.style.display = 'none';
+
+    document.getElementById('simOptionsBox').innerHTML = s.options.map((opt, idx) => `
+      <button class="scenario-option" id="simOpt-${idx}" onclick="answerScenario(${idx})">
+        ${opt.text}
+      </button>
+    `).join('');
+  }
+
+  window.answerScenario = function(idx) {
+    const s = SCENARIOS[simIndex];
+    const chosen = s.options[idx];
+    const btn = document.getElementById('simOpt-' + idx);
+    const fb = document.getElementById('simFeedbackBox');
+
+    document.querySelectorAll('.scenario-option').forEach(b => b.disabled = true);
+    if (chosen.correct) {
+      btn.classList.add('correct');
+      arenaXp += 25;
+      localStorage.setItem('imperium_xp_v2', String(arenaXp));
+      document.getElementById('simXpDisplay').textContent = `XP: ${arenaXp}`;
+      document.getElementById('dashArenaScore').textContent = `${arenaXp} XP`;
+    } else {
+      btn.classList.add('wrong');
+    }
+    fb.textContent = chosen.feedback;
+    fb.style.display = 'block';
+  };
+
+  window.nextScenario = function() {
+    simIndex = (simIndex + 1) % SCENARIOS.length;
+    renderScenario();
+  };
+
+  function renderWarRoom() {
+    document.getElementById('warroomSavedCount').textContent = savedItems.length;
+
+    const jList = document.getElementById('journalList');
+    jList.innerHTML = journalEntries.map(j => `
+      <div class="lux-card" style="padding:1.1rem 1.3rem;">
+        <div class="card-top-row">
+          <span class="badge-emerald">PERSONAL LOG</span>
+          <button class="mini-icon-btn" onclick="deleteJournal('${j.id}')">✕</button>
+        </div>
+        <p style="font-size:0.92rem;">${j.text}</p>
+      </div>
+    `).join('');
+
+    const bList = document.getElementById('savedBookmarksList');
+    if (savedItems.length === 0) {
+      bList.innerHTML = `<div class="lux-card"><p style="color:var(--text-steel); font-size:0.88rem;">No saved principles yet. Click the ★ icon on any card across the 8 wings to store it here.</p></div>`;
+    } else {
+      bList.innerHTML = savedItems.map(s => `
+        <div class="lux-card" style="padding:1.1rem 1.3rem;">
+          <div class="card-top-row">
+            <span class="badge-gold">${s.badge}</span>
+            <div class="icon-actions">
+              <button class="mini-icon-btn" onclick="copyToClipboard('${(s.title + ' — ' + s.body).replace(/'/g,"\\'")}')">⧉</button>
+              <button class="mini-icon-btn saved" onclick="toggleSave('${s.id}','','','')">✕</button>
+            </div>
+          </div>
+          <strong style="font-family:var(--font-display); font-size:1rem;">${s.title}</strong>
+          <p style="font-size:0.86rem; color:var(--text-steel);">${s.body}</p>
+        </div>
+      `).join('');
+    }
+
+    const filteredAph = activeVaultCat === 'all'
+      ? APHORISMS_24
+      : APHORISMS_24.filter(a => a.cat === activeVaultCat);
+
+    document.getElementById('aphorismsGrid').innerHTML = filteredAph.map(a => {
+      const isSaved = savedItems.some(x => x.id === a.id);
+      const esc = a.text.replace(/'/g, "\\'");
+      return `
+        <div class="lux-card" style="flex-direction:row; align-items:center; justify-content:space-between;">
+          <div>
+            <span style="font-family:var(--font-mono); font-size:0.62rem; color:var(--gold); text-transform:uppercase;">${a.cat}</span>
+            <p style="font-size:1rem; font-weight:600; margin-top:0.25rem;">“${a.text}”</p>
+          </div>
+          <div class="icon-actions">
+            <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+            <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${a.id}', '${esc}', '${a.cat}', 'Aphorism')">★</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('bioSignaturesStrip').innerHTML = BIO_SIGNATURES.map(b => `
+      <button class="filter-chip" onclick="copyToClipboard('${b.replace(/'/g,"\\'")}')">${b} ⧉</button>
+    `).join('');
+  }
+
+  document.getElementById('addJournalBtn').addEventListener('click', () => {
+    const inp = document.getElementById('journalInput');
+    const txt = inp.value.trim();
+    if (!txt) return;
+    journalEntries.unshift({ id: 'j_' + Date.now(), date: '2026', text: txt });
+    localStorage.setItem('imperium_journal_v2', JSON.stringify(journalEntries));
+    inp.value = '';
+    renderAll();
+    showToast('Logged to War Room');
+  });
+
+  window.deleteJournal = function(id) {
+    journalEntries = journalEntries.filter(x => x.id !== id);
+    localStorage.setItem('imperium_journal_v2', JSON.stringify(journalEntries));
+    renderAll();
+  };
+
+  document.querySelectorAll('#vaultCatChips .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#vaultCatChips .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeVaultCat = chip.dataset.cat;
+      renderWarRoom();
+    });
+  });
+
+  const searchModal = document.getElementById('searchModal');
+  const globalSearchInput = document.getElementById('globalSearchInput');
+
+  window.openSearchModal = function() {
+    searchModal.classList.add('open');
+    globalSearchInput.value = '';
+    renderSearchResults('');
+    setTimeout(() => globalSearchInput.focus(), 50);
+  };
+
+  document.getElementById('openSearchModalBtn').addEventListener('click', openSearchModal);
+  document.getElementById('closeSearchModalBtn').addEventListener('click', () => searchModal.classList.remove('open'));
+
+  window.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      openSearchModal();
+    } else if (e.key === 'Escape') {
+      searchModal.classList.remove('open');
+    }
+  });
+
+  function renderSearchResults(q) {
+    const query = q.toLowerCase().trim();
+    const pool = [
+      ...REALPOLITIK_PRINCIPLES.map(r => ({ page: 'statecraft', badge: `Page 02 • ${r.code}`, text: `${r.title} — ${r.execution}` })),
+      ...LEVERAGE_MATRIX.map((d, i) => ({ page: 'leverage', badge: `Page 03 • ${d.domain}`, text: d.text })),
+      ...PERSONAS_9.map(p => ({ page: 'magnetism', badge: `Page 04 • Archetype`, text: `${p.name}: ${p.trait}` })),
+      ...MIND_LAWS.concat(MIND_PROTOCOLS, MIND_ABUNDANCE).map(m => ({ page: 'mind', badge: `Page 05 • Cognition`, text: `${m.title} — ${m.takeaway}` })),
+      ...FRAME_MINDSET.concat(FRAME_ESCALATION).map(f => ({ page: 'frame', badge: `Page 06 • Frame & Polarity`, text: `${f.title} — ${f.takeaway}` })),
+      ...APHORISMS_24.map(a => ({ page: 'warroom', badge: `Page 08 • Aphorism`, text: a.text }))
+    ];
+
+    const matches = query
+      ? pool.filter(x => x.text.toLowerCase().includes(query) || x.badge.toLowerCase().includes(query))
+      : pool.slice(0, 10);
+
+    document.getElementById('globalSearchResults').innerHTML = matches.map(m => `
+      <div style="padding:0.75rem 1rem; border-bottom:1px solid var(--border-dim); cursor:pointer; display:flex; justify-content:space-between; align-items:center;" onclick="jumpToPageFromSearch('${m.page}', '${m.text.replace(/'/g,"\\'")}')">
+        <div>
+          <span style="font-family:var(--font-mono); font-size:0.62rem; color:var(--gold); text-transform:uppercase;">${m.badge}</span>
+          <p style="font-size:0.88rem; color:var(--text-platinum);">${m.text}</p>
+        </div>
+        <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--emerald);">Open Wing →</span>
+      </div>
+    `).join('');
+  }
+
+  window.jumpToPageFromSearch = function(page, text) {
+    searchModal.classList.remove('open');
+    navigateTo(page);
+    copyToClipboard(text);
+  };
+
+  globalSearchInput.addEventListener('input', e => renderSearchResults(e.target.value));
+
+  function renderAll() {
+    renderCommandCenter();
+    renderRealpolitik();
+    renderLeverageMatrix();
+    renderMagnetism();
+    renderMindAndFrame();
+    renderFlashcard();
+    renderScenario();
+    renderWarRoom();
+  }
+
+  generateOracle();
+  renderAll();
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
