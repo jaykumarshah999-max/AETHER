@@ -1,0 +1,17 @@
+{
+  "name": "IMPERIUM — Sovereign Operating System",
+  "short_name": "IMPERIUM",
+  "description": "Executive leverage, pragmatic realism, social gravity, and tactical decision drills.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#05080e",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
