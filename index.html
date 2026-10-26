@@ -36,6 +36,26 @@
     --nav-h: 70px;
   }
 
+  /* DAY / LIGHT THEME OVERRIDES */
+  html.light-theme {
+    --bg-abyss: #f4f7fc;
+    --bg-deep: #e8ecf4;
+    --bg-slate: #ffffff;
+    --bg-elevated: #e2e8f0;
+    --bg-glass: rgba(244, 247, 252, 0.92);
+    --text-platinum: #0f172a;
+    --text-steel: #475569;
+    --text-muted: #94a3b8;
+    --gold: #b7791f;
+    --gold-bright: #975a16;
+    --gold-glow: rgba(183, 121, 31, 0.22);
+    --gold-subtle: rgba(183, 121, 31, 0.08);
+    --emerald: #059669;
+    --emerald-subtle: rgba(5, 150, 105, 0.1);
+    --border-dim: #cbd5e1;
+    --border-bright: #94a3b8;
+  }
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; background: var(--bg-abyss); color: var(--text-platinum); }
 
@@ -47,6 +67,7 @@
     min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   body::before {
@@ -146,7 +167,7 @@
 
   .page-link:hover {
     color: var(--text-platinum);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(128, 128, 128, 0.06);
     border-color: var(--border-dim);
   }
 
@@ -236,7 +257,7 @@
 
   /* PAGE HERO / HEADER BANNER */
   .page-banner {
-    background: linear-gradient(135deg, rgba(15, 22, 35, 0.95), rgba(9, 14, 23, 0.95));
+    background: linear-gradient(135deg, var(--bg-slate), var(--bg-deep));
     border: 1px solid var(--border-bright);
     border-left: 4px solid var(--gold);
     padding: 2.4rem 2.6rem;
@@ -303,7 +324,7 @@
   .lux-card:hover {
     border-color: var(--border-bright);
     transform: translateY(-2px);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
   }
 
   .card-top-row {
@@ -400,7 +421,7 @@
     background: var(--border-dim);
   }
 
-  /* PAGE 01: COMMAND CENTER SPECIFIC */
+  /* PAGE 01: COMMAND CENTER */
   .command-hero-grid {
     display: grid;
     grid-template-columns: 1.45fr 1fr;
@@ -409,7 +430,7 @@
   }
 
   .oracle-panel {
-    background: linear-gradient(145deg, #101929, #090e17);
+    background: linear-gradient(145deg, var(--bg-slate), var(--bg-deep));
     border: 1px solid var(--gold);
     padding: 2rem;
     display: flex;
@@ -527,7 +548,7 @@
     font-weight: 600;
   }
 
-  /* PAGE 07: TACTICAL ARENA (FLASHCARDS & SCENARIO SIMULATOR) */
+  /* PAGE 07: TACTICAL ARENA */
   .arena-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -589,14 +610,14 @@
   .scenario-option.correct {
     border-color: var(--emerald);
     background: var(--emerald-subtle);
-    color: #fff;
+    color: var(--text-platinum);
   }
   .scenario-option.wrong {
     border-color: var(--crimson);
     background: rgba(239, 68, 68, 0.14);
   }
 
-  /* PAGE 08: WAR ROOM & JOURNAL */
+  /* PAGE 08: WAR ROOM */
   .journal-composer {
     background: var(--bg-slate);
     border: 1px solid var(--border-bright);
@@ -630,11 +651,11 @@
     gap: 1rem;
   }
 
-  /* GLOBAL SEARCH MODAL */
+  /* MODALS & TOASTS */
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(3, 6, 12, 0.85);
+    background: rgba(3, 6, 12, 0.75);
     backdrop-filter: blur(8px);
     z-index: 300;
     display: none;
@@ -648,7 +669,7 @@
     max-width: 720px;
     background: var(--bg-slate);
     border: 1px solid var(--gold);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
   }
 
   .toast {
@@ -717,6 +738,10 @@
     </nav>
 
     <div class="header-tools">
+      <button class="tool-btn" id="themeToggleBtn" title="Toggle Day/Night Mode">
+        <span id="themeIcon">☀️</span>
+        <span id="themeText">Night</span>
+      </button>
       <button class="tool-btn" id="openSearchModalBtn" title="Global Search (⌘K)">
         <span>Search</span>
         <kbd style="font-size:0.6rem; opacity:0.7;">⌘K</kbd>
@@ -732,9 +757,7 @@
 
 <main class="app-viewport">
 
-  <!-- =========================================================
-       PAGE 01: COMMAND CENTER (HOME DASHBOARD)
-       ========================================================= -->
+  <!-- PAGE 01: COMMAND CENTER -->
   <section class="page-view active" id="page-command">
     <div class="container">
       <div class="page-banner" data-watermark="IMPERIUM">
@@ -750,7 +773,6 @@
       </div>
 
       <div class="command-hero-grid">
-        <!-- Live Oracle Generator -->
         <div class="oracle-panel">
           <div>
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
@@ -766,7 +788,6 @@
           </div>
         </div>
 
-        <!-- Live Telemetry Summary -->
         <div class="lux-card" style="justify-content:center; gap:1.3rem;">
           <div class="card-top-row">
             <span class="badge-emerald">OPERATOR TELEMETRY</span>
@@ -798,9 +819,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       PAGE 02: REALPOLITIK & STATECRAFT
-       ========================================================= -->
+  <!-- PAGE 02: REALPOLITIK & STATECRAFT -->
   <section class="page-view" id="page-statecraft">
     <div class="container">
       <div class="page-banner" data-watermark="REALISM">
@@ -835,9 +854,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       PAGE 03: THE EXECUTIVE LEVERAGE MATRIX
-       ========================================================= -->
+  <!-- PAGE 03: EXECUTIVE LEVERAGE MATRIX -->
   <section class="page-view" id="page-leverage">
     <div class="container">
       <div class="page-banner" data-watermark="LEVERAGE">
@@ -870,9 +887,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       PAGE 04: SOCIAL GRAVITY & ARCHETYPES
-       ========================================================= -->
+  <!-- PAGE 04: SOCIAL GRAVITY -->
   <section class="page-view" id="page-magnetism">
     <div class="container">
       <div class="page-banner" data-watermark="GRAVITY">
@@ -899,9 +914,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       PAGE 05: COGNITIVE CONDITIONING & SUBCONSCIOUS ARCHITECTURE
-       ========================================================= -->
+  <!-- PAGE 05: COGNITION -->
   <section class="page-view" id="page-mind">
     <div class="container">
       <div class="page-banner" data-watermark="COGNITION">
@@ -928,9 +941,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       PAGE 06: FRAME & POLARITY DYNAMICS
-       ========================================================= -->
+  <!-- PAGE 06: FRAME & POLARITY -->
   <section class="page-view" id="page-frame">
     <div class="container">
       <div class="page-banner" data-watermark="POLARITY">
@@ -954,9 +965,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       PAGE 07: TACTICAL ARENA (FLASHCARDS & SCENARIO SIMULATOR)
-       ========================================================= -->
+  <!-- PAGE 07: TACTICAL ARENA -->
   <section class="page-view" id="page-arena">
     <div class="container">
       <div class="page-banner" data-watermark="ARENA">
@@ -968,7 +977,6 @@
       </div>
 
       <div class="arena-layout">
-        <!-- 3D Flashcard Deck -->
         <div>
           <h2 class="section-subhead" style="margin-top:0;">I. 3D Strategic Flashcard Drill</h2>
           <div class="flashcard-stage" id="flashcardStage" onclick="flipFlashcard()">
@@ -1005,7 +1013,6 @@
           </div>
         </div>
 
-        <!-- Tactical Scenario Simulator -->
         <div>
           <h2 class="section-subhead" style="margin-top:0;">II. Live Scenario Simulator</h2>
           <div class="lux-card">
@@ -1030,9 +1037,7 @@
     </div>
   </section>
 
-  <!-- =========================================================
-       PAGE 08: SOVEREIGN WAR ROOM & APHORISM VAULT
-       ========================================================= -->
+  <!-- PAGE 08: WAR ROOM & APHORISM VAULT -->
   <section class="page-view" id="page-warroom">
     <div class="container">
       <div class="page-banner" data-watermark="VAULT">
@@ -1044,7 +1049,6 @@
       </div>
 
       <div class="grid-2" style="margin-bottom:2.8rem;">
-        <!-- Personal Strategy Log -->
         <div>
           <h2 class="section-subhead" style="margin-top:0;">I. Personal Strategy Journal</h2>
           <div class="journal-composer">
@@ -1055,7 +1059,6 @@
           <div id="journalList" style="display:flex; flex-direction:column; gap:0.8rem;"></div>
         </div>
 
-        <!-- Saved Bookmarks Codex -->
         <div>
           <h2 class="section-subhead" style="margin-top:0;">II. Saved Bookmarks (<span id="warroomSavedCount">0</span>)</h2>
           <div id="savedBookmarksList" style="display:flex; flex-direction:column; gap:0.8rem;"></div>
@@ -1156,7 +1159,6 @@
     { tag: 'Pillar III', title: 'Incentive Realism', desc: 'Evaluate social and professional arenas through the lens of human self-interest and structural leverage.' }
   ];
 
-  // CATEGORIZED BY STRATEGIC DOMAIN (NO "48" BOOK CLONING)
   const LEVERAGE_MATRIX = [
     { domain: 'Positioning', text: 'Ensure senior stakeholders feel securely elevated by your contributions.' },
     { domain: 'Alliances', text: 'Verify loyalty through aligned incentives rather than blind familiarity.' },
@@ -1227,7 +1229,7 @@
   ];
 
   const INFLUENCE_PHASES = [
-    { phase: 'Stage 01', title: 'Spark Intrigue & Distinct Presence', steps: ['Select receptive ground', 'Establish disarming rapport', 'Project intriguing complexity', 'Demonstrate social proof', 'Identify unfulfilled aspirations', 'Plant evocative possibilities', 'Enter their worldview', 'Ignite curiosity'] },
+    { phase: 'Stage 01', title: 'Spark Intrigue & Distinct Presence', steps: ['Select receptive ground', 'Establish disarming rapport', 'Project intriguing complexity', 'Demonstrate social value', 'Identify unfulfilled aspirations', 'Plant evocative possibilities', 'Enter their worldview', 'Ignite curiosity'] },
     { phase: 'Stage 02', title: 'Deepen Engagement & Contrast', steps: ['Maintain playful unpredictability', 'Speak with evocative imagery', 'Notice subtle personal details', 'Balance warm presence with space', 'Show relatable humanity', 'Elevate ordinary moments', 'Create a shared private world'] },
     { phase: 'Stage 03', title: 'Heighten Emotional Investment', steps: ['Demonstrate decisive action', 'Awaken carefree spontaneity', 'Challenge stale conventions', 'Connect on higher ideals', 'Contrast challenge with warmth'] },
     { phase: 'Stage 04', title: 'Consolidate the Bond', steps: ['Step back to invite pursuit', 'Lead with composed physical warmth', 'Make the decisive move', 'Sustain mystery after victory'] }
@@ -1356,6 +1358,22 @@
   let activeVaultCat = 'all';
   let fcIndex = 0;
   let simIndex = 0;
+
+  // THEME INITIALIZATION & TOGGLE
+  const savedTheme = localStorage.getItem('imperium_theme') || 'dark';
+  if (savedTheme === 'light') {
+    document.documentElement.classList.add('light-theme');
+    document.getElementById('themeIcon').textContent = '🌙';
+    document.getElementById('themeText').textContent = 'Day';
+  }
+
+  document.getElementById('themeToggleBtn').addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light-theme');
+    localStorage.setItem('imperium_theme', isLight ? 'light' : 'dark');
+    document.getElementById('themeIcon').textContent = isLight ? '🌙' : '☀️';
+    document.getElementById('themeText').textContent = isLight ? 'Day' : 'Night';
+    showToast(isLight ? 'Day Mode Engaged' : 'Night Mode Engaged');
+  });
 
   function showToast(msg) {
     const t = document.getElementById('toastMsg');
@@ -1649,7 +1667,7 @@
   }
 
   // ============================================================================
-  // PAGE 07: TACTICAL ARENA (FLASHCARDS & SCENARIOS)
+  // PAGE 07: TACTICAL ARENA
   // ============================================================================
   function renderFlashcard() {
     const item = FLASHCARDS_DECK[fcIndex];
@@ -1713,7 +1731,7 @@
   };
 
   // ============================================================================
-  // PAGE 08: WAR ROOM & APHORISM VAULT
+  // PAGE 08: WAR ROOM
   // ============================================================================
   function renderWarRoom() {
     document.getElementById('warroomSavedCount').textContent = savedItems.length;
@@ -1872,11 +1890,6 @@
 
   generateOracle();
   renderAll();
-  if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  });
-}
 </script>
 </body>
 </html>
