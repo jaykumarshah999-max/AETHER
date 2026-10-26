@@ -1,118 +1,94 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AETHER — The Sovereign Codex & Masculine Doctrine</title>
+<title>IMPERIUM — The Sovereign Multi-Page Architecture</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-void: #060608;
-    --bg-basalt: #0c0c10;
-    --bg-monolith: #121217;
-    --bg-elevated: #18181f;
-    --bg-glass: rgba(10, 10, 14, 0.90);
-    --text-ivory: #f2efe9;
-    --text-ash: #9c9891;
-    --text-slate: #635f59;
-    --crimson: #a61c1c;
-    --crimson-bright: #cc2929;
-    --crimson-glow: rgba(166, 28, 28, 0.34);
-    --crimson-subtle: rgba(166, 28, 28, 0.12);
-    --bronze: #c5a059;
-    --bronze-subtle: rgba(197, 160, 89, 0.14);
-    --border-hairline: #1f1f27;
-    --border-strong: #2e2e3a;
-    --font-display: 'Cinzel', Georgia, serif;
-    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --bg-abyss: #05080e;
+    --bg-deep: #090e17;
+    --bg-slate: #0f1623;
+    --bg-elevated: #162032;
+    --bg-glass: rgba(9, 14, 23, 0.90);
+    --text-platinum: #f3f6fa;
+    --text-steel: #94a3b8;
+    --text-muted: #58677d;
+    --gold: #d4af37;
+    --gold-bright: #ecc94b;
+    --gold-glow: rgba(212, 175, 55, 0.28);
+    --gold-subtle: rgba(212, 175, 55, 0.11);
+    --emerald: #10b981;
+    --emerald-subtle: rgba(16, 185, 129, 0.12);
+    --crimson: #ef4444;
+    --border-dim: #1c273a;
+    --border-bright: #2b3b55;
+    --font-display: 'Cinzel', serif;
+    --font-sans: 'Space Grotesk', -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
-    --nav-h: 68px;
+    --nav-h: 70px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; background: var(--bg-void); color: var(--text-ivory); }
+  html { scroll-behavior: smooth; background: var(--bg-abyss); color: var(--text-platinum); }
 
   body {
     font-family: var(--font-sans);
-    background-color: var(--bg-void);
-    color: var(--text-ivory);
+    background-color: var(--bg-abyss);
+    color: var(--text-platinum);
     line-height: 1.6;
+    min-height: 100vh;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Ambient Sovereign Glow */
   body::before {
     content: '';
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 75% 50% at 15% -5%, rgba(166, 28, 28, 0.15), transparent 70%),
-      radial-gradient(ellipse 60% 45% at 88% 12%, rgba(197, 160, 89, 0.06), transparent 65%),
-      radial-gradient(ellipse 70% 40% at 50% 105%, rgba(166, 28, 28, 0.09), transparent 70%);
+      radial-gradient(ellipse 75% 50% at 15% -10%, rgba(212, 175, 55, 0.12), transparent 65%),
+      radial-gradient(ellipse 60% 45% at 88% 15%, rgba(16, 185, 129, 0.06), transparent 65%),
+      radial-gradient(ellipse 70% 45% at 50% 108%, rgba(212, 175, 55, 0.08), transparent 70%);
     pointer-events: none;
     z-index: 0;
   }
 
-  .grain-overlay {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 999;
-    opacity: 0.026;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
-
-  /* SLIM HEADER WITH INTEGRATED PROGRESS BAR */
+  /* TOP MULTI-PAGE NAVIGATION BAR */
   header.site-header {
     position: fixed;
     top: 0; left: 0; right: 0;
     height: var(--nav-h);
-    z-index: 150;
+    z-index: 200;
     background: var(--bg-glass);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--border-hairline);
+    border-bottom: 1px solid var(--border-dim);
     display: flex;
     align-items: center;
   }
 
   .header-inner {
     width: 100%;
-    max-width: 1440px;
+    max-width: 1460px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1.4rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
   }
 
-  .scroll-progress-track {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: transparent;
-    overflow: hidden;
-  }
-
-  .scroll-progress-bar {
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--crimson), var(--bronze), var(--crimson-bright));
-    box-shadow: 0 0 12px var(--crimson-glow);
-    transition: width 0.08s linear;
-  }
-
   .brand-logo {
     font-family: var(--font-display);
-    font-size: 1.3rem;
+    font-size: 1.28rem;
     font-weight: 800;
     letter-spacing: 0.22em;
-    color: var(--text-ivory);
+    color: var(--text-platinum);
     text-decoration: none;
     cursor: pointer;
     display: flex;
@@ -120,1172 +96,544 @@
     gap: 0.45rem;
     flex-shrink: 0;
   }
-  .brand-logo .dot { color: var(--crimson); }
-  .brand-sub {
+  .brand-logo .gold-dot { color: var(--gold); }
+  .brand-tag {
     font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    color: var(--text-slate);
-    border-left: 1px solid var(--border-strong);
-    padding-left: 0.55rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    color: var(--emerald);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    background: var(--emerald-subtle);
+    padding: 0.12rem 0.42rem;
     text-transform: uppercase;
   }
 
-  .nav-links {
+  .page-nav {
     display: flex;
     align-items: center;
-    gap: 0.15rem;
+    gap: 0.25rem;
     list-style: none;
     overflow-x: auto;
     scrollbar-width: none;
   }
-  .nav-links::-webkit-scrollbar { display: none; }
+  .page-nav::-webkit-scrollbar { display: none; }
 
-  .nav-links a {
+  .page-link {
     font-family: var(--font-mono);
     font-size: 0.68rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--text-ash);
-    text-decoration: none;
-    padding: 0.45rem 0.62rem;
+    color: var(--text-steel);
+    background: transparent;
     border: 1px solid transparent;
-    transition: all 0.2s ease;
+    padding: 0.48rem 0.72rem;
     cursor: pointer;
-    display: flex;
+    transition: all 0.2s ease;
+    display: inline-flex;
     align-items: center;
-    gap: 0.32rem;
+    gap: 0.38rem;
     white-space: nowrap;
   }
 
-  .nav-links a .num {
-    color: var(--crimson-bright);
+  .page-link .p-num {
+    color: var(--gold);
     font-weight: 600;
     font-size: 0.62rem;
   }
 
-  .nav-links a:hover,
-  .nav-links a.active {
-    color: var(--text-ivory);
+  .page-link:hover {
+    color: var(--text-platinum);
     background: rgba(255, 255, 255, 0.03);
-    border-color: var(--border-strong);
-  }
-  .nav-links a.active {
-    border-bottom-color: var(--crimson);
-    background: var(--crimson-subtle);
+    border-color: var(--border-dim);
   }
 
-  .header-actions {
+  .page-link.active {
+    color: var(--bg-abyss);
+    background: var(--gold);
+    border-color: var(--gold-bright);
+    font-weight: 600;
+    box-shadow: 0 0 18px var(--gold-glow);
+  }
+  .page-link.active .p-num {
+    color: var(--bg-abyss);
+  }
+
+  .header-tools {
     display: flex;
     align-items: center;
     gap: 0.45rem;
     flex-shrink: 0;
   }
 
-  .action-btn {
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    color: var(--text-ivory);
+  .tool-btn {
+    background: var(--bg-slate);
+    border: 1px solid var(--border-bright);
+    color: var(--text-platinum);
     font-family: var(--font-mono);
     font-size: 0.68rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    padding: 0.45rem 0.72rem;
+    padding: 0.46rem 0.75rem;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
     transition: all 0.2s ease;
   }
-  .action-btn:hover {
-    border-color: var(--crimson);
-    background: var(--bg-elevated);
+  .tool-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold-bright);
   }
-  .action-btn kbd {
-    background: var(--bg-void);
-    border: 1px solid var(--border-strong);
-    padding: 0.06rem 0.3rem;
-    font-size: 0.6rem;
-    color: var(--text-ash);
-  }
-  .codex-count {
-    background: var(--crimson);
-    color: #fff;
-    padding: 0.05rem 0.38rem;
+  .tool-badge {
+    background: var(--gold);
+    color: var(--bg-abyss);
+    font-weight: 700;
     font-size: 0.62rem;
-    font-weight: 600;
+    padding: 0.04rem 0.36rem;
   }
 
-  .menu-toggle {
+  .mobile-menu-btn {
     display: none;
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    color: var(--text-ivory);
-    width: 36px;
-    height: 36px;
+    background: var(--bg-slate);
+    border: 1px solid var(--border-bright);
+    color: var(--text-platinum);
+    width: 38px;
+    height: 38px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
   }
 
-  /* FLOATING RIGHT-SIDE SECTION RAIL (00–10) */
-  .side-rail {
-    position: fixed;
-    right: 1.1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 120;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    background: rgba(12, 12, 16, 0.82);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-hairline);
-    padding: 0.5rem 0.38rem;
-  }
-
-  .rail-item {
-    position: relative;
-    width: 30px;
-    height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    font-weight: 600;
-    color: var(--text-slate);
-    background: transparent;
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .rail-item:hover {
-    color: var(--text-ivory);
-    border-color: var(--border-strong);
-    background: var(--bg-monolith);
-  }
-
-  .rail-item.active {
-    color: var(--text-ivory);
-    background: var(--crimson-subtle);
-    border-color: var(--crimson);
-    box-shadow: 0 0 10px var(--crimson-glow);
-  }
-
-  .rail-item.hidden-by-mode { opacity: 0.25; }
-
-  .rail-tooltip {
-    position: absolute;
-    right: calc(100% + 10px);
-    top: 50%;
-    transform: translateY(-50%) translateX(6px);
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    color: var(--text-ivory);
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.32rem 0.65rem;
-    white-space: nowrap;
-    pointer-events: none;
-    opacity: 0;
-    transition: all 0.18s ease;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
-  }
-
-  .rail-item:hover .rail-tooltip {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-  }
-
-  /* HERO SECTION */
-  .hero {
-    min-height: 86vh;
-    padding: calc(var(--nav-h) + 3rem) 2rem 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  /* MULTI-PAGE VIEW CONTAINER */
+  main.app-viewport {
     position: relative;
     z-index: 1;
-    border-bottom: 1px solid var(--border-hairline);
+    padding-top: var(--nav-h);
+    min-height: calc(100vh - 80px);
   }
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.65rem;
-    padding: 0.42rem 1rem;
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--bronze);
-    margin-bottom: 1.6rem;
+  .page-view {
+    display: none;
+    animation: pageFadeIn 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 3.2rem 2rem 5rem;
   }
-  .hero-badge .pulse {
-    width: 6px;
-    height: 6px;
-    background: var(--crimson-bright);
-    box-shadow: 0 0 8px var(--crimson-bright);
-  }
-
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2.3rem, 5.8vw, 4.7rem);
-    font-weight: 800;
-    line-height: 1.07;
-    letter-spacing: 0.02em;
-    max-width: 1020px;
-    margin-bottom: 1.35rem;
-    text-transform: uppercase;
-  }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--crimson-bright);
-    text-shadow: 0 0 38px var(--crimson-glow);
-  }
-
-  .hero-sub {
-    font-size: clamp(0.98rem, 1.5vw, 1.15rem);
-    color: var(--text-ash);
-    max-width: 720px;
-    margin-bottom: 2.2rem;
-    line-height: 1.7;
-  }
-
-  .hero-ctas {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    justify-content: center;
-    margin-bottom: 3rem;
-  }
-
-  .btn-primary {
-    background: var(--crimson);
-    color: #fff;
-    border: 1px solid var(--crimson-bright);
-    padding: 0.9rem 1.85rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.55rem;
-  }
-  .btn-primary:hover {
-    background: var(--crimson-bright);
-    box-shadow: 0 0 28px var(--crimson-glow);
-    transform: translateY(-2px);
-  }
-
-  .btn-secondary {
-    background: var(--bg-monolith);
-    color: var(--text-ivory);
-    border: 1px solid var(--border-strong);
-    padding: 0.9rem 1.65rem;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-  .btn-secondary:hover {
-    border-color: var(--bronze);
-    color: var(--bronze);
-    transform: translateY(-2px);
-  }
-
-  .hero-telemetry {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(110px, 165px));
-    border: 1px solid var(--border-hairline);
-    background: rgba(12, 12, 16, 0.78);
-  }
-  .stat-cell {
-    padding: 1rem 0.9rem;
-    border-right: 1px solid var(--border-hairline);
-    text-align: center;
-  }
-  .stat-cell:last-child { border-right: none; }
-  .stat-val {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-ivory);
+  .page-view.active {
     display: block;
   }
-  .stat-lbl {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-slate);
+
+  @keyframes pageFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  /* STICKY MASTER TOME SWITCHER BAR */
-  .mode-switcher-bar {
-    position: sticky;
-    top: var(--nav-h);
-    z-index: 110;
-    background: rgba(9, 9, 13, 0.95);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border-strong);
-    padding: 0.7rem 1.5rem;
-  }
-
-  .mode-switcher-inner {
-    max-width: 1320px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .mode-label {
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-ash);
-  }
-  .mode-label span { color: var(--bronze); font-weight: 600; }
-
-  .mode-tabs {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-  }
-
-  .mode-tab {
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    color: var(--text-ash);
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.44rem 0.8rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .mode-tab:hover {
-    color: var(--text-ivory);
-    border-color: var(--text-slate);
-  }
-
-  .mode-tab.active {
-    background: var(--crimson-subtle);
-    border-color: var(--crimson);
-    color: var(--text-ivory);
-    font-weight: 600;
-  }
-
-  .mode-tab .tag-pill {
-    font-size: 0.58rem;
-    padding: 0.06rem 0.32rem;
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--bronze);
-  }
-
-  /* COMMON SECTION ARCHITECTURE */
-  main { position: relative; z-index: 1; }
-
-  section.codex-section {
-    padding: 5.2rem 2rem;
-    border-bottom: 1px solid var(--border-hairline);
-  }
-
-  section.codex-section.alt-bg { background: var(--bg-basalt); }
-  section.codex-section.mode-hidden { display: none !important; }
 
   .container {
     max-width: 1280px;
     margin: 0 auto;
   }
 
-  .section-top-bar {
+  /* PAGE HERO / HEADER BANNER */
+  .page-banner {
+    background: linear-gradient(135deg, rgba(15, 22, 35, 0.95), rgba(9, 14, 23, 0.95));
+    border: 1px solid var(--border-bright);
+    border-left: 4px solid var(--gold);
+    padding: 2.4rem 2.6rem;
+    margin-bottom: 2.6rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin-bottom: 2.6rem;
-    padding-bottom: 1.4rem;
-    border-bottom: 1px solid var(--border-hairline);
-  }
-
-  .section-meta { max-width: 760px; }
-
-  .section-index {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--crimson-bright);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.55rem;
-  }
-  .section-index::before {
-    content: '';
-    width: 18px;
-    height: 1px;
-    background: var(--crimson-bright);
-  }
-
-  .section-meta h2 {
-    font-family: var(--font-display);
-    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    margin-bottom: 0.5rem;
-  }
-
-  .section-meta p {
-    color: var(--text-ash);
-    font-size: 0.96rem;
-  }
-
-  .sub-block-title {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--bronze);
-    margin: 2.6rem 0 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-  .sub-block-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border-hairline);
-  }
-
-  /* SPOTLIGHT CARD & SHARED ACTIONS */
-  .spotlight-card {
     position: relative;
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-hairline);
-    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
     overflow: hidden;
   }
-  .spotlight-card::before {
-    content: '';
+
+  .page-banner::after {
+    content: attr(data-watermark);
     position: absolute;
-    inset: 0;
-    background: radial-gradient(500px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(166, 28, 28, 0.13), transparent 40%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .spotlight-card > * { position: relative; z-index: 1; }
-  .spotlight-card:hover {
-    border-color: var(--border-strong);
-    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
-  }
-
-  .card-icon-actions {
-    display: flex;
-    align-items: center;
-    gap: 0.38rem;
-    flex-shrink: 0;
-  }
-
-  .icon-btn {
-    background: var(--bg-void);
-    border: 1px solid var(--border-hairline);
-    color: var(--text-ash);
-    width: 29px;
-    height: 29px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 0.74rem;
-    transition: all 0.2s ease;
-  }
-  .icon-btn:hover {
-    color: var(--text-ivory);
-    border-color: var(--crimson);
-  }
-  .icon-btn.bookmarked {
-    color: var(--bronze);
-    border-color: var(--bronze);
-    background: var(--bronze-subtle);
-  }
-
-  /* SECTION 01: TOP 5 ESSENTIALS */
-  .top5-list { display: flex; flex-direction: column; gap: 0.95rem; }
-  .top5-item {
-    padding: 1.5rem 1.8rem;
-    display: grid;
-    grid-template-columns: 60px 1fr auto;
-    align-items: center;
-    gap: 1.4rem;
-  }
-  .top5-num {
+    right: 1.5rem;
+    bottom: -1rem;
     font-family: var(--font-display);
-    font-size: 1.7rem;
+    font-size: 6rem;
     font-weight: 800;
-    color: var(--crimson-bright);
-    border-right: 1px solid var(--border-strong);
-    padding-right: 0.9rem;
+    color: rgba(212, 175, 55, 0.04);
+    pointer-events: none;
+    user-select: none;
   }
-  .top5-quote {
+
+  .banner-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.55rem;
+    display: block;
+  }
+
+  .page-banner h1 {
     font-family: var(--font-display);
-    font-size: clamp(1.05rem, 1.7vw, 1.28rem);
-    font-weight: 600;
-    color: var(--text-ivory);
-    margin-bottom: 0.25rem;
-  }
-  .top5-note {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--bronze);
-    letter-spacing: 0.06em;
+    font-size: clamp(1.85rem, 3.6vw, 2.85rem);
+    font-weight: 800;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
+    margin-bottom: 0.55rem;
   }
 
-  /* CONTROLS BAR FOR SEARCH & FILTERS */
-  .laws-controls-bar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.6rem;
-    padding: 0.85rem 1.1rem;
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-hairline);
+  .page-banner p {
+    color: var(--text-steel);
+    max-width: 680px;
+    font-size: 0.98rem;
   }
 
-  .laws-search-wrap { flex: 1; min-width: 230px; }
-  .laws-search-input {
-    width: 100%;
-    background: var(--bg-void);
-    border: 1px solid var(--border-strong);
-    color: var(--text-ivory);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    padding: 0.58rem 0.85rem;
-    outline: none;
-  }
-  .laws-search-input:focus { border-color: var(--crimson); }
-
-  .laws-view-toggles { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-  .mini-toggle-btn {
-    background: var(--bg-void);
-    border: 1px solid var(--border-strong);
-    color: var(--text-ash);
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.48rem 0.8rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .mini-toggle-btn:hover { color: var(--text-ivory); border-color: var(--text-slate); }
-  .mini-toggle-btn.active {
-    background: var(--crimson-subtle);
-    border-color: var(--crimson);
-    color: var(--text-ivory);
-  }
-
-  /* SECTION 02: THE 12 LAWS OF MACHIAVELLI */
-  .laws-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
-  }
-  .law-card {
-    padding: 1.5rem;
+  /* CARDS & INTERACTIVE SURFACES */
+  .lux-card {
+    background: var(--bg-slate);
+    border: 1px solid var(--border-dim);
+    padding: 1.55rem;
+    position: relative;
+    transition: all 0.24s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
   }
-  .law-cardTop {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border-hairline);
-    padding-bottom: 0.7rem;
+  .lux-card:hover {
+    border-color: var(--border-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
   }
-  .law-index-group { display: flex; align-items: center; gap: 0.5rem; }
-  .law-num {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #fff;
-    background: var(--crimson);
-    padding: 0.14rem 0.45rem;
-  }
-  .law-chapter {
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    color: var(--bronze);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .law-title {
-    font-family: var(--font-display);
-    font-size: 1.08rem;
-    font-weight: 700;
-    line-height: 1.35;
-    color: var(--text-ivory);
-  }
-  .law-principle-box {
-    background: rgba(166, 28, 28, 0.08);
-    border-left: 2px solid var(--crimson);
-    padding: 0.7rem 0.85rem;
-  }
-  .law-principle-lbl {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--crimson-bright);
-    display: block;
-    margin-bottom: 0.2rem;
-  }
-  .law-principle-text { font-size: 0.88rem; font-weight: 500; color: var(--text-ivory); }
-  .law-dossier-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    padding-top: 0.4rem;
-    border-top: 1px dashed var(--border-hairline);
-  }
-  .law-card.compact .law-dossier-details { display: none; }
-  .law-context { font-size: 0.85rem; color: var(--text-ash); }
-  .law-apply-box {
-    background: var(--bg-void);
-    border: 1px solid var(--border-hairline);
-    padding: 0.7rem 0.85rem;
-  }
-  .law-apply-lbl {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--bronze);
-    display: block;
-    margin-bottom: 0.2rem;
-  }
-  .law-apply-text { font-size: 0.85rem; color: var(--text-ivory); }
-  .law-expand-trigger {
-    background: none;
-    border: none;
-    color: var(--text-slate);
-    font-family: var(--font-mono);
-    font-size: 0.64rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-align: left;
-  }
-  .law-expand-trigger:hover { color: var(--bronze); }
 
-  /* SECTION 03: THE 10 IRON PILLARS */
-  .audit-telemetry-panel {
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    padding: 1.4rem 1.8rem;
-    margin-bottom: 1.8rem;
+  .card-top-row {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.2rem;
-  }
-  .audit-score-wrap { display: flex; align-items: center; gap: 1.4rem; }
-  .audit-score-num {
-    font-family: var(--font-display);
-    font-size: 2.4rem;
-    font-weight: 800;
-    color: var(--crimson-bright);
-    line-height: 1;
-  }
-  .audit-rank-badge {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.22rem 0.6rem;
-    background: var(--bronze-subtle);
-    border: 1px solid var(--bronze);
-    color: var(--bronze);
-    margin-bottom: 0.25rem;
-  }
-  .pillars-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
-  .pillar-card { padding: 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; }
-  .pillar-top { display: flex; justify-content: space-between; align-items: center; }
-  .pillar-name {
-    font-family: var(--font-display);
-    font-size: 1.06rem;
-    font-weight: 700;
-    color: var(--text-ivory);
-    display: flex;
     align-items: center;
     gap: 0.6rem;
+    border-bottom: 1px solid var(--border-dim);
+    padding-bottom: 0.7rem;
   }
-  .pillar-idx { font-family: var(--font-mono); font-size: 0.68rem; color: var(--crimson-bright); }
-  .pillar-practice { font-size: 0.9rem; color: var(--text-ash); }
-  .slider-row {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding-top: 0.45rem;
-    border-top: 1px solid var(--border-hairline);
-  }
-  .slider-lbl {
+
+  .badge-gold {
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    text-transform: uppercase;
+    font-size: 0.66rem;
+    font-weight: 600;
     letter-spacing: 0.1em;
-    color: var(--text-slate);
-  }
-  .pillar-slider {
-    flex: 1;
-    -webkit-appearance: none;
-    appearance: none;
-    height: 4px;
-    background: var(--bg-void);
-    border: 1px solid var(--border-strong);
-    outline: none;
-    cursor: pointer;
-  }
-  .pillar-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 14px;
-    height: 14px;
-    background: var(--crimson-bright);
-    border: 1px solid #fff;
-    cursor: pointer;
-  }
-  .slider-val {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--bronze);
-    min-width: 34px;
-    text-align: right;
-  }
-
-  /* SECTION 04 & 05: MAXIMS & RAZOR */
-  .maxims-stack { display: flex; flex-direction: column; gap: 1.1rem; }
-  .maxim-block {
-    padding: 1.65rem 2rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1.4rem;
-    align-items: start;
-    border-left: 3px solid var(--bronze);
-  }
-  .maxim-source {
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--bronze);
-    margin-bottom: 0.45rem;
-    display: block;
+    color: var(--bg-abyss);
+    background: var(--gold);
+    padding: 0.14rem 0.5rem;
   }
-  .maxim-quote {
-    font-family: var(--font-display);
-    font-size: clamp(1.1rem, 1.9vw, 1.4rem);
-    font-weight: 700;
-    color: var(--text-ivory);
-    margin-bottom: 0.55rem;
-  }
-  .maxim-meaning { font-size: 0.92rem; color: var(--text-ash); }
 
-  .razor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.15rem; margin-bottom: 1.8rem; }
-  .razor-card { padding: 1.6rem; }
-  .razor-tag {
+  .badge-outline {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    background: var(--gold-subtle);
+    padding: 0.14rem 0.5rem;
+  }
+
+  .badge-emerald {
     font-family: var(--font-mono);
     font-size: 0.64rem;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--crimson-bright);
-    margin-bottom: 0.45rem;
-    display: block;
+    color: var(--emerald);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    background: var(--emerald-subtle);
+    padding: 0.14rem 0.5rem;
   }
-  .razor-title {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--text-ivory);
-    margin-bottom: 0.6rem;
-  }
-  .razor-desc { font-size: 0.9rem; color: var(--text-ash); }
 
-  .doctrine-banner {
-    background: linear-gradient(90deg, rgba(166, 28, 28, 0.16), rgba(18, 18, 23, 0.95));
-    border: 1px solid var(--crimson);
-    padding: 1.65rem 2rem;
+  .icon-actions {
     display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .doctrine-banner span {
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--bronze);
-  }
-  .doctrine-banner p {
-    font-family: var(--font-display);
-    font-size: 1.12rem;
-    font-weight: 600;
-    color: var(--text-ivory);
+    gap: 0.35rem;
   }
 
-  /* SECTION 06: THE 48 LAWS OF POWER */
-  .foundational-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.1rem;
-    margin-bottom: 2rem;
-  }
-  .foundation-card {
-    padding: 1.4rem 1.5rem;
-    border-top: 2px solid var(--crimson);
-  }
-  .foundation-quote {
-    font-family: var(--font-display);
-    font-size: 0.98rem;
-    font-weight: 600;
-    color: var(--text-ivory);
-    margin-bottom: 0.65rem;
-    font-style: italic;
-  }
-  .foundation-note {
-    font-size: 0.85rem;
-    color: var(--text-ash);
-  }
-
-  .power48-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.9rem;
-  }
-  .power48-card {
-    padding: 1.15rem 1.3rem;
-    display: flex;
+  .mini-icon-btn {
+    background: var(--bg-abyss);
+    border: 1px solid var(--border-dim);
+    color: var(--text-steel);
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 0.9rem;
-  }
-  .power48-left {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.85rem;
-  }
-  .power48-num {
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--bronze);
-    background: var(--bronze-subtle);
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    padding: 0.15rem 0.45rem;
-    flex-shrink: 0;
-  }
-  .power48-title {
-    font-family: var(--font-display);
-    font-size: 0.96rem;
-    font-weight: 600;
-    color: var(--text-ivory);
-    line-height: 1.35;
-  }
-
-  /* SECTION 07: THE ART OF SEDUCTION */
-  .seduction-archetypes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.15rem;
-  }
-  .archetype-card {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 0.9rem;
-  }
-  .archetype-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 0.5rem;
-  }
-  .archetype-name {
-    font-family: var(--font-display);
-    font-size: 1.14rem;
-    font-weight: 700;
-    color: var(--crimson-bright);
-    text-transform: uppercase;
-  }
-  .archetype-trait {
-    font-size: 0.88rem;
-    color: var(--text-ivory);
-    margin-bottom: 0.4rem;
-  }
-  .archetype-quote {
-    font-size: 0.83rem;
-    color: var(--text-ash);
-    border-left: 2px solid var(--bronze);
-    padding-left: 0.75rem;
-    font-style: italic;
-  }
-
-  .phases-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.15rem;
-    margin-bottom: 1.8rem;
-  }
-  .phase-card {
-    padding: 1.6rem;
-  }
-  .phase-badge {
-    font-family: var(--font-mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--bronze);
-    margin-bottom: 0.35rem;
-    display: block;
-  }
-  .phase-title {
-    font-family: var(--font-display);
-    font-size: 1.18rem;
-    font-weight: 700;
-    color: var(--text-ivory);
-    margin-bottom: 1rem;
-  }
-  .maneuver-chain {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    align-items: center;
-  }
-  .maneuver-step {
-    background: var(--bg-void);
-    border: 1px solid var(--border-strong);
-    padding: 0.38rem 0.7rem;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--text-ivory);
-  }
-  .maneuver-arrow {
-    color: var(--crimson-bright);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-  }
-
-  /* SECTION 08: SUBCONSCIOUS MIND MASTERY */
-  .subconscious-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.15rem;
-  }
-  .sub-card {
-    padding: 1.55rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 0.9rem;
-  }
-  .sub-card-tag {
-    font-family: var(--font-mono);
-    font-size: 0.64rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--bronze);
-  }
-  .sub-card-title {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-ivory);
-  }
-  .sub-card-body {
-    font-size: 0.88rem;
-    color: var(--text-ash);
-  }
-  .sub-card-quote {
-    background: var(--bg-void);
-    border-left: 2px solid var(--crimson);
-    padding: 0.65rem 0.8rem;
-    font-size: 0.83rem;
-    color: var(--text-ivory);
-    font-style: italic;
-  }
-
-  /* SECTION 09: ATTRACTION & ESCALATION DYNAMICS */
-  .dynamics-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.15rem;
-  }
-
-  /* SECTION 10: QUOTE & BIO VAULT */
-  .vault-tabs { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.6rem; }
-  .vault-tab {
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    color: var(--text-ash);
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
+    justify-content: center;
     cursor: pointer;
+    font-size: 0.74rem;
     transition: all 0.2s ease;
   }
-  .vault-tab:hover { color: var(--text-ivory); }
-  .vault-tab.active {
-    background: var(--crimson);
-    border-color: var(--crimson-bright);
-    color: #fff;
+  .mini-icon-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
   }
-  .quotes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 3rem; }
-  .quote-card {
-    padding: 1.35rem 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.1rem;
+  .mini-icon-btn.saved {
+    background: var(--gold-subtle);
+    border-color: var(--gold);
+    color: var(--gold-bright);
   }
-  .quote-cat-label {
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--bronze);
-    display: block;
-    margin-bottom: 0.3rem;
-  }
-  .quote-text { font-size: 1rem; font-weight: 600; color: var(--text-ivory); }
 
-  .bios-box { background: var(--bg-basalt); border: 1px solid var(--border-strong); padding: 2rem; }
-  .bios-header { text-align: center; margin-bottom: 1.4rem; }
-  .bios-header h3 { font-family: var(--font-display); font-size: 1.35rem; text-transform: uppercase; margin-bottom: 0.25rem; }
-  .bios-header p { font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-ash); }
-  .bio-strip { display: flex; flex-wrap: wrap; gap: 0.65rem; justify-content: center; }
-  .bio-chip {
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    color: var(--text-ivory);
-    padding: 0.6rem 1.1rem;
+  /* GRIDS */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+
+  .section-subhead {
+    font-family: var(--font-display);
+    font-size: 1.22rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 2.5rem 0 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .section-subhead::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-dim);
+  }
+
+  /* PAGE 01: COMMAND CENTER SPECIFIC */
+  .command-hero-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 1.4rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .oracle-panel {
+    background: linear-gradient(145deg, #101929, #090e17);
+    border: 1px solid var(--gold);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.2rem;
+  }
+
+  .oracle-quote {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.1vw, 1.55rem);
+    font-weight: 700;
+    color: var(--text-platinum);
+    line-height: 1.38;
+  }
+
+  .oracle-sub {
+    font-size: 0.92rem;
+    color: var(--text-steel);
+    border-left: 2px solid var(--emerald);
+    padding-left: 0.85rem;
+  }
+
+  .btn-gold {
+    background: var(--gold);
+    color: var(--bg-abyss);
+    border: 1px solid var(--gold-bright);
+    padding: 0.78rem 1.4rem;
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
   }
-  .bio-chip:hover {
-    border-color: var(--crimson-bright);
-    background: var(--crimson-subtle);
-    transform: translateY(-2px);
+  .btn-gold:hover {
+    background: var(--gold-bright);
+    box-shadow: 0 0 22px var(--gold-glow);
   }
-  .bio-chip span.copy-hint { font-size: 0.64rem; color: var(--text-slate); }
 
-  /* FLOATING BACK-TO-TOP & MOBILE DOCK */
-  .back-to-top-fab {
-    position: fixed;
-    right: 1.2rem;
-    bottom: 1.5rem;
-    z-index: 125;
-    background: var(--bg-monolith);
-    border: 1px solid var(--crimson);
-    color: var(--text-ivory);
-    padding: 0.6rem 0.85rem;
+  .btn-slate {
+    background: var(--bg-abyss);
+    color: var(--text-platinum);
+    border: 1px solid var(--border-bright);
+    padding: 0.78rem 1.3rem;
     font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(12px);
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
   }
-  .back-to-top-fab.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
-  .back-to-top-fab:hover { background: var(--crimson); color: #fff; }
+  .btn-slate:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
 
-  .mobile-bottom-dock {
-    display: none;
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    height: 58px;
-    background: rgba(8, 8, 12, 0.96);
-    backdrop-filter: blur(16px);
-    border-top: 1px solid var(--border-strong);
-    z-index: 145;
-    grid-template-columns: repeat(5, 1fr);
+  .portal-card {
+    cursor: pointer;
+    border-top: 2px solid transparent;
   }
-  .dock-btn {
-    background: none;
-    border: none;
-    border-right: 1px solid var(--border-hairline);
-    color: var(--text-ash);
-    font-family: var(--font-mono);
-    font-size: 0.6rem;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+  .portal-card:hover {
+    border-top-color: var(--gold);
+    background: var(--bg-elevated);
+  }
+
+  /* FILTER & SEARCH BARS */
+  .filter-bar {
+    background: var(--bg-slate);
+    border: 1px solid var(--border-dim);
+    padding: 0.9rem 1.15rem;
+    margin-bottom: 1.5rem;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 0.8rem;
     align-items: center;
-    justify-content: center;
-    gap: 0.18rem;
+    justify-content: space-between;
+  }
+
+  .search-input {
+    flex: 1;
+    min-width: 240px;
+    background: var(--bg-abyss);
+    border: 1px solid var(--border-bright);
+    color: var(--text-platinum);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    padding: 0.6rem 0.95rem;
+    outline: none;
+  }
+  .search-input:focus { border-color: var(--gold); }
+
+  .chip-group { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .filter-chip {
+    background: var(--bg-abyss);
+    border: 1px solid var(--border-bright);
+    color: var(--text-steel);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.46rem 0.82rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-chip:hover { color: var(--text-platinum); }
+  .filter-chip.active {
+    background: var(--gold-subtle);
+    border-color: var(--gold);
+    color: var(--gold-bright);
+    font-weight: 600;
+  }
+
+  /* PAGE 07: TACTICAL ARENA (FLASHCARDS & SCENARIO SIMULATOR) */
+  .arena-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.8rem;
+  }
+
+  .flashcard-stage {
+    perspective: 1000px;
+    height: 310px;
+    margin-bottom: 1.2rem;
     cursor: pointer;
   }
-  .dock-btn:last-child { border-right: none; }
-  .dock-btn .dock-num { color: var(--crimson-bright); font-weight: 700; font-size: 0.66rem; }
 
-  /* MODALS */
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transform-style: preserve-3d;
+  }
+  .flashcard-stage.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flashcard-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    background: linear-gradient(145deg, var(--bg-slate), var(--bg-deep));
+    border: 1px solid var(--gold);
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .flashcard-back {
+    transform: rotateY(180deg);
+    border-color: var(--emerald);
+  }
+
+  .scenario-option {
+    width: 100%;
+    text-align: left;
+    background: var(--bg-abyss);
+    border: 1px solid var(--border-bright);
+    color: var(--text-platinum);
+    padding: 0.95rem 1.15rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-bottom: 0.65rem;
+    transition: all 0.2s ease;
+  }
+  .scenario-option:hover {
+    border-color: var(--gold);
+    background: var(--bg-elevated);
+  }
+  .scenario-option.correct {
+    border-color: var(--emerald);
+    background: var(--emerald-subtle);
+    color: #fff;
+  }
+  .scenario-option.wrong {
+    border-color: var(--crimson);
+    background: rgba(239, 68, 68, 0.14);
+  }
+
+  /* PAGE 08: WAR ROOM & JOURNAL */
+  .journal-composer {
+    background: var(--bg-slate);
+    border: 1px solid var(--border-bright);
+    padding: 1.6rem;
+    margin-bottom: 1.8rem;
+  }
+  .journal-textarea {
+    width: 100%;
+    min-height: 100px;
+    background: var(--bg-abyss);
+    border: 1px solid var(--border-bright);
+    color: var(--text-platinum);
+    font-family: var(--font-sans);
+    font-size: 0.94rem;
+    padding: 0.9rem;
+    margin: 0.8rem 0;
+    outline: none;
+    resize: vertical;
+  }
+  .journal-textarea:focus { border-color: var(--gold); }
+
+  /* PAGE FOOTER STEPPER (PREV / NEXT PAGE) */
+  .page-stepper {
+    margin-top: 3.8rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--border-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* GLOBAL SEARCH MODAL */
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.82);
+    background: rgba(3, 6, 12, 0.85);
     backdrop-filter: blur(8px);
-    z-index: 250;
+    z-index: 300;
     display: none;
     align-items: flex-start;
     justify-content: center;
@@ -1295,1443 +643,1232 @@
   .modal-box {
     width: 100%;
     max-width: 720px;
-    background: var(--bg-monolith);
-    border: 1px solid var(--border-strong);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
-    overflow: hidden;
+    background: var(--bg-slate);
+    border: 1px solid var(--gold);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
   }
-  .modal-header {
-    padding: 0.95rem 1.35rem;
-    border-bottom: 1px solid var(--border-hairline);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .modal-header h3 {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--bronze);
-  }
-  .cmd-input {
-    width: 100%;
-    padding: 1rem 1.35rem;
-    background: var(--bg-void);
-    border: none;
-    border-bottom: 1px solid var(--border-hairline);
-    color: var(--text-ivory);
-    font-family: var(--font-mono);
-    font-size: 0.88rem;
-    outline: none;
-  }
-  .cmd-results { max-height: 380px; overflow-y: auto; padding: 0.55rem; }
-  .cmd-item {
-    padding: 0.75rem 0.95rem;
-    border-bottom: 1px solid var(--border-hairline);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-  .cmd-item:hover { background: var(--bg-elevated); }
-  .cmd-item-type { font-family: var(--font-mono); font-size: 0.6rem; color: var(--crimson-bright); text-transform: uppercase; }
 
-  .toast-wrap {
+  .toast {
     position: fixed;
     bottom: 1.6rem;
     left: 50%;
     transform: translateX(-50%) translateY(20px);
-    background: var(--bg-monolith);
-    border: 1px solid var(--bronze);
-    color: var(--text-ivory);
+    background: var(--bg-slate);
+    border: 1px solid var(--gold);
+    color: var(--text-platinum);
     font-family: var(--font-mono);
     font-size: 0.74rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 0.68rem 1.25rem;
-    z-index: 300;
+    padding: 0.7rem 1.3rem;
+    z-index: 400;
     opacity: 0;
     pointer-events: none;
     transition: all 0.25s ease;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.65);
   }
-  .toast-wrap.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-  footer {
-    padding: 3.5rem 2rem 5.5rem;
-    background: var(--bg-void);
-    border-top: 1px solid var(--border-hairline);
-    text-align: center;
+  @media (max-width: 1120px) {
+    .grid-3, .grid-4, .command-hero-grid, .arena-layout { grid-template-columns: repeat(2, 1fr); }
   }
-  .footer-brand { font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; letter-spacing: 0.24em; margin-bottom: 0.45rem; }
-  .footer-brand span { color: var(--crimson); }
-  .footer-sub { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-slate); }
-
-  @media (max-width: 1180px) {
-    .laws-grid, .power48-grid, .seduction-archetypes-grid, .subconscious-grid, .foundational-grid { grid-template-columns: repeat(2, 1fr); }
-    .side-rail { display: none; }
-    .hero-telemetry { grid-template-columns: repeat(3, 1fr); }
-  }
-
-  @media (max-width: 920px) {
-    .nav-links {
+  @media (max-width: 860px) {
+    .page-nav {
       position: fixed;
       top: var(--nav-h);
       right: -100%;
       width: 280px;
       height: calc(100vh - var(--nav-h));
-      background: var(--bg-basalt);
-      border-left: 1px solid var(--border-strong);
+      background: var(--bg-deep);
+      border-left: 1px solid var(--border-bright);
       flex-direction: column;
       align-items: stretch;
       padding: 1.4rem;
       transition: right 0.3s ease;
     }
-    .nav-links.open { right: 0; }
-    .menu-toggle { display: inline-flex; }
-    .laws-grid, .pillars-grid, .razor-grid, .quotes-grid, .power48-grid, .seduction-archetypes-grid, .phases-grid, .subconscious-grid, .dynamics-grid, .foundational-grid { grid-template-columns: 1fr; }
-    .hero-telemetry { grid-template-columns: repeat(2, 1fr); }
-    .top5-item { grid-template-columns: 44px 1fr; }
-    .top5-item .card-icon-actions { grid-column: 2; }
-    .mobile-bottom-dock { display: grid; }
-    .back-to-top-fab { bottom: 4.5rem; right: 1rem; }
+    .page-nav.open { right: 0; }
+    .mobile-menu-btn { display: inline-flex; }
+    .grid-3, .grid-2, .grid-4, .command-hero-grid, .arena-layout { grid-template-columns: 1fr; }
+    .page-view { padding: 2rem 1.1rem 4rem; }
   }
 </style>
 </head>
 <body>
 
-<div class="grain-overlay"></div>
-
-<!-- SLIM HEADER WITH SCROLL PROGRESS -->
-<header class="site-header" id="mainHeader">
+<!-- MULTI-PAGE HEADER -->
+<header class="site-header">
   <div class="header-inner">
-    <a class="brand-logo" data-scroll="hero">
-      AETHER<span class="dot">.</span>
-      <span class="brand-sub">Codex</span>
+    <a class="brand-logo" onclick="navigateTo('command')">
+      IMPERIUM<span class="gold-dot">.</span>
+      <span class="brand-tag">8-Page Codex</span>
     </a>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a data-scroll="top5"><span class="num">01</span>Top 5</a></li>
-      <li><a data-scroll="laws"><span class="num">02</span>The Prince</a></li>
-      <li><a data-scroll="pillars"><span class="num">03</span>Pillars</a></li>
-      <li><a data-scroll="maxims"><span class="num">04</span>Maxims</a></li>
-      <li><a data-scroll="razor"><span class="num">05</span>Razor</a></li>
-      <li><a data-scroll="power48"><span class="num">06</span>48 Laws</a></li>
-      <li><a data-scroll="seduction"><span class="num">07</span>Seduction</a></li>
-      <li><a data-scroll="subconscious"><span class="num">08</span>Subconscious</a></li>
-      <li><a data-scroll="attraction"><span class="num">09</span>Attraction</a></li>
-      <li><a data-scroll="vault"><span class="num">10</span>Quotes</a></li>
-    </ul>
+    <nav class="page-nav" id="pageNav">
+      <button class="page-link active" data-page="command"><span class="p-num">01</span>Command</button>
+      <button class="page-link" data-page="statecraft"><span class="p-num">02</span>Realpolitik</button>
+      <button class="page-link" data-page="leverage"><span class="p-num">03</span>48 Directives</button>
+      <button class="page-link" data-page="magnetism"><span class="p-num">04</span>Magnetism</button>
+      <button class="page-link" data-page="mind"><span class="p-num">05</span>Subconscious</button>
+      <button class="page-link" data-page="frame"><span class="p-num">06</span>Frame &amp; Polarity</button>
+      <button class="page-link" data-page="arena"><span class="p-num">07</span>Tactical Arena</button>
+      <button class="page-link" data-page="warroom"><span class="p-num">08</span>War Room</button>
+    </nav>
 
-    <div class="header-actions">
-      <button class="action-btn" id="openSearchBtn" title="Search Archive (⌘K)">
+    <div class="header-tools">
+      <button class="tool-btn" id="openSearchModalBtn" title="Global Search (⌘K)">
         <span>Search</span>
-        <kbd>⌘K</kbd>
+        <kbd style="font-size:0.6rem; opacity:0.7;">⌘K</kbd>
       </button>
-      <button class="action-btn" id="openCounselBtn" title="Draw Daily Counsel">
-        <span>Counsel</span>
+      <button class="tool-btn" onclick="navigateTo('warroom')" title="Saved Bookmarks & Journal">
+        <span>Vault</span>
+        <span class="tool-badge" id="headerSavedCount">0</span>
       </button>
-      <button class="action-btn" id="openCodexBtn" title="Personal Saved Codex">
-        <span>Saved</span>
-        <span class="codex-count" id="codexCountBadge">0</span>
-      </button>
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
     </div>
-  </div>
-  <div class="scroll-progress-track">
-    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
   </div>
 </header>
 
-<!-- FLOATING RIGHT-SIDE SECTION RAIL -->
-<aside class="side-rail" id="sideRail" aria-label="Section Quick Jump">
-  <button class="rail-item active" data-scroll="hero">00<span class="rail-tooltip">Hero — Top</span></button>
-  <button class="rail-item" data-scroll="top5">01<span class="rail-tooltip">01 — Top 5 Essentials</span></button>
-  <button class="rail-item" data-scroll="laws">02<span class="rail-tooltip">02 — The Prince (12 Laws)</span></button>
-  <button class="rail-item" data-scroll="pillars">03<span class="rail-tooltip">03 — 10 Iron Pillars</span></button>
-  <button class="rail-item" data-scroll="maxims">04<span class="rail-tooltip">04 — 5 Maxims</span></button>
-  <button class="rail-item" data-scroll="razor">05<span class="rail-tooltip">05 — Razor's Edge</span></button>
-  <button class="rail-item" data-scroll="power48">06<span class="rail-tooltip">06 — 48 Laws of Power</span></button>
-  <button class="rail-item" data-scroll="seduction">07<span class="rail-tooltip">07 — Art of Seduction</span></button>
-  <button class="rail-item" data-scroll="subconscious">08<span class="rail-tooltip">08 — Subconscious Mind</span></button>
-  <button class="rail-item" data-scroll="attraction">09<span class="rail-tooltip">09 — Attraction Dynamics</span></button>
-  <button class="rail-item" data-scroll="vault">10<span class="rail-tooltip">10 — Quote & Bio Vault</span></button>
-</aside>
+<main class="app-viewport">
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-badge">
-    <span class="pulse"></span>
-    <span>Statecraft • Power • Psychology • Subconscious • Frame</span>
-  </div>
-  <h1>Quiet Power.<br>Unshakable <em>Command</em>.</h1>
-  <p class="hero-sub">The unified masculine codex: Machiavellian statecraft, the 48 Laws of Power, the psychology of seduction, subconscious programming, attraction dynamics, and unyielding personal standards.</p>
-  <div class="hero-ctas">
-    <button class="btn-primary" data-scroll="power48">Explore The 48 Laws →</button>
-    <button class="btn-secondary" data-scroll="laws">Machiavelli's 12 Laws</button>
-    <button class="btn-secondary" data-scroll="seduction">Art of Seduction</button>
-  </div>
-  <div class="hero-telemetry">
-    <div class="stat-cell">
-      <span class="stat-val">12</span>
-      <span class="stat-lbl">Prince Laws</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-val">48</span>
-      <span class="stat-lbl">Laws of Power</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-val">24</span>
-      <span class="stat-lbl">Seduction Moves</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-val">09</span>
-      <span class="stat-lbl">Archetypes</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-val">39</span>
-      <span class="stat-lbl">Quotes &amp; Bios</span>
-    </div>
-    <div class="stat-cell">
-      <span class="stat-val" id="heroSovereigntyStat">70%</span>
-      <span class="stat-lbl">Command Index</span>
-    </div>
-  </div>
-</section>
-
-<!-- STICKY MASTER TOME SWITCHER -->
-<div class="mode-switcher-bar">
-  <div class="mode-switcher-inner">
-    <div class="mode-label">
-      <span>Active Tome Filter:</span> Isolate any doctrine for zero-scroll focus
-    </div>
-    <div class="mode-tabs" id="masterModeTabs">
-      <button class="mode-tab active" data-mode="all">All Tomes <span class="tag-pill">01–10</span></button>
-      <button class="mode-tab" data-mode="prince">The Prince <span class="tag-pill">02–05</span></button>
-      <button class="mode-tab" data-mode="power48">48 Laws <span class="tag-pill">06</span></button>
-      <button class="mode-tab" data-mode="seduction">Art of Seduction <span class="tag-pill">07</span></button>
-      <button class="mode-tab" data-mode="subconscious">Subconscious Mind <span class="tag-pill">08</span></button>
-      <button class="mode-tab" data-mode="attraction">Attraction &amp; Frame <span class="tag-pill">09</span></button>
-      <button class="mode-tab" data-mode="quotes">Quotes &amp; Bios <span class="tag-pill">01 &amp; 10</span></button>
-    </div>
-  </div>
-</div>
-
-<main>
-  <!-- SECTION 01: TOP 5 ESSENTIALS -->
-  <section class="codex-section alt-bg" id="top5" data-group="quotes">
+  <!-- =========================================================
+       PAGE 01: COMMAND CENTER (HOME DASHBOARD)
+       ========================================================= -->
+  <section class="page-view active" id="page-command">
     <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 01 — The Essentials</span>
-          <h2>The Top 5 Standards</h2>
-          <p>The lines that cut deepest — self-control, self-respect, and quiet strength.</p>
+      <div class="page-banner" data-watermark="IMPERIUM">
+        <div>
+          <span class="banner-kicker">Page 01 // Sovereign Command Center</span>
+          <h1>Self-Mastery. Strategic Leverage. Quiet Gravity.</h1>
+          <p>Navigate eight dedicated wings of strategic realism, social magnetism, subconscious conditioning, and interactive tactical drills.</p>
         </div>
-      </div>
-      <div class="top5-list" id="top5Container"></div>
-    </div>
-  </section>
-
-  <!-- SECTION 02: THE 12 LAWS OF MACHIAVELLI -->
-  <section class="codex-section" id="laws" data-group="prince">
-    <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 02 — Niccolò Machiavelli • The Prince</span>
-          <h2>The 12 Strategic Laws</h2>
-          <p>Power, human behaviour, reputation, preparation, and adapting to changing reality.</p>
+        <div style="display:flex; gap:0.7rem;">
+          <button class="btn-gold" onclick="navigateTo('arena')">Enter Tactical Arena →</button>
+          <button class="btn-slate" onclick="navigateTo('warroom')">Open War Room</button>
         </div>
       </div>
 
-      <div class="laws-controls-bar">
-        <div class="laws-search-wrap">
-          <input type="text" class="laws-search-input" id="lawsSearchInput" placeholder="Filter Machiavelli's 12 laws by keyword (e.g. reputation, fortune, fox, crisis)...">
-        </div>
-        <div class="laws-view-toggles">
-          <button class="mini-toggle-btn active" id="viewFullBtn">Full Dossier View</button>
-          <button class="mini-toggle-btn" id="viewCompactBtn">Compact Scan View</button>
-          <button class="mini-toggle-btn" id="toggleLimitBtn">Showing: All 12</button>
-        </div>
-      </div>
-
-      <div class="laws-grid" id="lawsGrid"></div>
-    </div>
-  </section>
-
-  <!-- SECTION 03: THE 10 IRON PILLARS -->
-  <section class="codex-section alt-bg" id="pillars" data-group="prince">
-    <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 03 — The Iron Matrix</span>
-          <h2>10 Pillars of a Stronger Man</h2>
-          <p>Calibrate your daily discipline across all ten operational principles.</p>
-        </div>
-      </div>
-
-      <div class="audit-telemetry-panel">
-        <div class="audit-score-wrap">
-          <div class="audit-score-num" id="auditScoreDisplay">70%</div>
+      <div class="command-hero-grid">
+        <!-- Live Oracle Generator -->
+        <div class="oracle-panel">
           <div>
-            <span class="audit-rank-badge" id="auditRankBadge">COMMANDER</span>
-            <p style="font-size: 0.85rem; color: var(--text-ash);">Adjust the sliders below to audit your current self-command.</p>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+              <span class="badge-gold" id="oracleCategory">DAILY STRATEGIC DIRECTIVE</span>
+              <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-steel);">ACTIVE COUNSEL</span>
+            </div>
+            <p class="oracle-quote" id="oracleMainText"></p>
+            <p class="oracle-sub" id="oracleSubText" style="margin-top:0.9rem;"></p>
+          </div>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap; padding-top:1rem; border-top:1px solid var(--border-dim);">
+            <button class="btn-gold" id="newOracleBtn">Generate New Directive</button>
+            <button class="btn-slate" id="copyOracleBtn">Copy Directive</button>
           </div>
         </div>
-        <button class="mini-toggle-btn" id="resetAuditBtn">Reset Calibration</button>
+
+        <!-- Live Telemetry Summary -->
+        <div class="lux-card" style="justify-content:center; gap:1.3rem;">
+          <div class="card-top-row">
+            <span class="badge-emerald">SYSTEM TELEMETRY</span>
+            <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--gold);" id="dashRankLabel">HIGH COMMANDER</span>
+          </div>
+          <div class="grid-2" style="gap:0.9rem;">
+            <div style="background:var(--bg-abyss); padding:1rem; border:1px solid var(--border-dim);">
+              <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--gold);" id="dashCommandPct">70%</span>
+              <span style="display:block; font-family:var(--font-mono); font-size:0.62rem; color:var(--text-steel); text-transform:uppercase;">Self-Command Index</span>
+            </div>
+            <div style="background:var(--bg-abyss); padding:1rem; border:1px solid var(--border-dim);">
+              <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--emerald);" id="dashArenaScore">0 XP</span>
+              <span style="display:block; font-family:var(--font-mono); font-size:0.62rem; color:var(--text-steel); text-transform:uppercase;">Tactical Arena XP</span>
+            </div>
+            <div style="background:var(--bg-abyss); padding:1rem; border:1px solid var(--border-dim);">
+              <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--text-platinum);">130+</span>
+              <span style="display:block; font-family:var(--font-mono); font-size:0.62rem; color:var(--text-steel); text-transform:uppercase;">Codex Directives</span>
+            </div>
+            <div style="background:var(--bg-abyss); padding:1rem; border:1px solid var(--border-dim);">
+              <span style="font-family:var(--font-display); font-size:1.8rem; font-weight:800; color:var(--text-platinum);" id="dashVaultCount">0</span>
+              <span style="display:block; font-family:var(--font-mono); font-size:0.62rem; color:var(--text-steel); text-transform:uppercase;">War Room Entries</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="pillars-grid" id="pillarsGrid"></div>
+      <h2 class="section-subhead">Directory of Sovereign Wings (Click Any Wing to Enter)</h2>
+      <div class="grid-4" id="wingPortalGrid"></div>
     </div>
   </section>
 
-  <!-- SECTION 04: THE 5 MAXIMS -->
-  <section class="codex-section" id="maxims" data-group="prince">
+  <!-- =========================================================
+       PAGE 02: REALPOLITIK & STATECRAFT
+       ========================================================= -->
+  <section class="page-view" id="page-statecraft">
     <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 04 — Core Axioms</span>
-          <h2>Five Machiavellian Principles</h2>
-          <p>High-leverage mental models to remember under pressure.</p>
+      <div class="page-banner" data-watermark="STATECRAFT">
+        <div>
+          <span class="banner-kicker">Page 02 // Pragmatic Statecraft &amp; Realism</span>
+          <h1>The 12 Laws of Sovereign Realism</h1>
+          <p>Objective observation, independent capability, strategic adaptability, long-horizon consequence analysis, and the 10-Pillar Self-Command Audit.</p>
         </div>
       </div>
-      <div class="maxims-stack" id="maximsStack"></div>
+
+      <h2 class="section-subhead">I. The 12 Pragmatic Laws</h2>
+      <div class="grid-3" id="realpolitikGrid"></div>
+
+      <h2 class="section-subhead">II. 10-Pillar Self-Command Audit (Interactive Calibration)</h2>
+      <div class="lux-card" style="margin-bottom:1.4rem; flex-direction:row; align-items:center; justify-content:space-between; flex-wrap:wrap;">
+        <div>
+          <span class="badge-gold">LIVE CALIBRATION</span>
+          <h3 style="font-family:var(--font-display); font-size:1.3rem; margin-top:0.4rem;">Sovereignty Index: <span id="pillarTotalPct" style="color:var(--gold);">70%</span></h3>
+          <p style="font-size:0.86rem; color:var(--text-steel);">Slide each pillar from 1 to 10 to audit your real-world operational discipline.</p>
+        </div>
+        <button class="btn-slate" id="resetPillarsBtn">Reset Sliders</button>
+      </div>
+      <div class="grid-2" id="pillarsAuditGrid"></div>
+
+      <h2 class="section-subhead">III. Strategic Calibration &amp; Guardrails</h2>
+      <div class="grid-2" id="calibrationGrid"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('command')">← 01 Command Center</button>
+        <button class="btn-gold" onclick="navigateTo('leverage')">03 The 48 Directives →</button>
+      </div>
     </div>
   </section>
 
-  <!-- SECTION 05: THE RAZOR'S EDGE -->
-  <section class="codex-section alt-bg" id="razor" data-group="prince">
+  <!-- =========================================================
+       PAGE 03: THE 48 DIRECTIVES OF LEVERAGE
+       ========================================================= -->
+  <section class="page-view" id="page-leverage">
     <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 05 — Strategic Calibration</span>
-          <h2>The Razor's Edge</h2>
-          <p>Critical distinctions separating authentic capability from manipulation and hollow posturing.</p>
+      <div class="page-banner" data-watermark="LEVERAGE">
+        <div>
+          <span class="banner-kicker">Page 03 // Social &amp; Strategic Leverage</span>
+          <h1>The 48 Directives of Power Dynamics</h1>
+          <p>Master emotional restraint, strategic indirection, asymmetric positioning, reputation defense, and adaptive timing.</p>
         </div>
       </div>
-      <div class="razor-grid" id="razorGrid"></div>
-      <div class="doctrine-banner">
-        <span>The Central Takeaway</span>
-        <p>Understand reality, prepare for uncertainty, develop your own capabilities, adapt your methods, and think carefully about consequences.</p>
+
+      <div class="grid-3" style="margin-bottom:2rem;" id="leverageFoundationsGrid"></div>
+
+      <div class="filter-bar">
+        <input type="text" class="search-input" id="leverageSearchInput" placeholder="Filter 48 directives by keyword or number (e.g. reputation, timing, silence, options)...">
+        <div class="chip-group" id="leverageRangeChips">
+          <button class="filter-chip active" data-range="all">All 48</button>
+          <button class="filter-chip" data-range="1-12">01–12</button>
+          <button class="filter-chip" data-range="13-24">13–24</button>
+          <button class="filter-chip" data-range="25-36">25–36</button>
+          <button class="filter-chip" data-range="37-48">37–48</button>
+        </div>
+      </div>
+
+      <div class="grid-3" id="directives48Grid"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('statecraft')">← 02 Realpolitik</button>
+        <button class="btn-gold" onclick="navigateTo('magnetism')">04 Social Magnetism →</button>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 06: THE 48 LAWS OF POWER (ROBERT GREENE) -->
-  <section class="codex-section" id="power48" data-group="power48">
+  <!-- =========================================================
+       PAGE 04: SOCIAL MAGNETISM & ARCHETYPES
+       ========================================================= -->
+  <section class="page-view" id="page-magnetism">
     <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 06 — Robert Greene • The 48 Laws of Power</span>
-          <h2>The 48 Laws of Power</h2>
-          <p>Indirection, emotional control, strategic calculation, and the iron hand in a velvet glove.</p>
+      <div class="page-banner" data-watermark="CHARISMA">
+        <div>
+          <span class="banner-kicker">Page 04 // Outward Presence &amp; Psychological Gravity</span>
+          <h1>The Architecture of Social Magnetism</h1>
+          <p>Induce fascination through outward focus, emotional contrast, enigmatic archetypes, and the 4-phase psychological sequence.</p>
         </div>
       </div>
 
-      <div class="foundational-grid" id="powerFoundationsGrid"></div>
+      <h2 class="section-subhead">I. Three Pillars of Magnetic Presence</h2>
+      <div class="grid-3" id="magnetismPillarsGrid"></div>
 
-      <div class="laws-controls-bar">
-        <div class="laws-search-wrap">
-          <input type="text" class="laws-search-input" id="power48SearchInput" placeholder="Search all 48 Laws (e.g. master, reputation, absence, mirror, formlessness)...">
-        </div>
-        <div class="laws-view-toggles" id="power48RangeTabs">
-          <button class="mini-toggle-btn active" data-range="all">All 48 Laws</button>
-          <button class="mini-toggle-btn" data-range="1-15">Laws 01–15</button>
-          <button class="mini-toggle-btn" data-range="16-32">Laws 16–32</button>
-          <button class="mini-toggle-btn" data-range="33-48">Laws 33–48</button>
-        </div>
+      <h2 class="section-subhead">II. The 9 Magnetic Personas &amp; Anti-Magnetism</h2>
+      <div class="grid-3" id="personasGrid"></div>
+
+      <h2 class="section-subhead">III. The 24-Step Influence Sequence (4 Phases)</h2>
+      <div class="grid-2" id="influencePhasesGrid"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('leverage')">← 03 The 48 Directives</button>
+        <button class="btn-gold" onclick="navigateTo('mind')">05 Subconscious Mind →</button>
       </div>
-
-      <div class="power48-grid" id="power48Grid"></div>
     </div>
   </section>
 
-  <!-- SECTION 07: THE ART OF SEDUCTION (ROBERT GREENE) -->
-  <section class="codex-section alt-bg" id="seduction" data-group="seduction">
+  <!-- =========================================================
+       PAGE 05: SUBCONSCIOUS ARCHITECTURE
+       ========================================================= -->
+  <section class="page-view" id="page-mind">
     <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 07 — Robert Greene • The Art of Seduction</span>
-          <h2>The Architecture of Seduction</h2>
-          <p>Psychological surrender, outward focus, seductive archetypes, and the 24 maneuvers across four phases.</p>
+      <div class="page-banner" data-watermark="COGNITION">
+        <div>
+          <span class="banner-kicker">Page 05 // Internal Programming &amp; Mental Laws</span>
+          <h1>Subconscious Mind Architecture</h1>
+          <p>Command the conscious navigator, bypass resistance through effortless imagination, and imprint high-conviction mental blueprints before sleep.</p>
         </div>
       </div>
 
-      <h3 class="sub-block-title">I. Core Philosophy of Seduction</h3>
-      <div class="foundational-grid" id="seductionPhilosophyGrid"></div>
+      <h2 class="section-subhead">I. Conscious Directive vs. Subconscious Execution</h2>
+      <div class="grid-3" id="mindLawsGrid"></div>
 
-      <h3 class="sub-block-title">II. The 9 Seductive Characters &amp; Anti-Seducer</h3>
-      <div class="seduction-archetypes-grid" id="seductionArchetypesGrid"></div>
+      <h2 class="section-subhead">II. Imprinting Protocols &amp; Reversed Effort</h2>
+      <div class="grid-3" id="mindProtocolsGrid"></div>
 
-      <h3 class="sub-block-title">III. The 24 Maneuvers (4-Phase Campaign)</h3>
-      <div class="phases-grid" id="seductionPhasesGrid"></div>
+      <h2 class="section-subhead">III. Abundance, Mastery &amp; Nocturnal Resolution</h2>
+      <div class="grid-3" id="mindAbundanceGrid"></div>
 
-      <div class="doctrine-banner" id="seductionKeyPrinciples">
-        <span>Key Seduction Principles</span>
-        <p>“A perfectly satisfied person cannot be seduced. Tension and disharmony must be instilled... The greatest mistake in seduction is being too nice... The lower the lows you create, the greater the highs.”</p>
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('magnetism')">← 04 Social Magnetism</button>
+        <button class="btn-gold" onclick="navigateTo('frame')">06 Frame &amp; Polarity →</button>
       </div>
     </div>
   </section>
 
-  <!-- SECTION 08: THE POWER OF YOUR SUBCONSCIOUS MIND (DR. JOSEPH MURPHY) -->
-  <section class="codex-section" id="subconscious" data-group="subconscious">
+  <!-- =========================================================
+       PAGE 06: FRAME & POLARITY DYNAMICS
+       ========================================================= -->
+  <section class="page-view" id="page-frame">
     <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 08 — Dr. Joseph Murphy • Subconscious Mind</span>
-          <h2>The Power of Your Subconscious Mind</h2>
-          <p>The Law of Belief, the Law of Reversed Effort, drowsy-state programming, and subconscious wealth architecture.</p>
+      <div class="page-banner" data-watermark="POLARITY">
+        <div>
+          <span class="banner-kicker">Page 06 // Behavioral Gravity &amp; Polarity</span>
+          <h1>Frame Control &amp; Escalation Dynamics</h1>
+          <p>Outcome independence, the Evaluator Mindset, Mission-First priority, playful challenge, and calibrated physical leadership.</p>
         </div>
       </div>
 
-      <h3 class="sub-block-title">I. Dual Nature of the Mind &amp; Law of Belief</h3>
-      <div class="subconscious-grid" id="subDualMindGrid"></div>
+      <h2 class="section-subhead">I. Core Mindset &amp; Investment Asymmetry</h2>
+      <div class="grid-2" id="frameMindsetGrid"></div>
 
-      <h3 class="sub-block-title">II. Mental Healing, Reversed Effort &amp; Practical Methods</h3>
-      <div class="subconscious-grid" id="subHealingGrid"></div>
+      <h2 class="section-subhead">II. Verbal Polarity &amp; Progressive Escalation</h2>
+      <div class="grid-3" id="frameEscalationGrid"></div>
 
-      <h3 class="sub-block-title">III. Wealth, Success, Sleep &amp; Relations</h3>
-      <div class="subconscious-grid" id="subWealthGrid"></div>
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('mind')">← 05 Subconscious Mind</button>
+        <button class="btn-gold" onclick="navigateTo('arena')">07 Tactical Arena →</button>
+      </div>
     </div>
   </section>
 
-  <!-- SECTION 09: ATTRACTION & ESCALATION DYNAMICS (DOMINIC MANN) -->
-  <section class="codex-section alt-bg" id="attraction" data-group="attraction">
+  <!-- =========================================================
+       PAGE 07: TACTICAL ARENA (FLASHCARDS & SCENARIO SIMULATOR)
+       ========================================================= -->
+  <section class="page-view" id="page-arena">
     <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 09 — Dominic Mann • Unlock Her Legs</span>
-          <h2>Attraction &amp; Frame Dynamics</h2>
-          <p>Investment asymmetry, biological triggers, preselection, higher mission priority, and progressive escalation.</p>
+      <div class="page-banner" data-watermark="ARENA">
+        <div>
+          <span class="banner-kicker">Page 07 // Interactive Recall &amp; Decision Drills</span>
+          <h1>The Tactical Arena</h1>
+          <p>Sharpen your recall with 3D-flip strategic flashcards and test your judgment against high-pressure social and professional scenarios.</p>
         </div>
       </div>
 
-      <h3 class="sub-block-title">I. Mindset &amp; Attraction Dynamics</h3>
-      <div class="dynamics-grid" id="attractionMindsetGrid"></div>
+      <div class="arena-layout">
+        <!-- 3D Flashcard Deck -->
+        <div>
+          <h2 class="section-subhead" style="margin-top:0;">I. 3D Strategic Flashcard Drill</h2>
+          <div class="flashcard-stage" id="flashcardStage" onclick="flipFlashcard()">
+            <div class="flashcard-inner">
+              <div class="flashcard-face">
+                <div class="card-top-row">
+                  <span class="badge-gold" id="fcDeckTag">DIRECTIVE DRILL</span>
+                  <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--text-steel);" id="fcCounter">1 / 12</span>
+                </div>
+                <div>
+                  <p style="font-family:var(--font-mono); font-size:0.68rem; color:var(--gold); text-transform:uppercase; margin-bottom:0.5rem;">Prompt / Principle</p>
+                  <h3 style="font-family:var(--font-display); font-size:1.45rem;" id="fcFrontTitle"></h3>
+                </div>
+                <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--text-steel);">[ Click Card to Flip for Tactical Execution ]</span>
+              </div>
 
-      <h3 class="sub-block-title">II. Flirting &amp; Escalation Protocol</h3>
-      <div class="subconscious-grid" id="attractionEscalationGrid"></div>
+              <div class="flashcard-face flashcard-back">
+                <div class="card-top-row">
+                  <span class="badge-emerald">TACTICAL EXECUTION</span>
+                  <span style="font-family:var(--font-mono); font-size:0.7rem; color:var(--emerald);">VERIFIED DOCTRINE</span>
+                </div>
+                <div>
+                  <p style="font-size:1.02rem; color:var(--text-platinum);" id="fcBackBody"></p>
+                </div>
+                <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--text-steel);">[ Click to Flip Back ]</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; gap:0.75rem;">
+            <button class="btn-slate" onclick="prevFlashcard()">← Previous</button>
+            <button class="btn-slate" onclick="flipFlashcard()">Flip Card ↻</button>
+            <button class="btn-gold" onclick="nextFlashcard()">Next Card →</button>
+          </div>
+        </div>
+
+        <!-- Tactical Scenario Simulator -->
+        <div>
+          <h2 class="section-subhead" style="margin-top:0;">II. Live Scenario Simulator</h2>
+          <div class="lux-card">
+            <div class="card-top-row">
+              <span class="badge-outline" id="simScenarioNum">SCENARIO 01</span>
+              <span class="badge-emerald" id="simXpDisplay">XP: 0</span>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.18rem;" id="simQuestion"></h3>
+            <div id="simOptionsBox" style="margin-top:0.5rem;"></div>
+            <div id="simFeedbackBox" style="display:none; padding:0.9rem; background:var(--bg-abyss); border-left:3px solid var(--gold); font-size:0.88rem; color:var(--text-steel);"></div>
+            <div style="display:flex; justify-content:flex-end;">
+              <button class="btn-gold" onclick="nextScenario()">Next Scenario →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('frame')">← 06 Frame &amp; Polarity</button>
+        <button class="btn-gold" onclick="navigateTo('warroom')">08 War Room &amp; Vault →</button>
+      </div>
     </div>
   </section>
 
-  <!-- SECTION 10: QUOTE & BIO VAULT -->
-  <section class="codex-section" id="vault" data-group="quotes">
+  <!-- =========================================================
+       PAGE 08: SOVEREIGN WAR ROOM & APHORISM VAULT
+       ========================================================= -->
+  <section class="page-view" id="page-warroom">
     <div class="container">
-      <div class="section-top-bar">
-        <div class="section-meta">
-          <span class="section-index">Section 10 — The Quote &amp; Bio Vault</span>
-          <h2>Words of Quiet Strength</h2>
-          <p>Filter by archetype or click any line to copy or save to your personal codex.</p>
+      <div class="page-banner" data-watermark="VAULT">
+        <div>
+          <span class="banner-kicker">Page 08 // Personal Strategy Log &amp; Aphorism Vault</span>
+          <h1>Sovereign War Room &amp; Quote Vault</h1>
+          <p>Record your personal field notes, manage your bookmarked directives, and copy distilled masculine aphorisms and bio lines.</p>
         </div>
       </div>
 
-      <div class="vault-tabs" id="vaultTabs">
-        <button class="vault-tab active" data-cat="all">All Archetypes (24)</button>
-        <button class="vault-tab" data-cat="Quiet Confidence">01 — Quiet Confidence</button>
-        <button class="vault-tab" data-cat="Discipline & Strength">02 — Discipline &amp; Strength</button>
-        <button class="vault-tab" data-cat="Dark & Mysterious">03 — Dark &amp; Mysterious</button>
-        <button class="vault-tab" data-cat="Self-Respect & Standards">04 — Self-Respect &amp; Standards</button>
+      <div class="grid-2" style="margin-bottom:2.8rem;">
+        <!-- Personal Strategy Log -->
+        <div>
+          <h2 class="section-subhead" style="margin-top:0;">I. Personal Strategy Journal</h2>
+          <div class="journal-composer">
+            <span class="badge-gold">NEW FIELD LOG</span>
+            <textarea class="journal-textarea" id="journalInput" placeholder="Write a personal rule, strategic observation, or commitment..."></textarea>
+            <button class="btn-gold" id="addJournalBtn">Save to War Room Log</button>
+          </div>
+          <div id="journalList" style="display:flex; flex-direction:column; gap:0.8rem;"></div>
+        </div>
+
+        <!-- Saved Bookmarks Codex -->
+        <div>
+          <h2 class="section-subhead" style="margin-top:0;">II. Saved Bookmarks (<span id="warroomSavedCount">0</span>)</h2>
+          <div id="savedBookmarksList" style="display:flex; flex-direction:column; gap:0.8rem;"></div>
+        </div>
       </div>
 
-      <div class="quotes-grid" id="quotesGrid"></div>
-
-      <div class="bios-box">
-        <div class="bios-header">
-          <h3>Short &amp; Sharp Bio Tags</h3>
-          <p>For the bio. For the feed. Click any tag to copy immediately.</p>
+      <h2 class="section-subhead">III. The Sovereign Aphorism Vault</h2>
+      <div class="filter-bar">
+        <div class="chip-group" id="vaultCatChips">
+          <button class="filter-chip active" data-cat="all">All Aphorisms (24)</button>
+          <button class="filter-chip" data-cat="Stillness">Stillness &amp; Gravity</button>
+          <button class="filter-chip" data-cat="Self-Rule">Self-Rule &amp; Iron</button>
+          <button class="filter-chip" data-cat="Mystery">Depth &amp; Mystery</button>
+          <button class="filter-chip" data-cat="Boundaries">Unbending Standards</button>
         </div>
-        <div class="bio-strip" id="bioStrip"></div>
+      </div>
+      <div class="grid-2" id="aphorismsGrid" style="margin-bottom:2.6rem;"></div>
+
+      <h2 class="section-subhead">IV. Distilled Bio Signatures (One-Click Copy)</h2>
+      <div class="chip-group" id="bioSignaturesStrip"></div>
+
+      <div class="page-stepper">
+        <button class="btn-slate" onclick="navigateTo('arena')">← 07 Tactical Arena</button>
+        <button class="btn-gold" onclick="navigateTo('command')">Return to 01 Command Center ↺</button>
       </div>
     </div>
   </section>
+
 </main>
 
-<!-- FLOATING BACK TO TOP & MOBILE BOTTOM DOCK -->
-<button class="back-to-top-fab" id="backToTopFab" data-scroll="hero" title="Return to Top">
-  <span>↑ Top</span>
-  <span id="fabScrollPct">0%</span>
-</button>
-
-<nav class="mobile-bottom-dock" aria-label="Mobile Quick Navigation">
-  <button class="dock-btn" data-scroll="laws"><span class="dock-num">02</span><span>Prince</span></button>
-  <button class="dock-btn" data-scroll="power48"><span class="dock-num">06</span><span>48 Laws</span></button>
-  <button class="dock-btn" data-scroll="seduction"><span class="dock-num">07</span><span>Seduce</span></button>
-  <button class="dock-btn" data-scroll="subconscious"><span class="dock-num">08</span><span>Mind</span></button>
-  <button class="dock-btn" id="mobileSearchDockBtn"><span class="dock-num">⌘K</span><span>Search</span></button>
-</nav>
-
-<!-- GLOBAL COMMAND PALETTE / SEARCH MODAL -->
+<!-- GLOBAL SEARCH MODAL -->
 <div class="modal-backdrop" id="searchModal">
   <div class="modal-box">
-    <div class="modal-header">
-      <h3>Global Archive Search (All 6 Tomes)</h3>
-      <button class="mini-toggle-btn" id="closeSearchBtn">ESC</button>
+    <div style="padding:1rem 1.4rem; border-bottom:1px solid var(--border-dim); display:flex; justify-content:space-between; align-items:center;">
+      <span class="badge-gold">GLOBAL MULTI-PAGE SEARCH</span>
+      <button class="filter-chip" id="closeSearchModalBtn">ESC</button>
     </div>
-    <input type="text" class="cmd-input" id="globalSearchInput" placeholder="Search 48 laws, Machiavelli, seduction archetypes, subconscious mind, quotes...">
-    <div class="cmd-results" id="globalSearchResults"></div>
+    <input type="text" class="search-input" id="globalSearchInput" style="width:100%; border:none; border-bottom:1px solid var(--border-dim); padding:1.1rem 1.4rem;" placeholder="Search across all 8 pages (laws, archetypes, subconscious, frame, aphorisms)...">
+    <div id="globalSearchResults" style="max-height:360px; overflow-y:auto; padding:0.7rem;"></div>
   </div>
 </div>
 
-<!-- DAILY COUNSEL MODAL -->
-<div class="modal-backdrop" id="counselModal">
-  <div class="modal-box">
-    <div class="modal-header">
-      <h3>Daily Sovereign Counsel</h3>
-      <button class="mini-toggle-btn" id="closeCounselBtn">Close</button>
-    </div>
-    <div style="padding: 2rem;">
-      <span class="maxim-source" id="counselType">STRATEGIC DIRECTIVE</span>
-      <p class="maxim-quote" id="counselQuote" style="margin-bottom: 1rem;"></p>
-      <p class="maxim-meaning" id="counselSub" style="margin-bottom: 1.8rem;"></p>
-      <div style="display: flex; gap: 0.75rem;">
-        <button class="btn-primary" id="drawAnotherCounselBtn" style="padding: 0.7rem 1.3rem;">Draw Another</button>
-        <button class="btn-secondary" id="copyCounselBtn" style="padding: 0.7rem 1.3rem;">Copy Counsel</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PERSONAL CODEX (SAVED BOOKMARKS) MODAL -->
-<div class="modal-backdrop" id="codexModal">
-  <div class="modal-box">
-    <div class="modal-header">
-      <h3>Personal Saved Codex</h3>
-      <button class="mini-toggle-btn" id="closeCodexBtn">Close</button>
-    </div>
-    <div class="cmd-results" id="codexListContainer" style="padding: 1.2rem;"></div>
-  </div>
-</div>
-
-<div class="toast-wrap" id="toast">Copied to Clipboard</div>
-
-<footer>
-  <div class="footer-brand">AETHER<span>.</span></div>
-  <p class="footer-sub">© 2026 Aether Sovereign Codex. Quiet strength. Unshakable standards.</p>
-</footer>
+<div class="toast" id="toastMsg">Copied to Clipboard</div>
 
 <script>
-  // ==========================================
-  // COMPLETE ARCHIVE DATA
-  // ==========================================
-  const TOP_5 = [
-    { id: 't1', num: '01', quote: 'Master yourself before you try to master the world.', note: 'Masculinity through self-control.' },
-    { id: 't2', num: '02', quote: 'Never negotiate your self-respect for temporary pleasure.', note: 'Self-worth over momentary temptation.' },
-    { id: 't3', num: '03', quote: 'Calm mind. Strong spine. Unshakable standards.', note: 'Strong, composed, and confident.' },
-    { id: 't4', num: '04', quote: 'I have nothing to prove and everything to build.', note: 'Ambition without seeking approval.' },
-    { id: 't5', num: '05', quote: 'Be a man you can respect when you look in the mirror.', note: 'Character, accountability, and inner strength.' }
+  // ============================================================================
+  // ORIGINAL, PARAPHRASED DOCTRINE DATA (ZERO COPYRIGHTED VERBATIM QUOTES)
+  // ============================================================================
+  const WING_PORTALS = [
+    { page: 'statecraft', num: '02', title: 'Realpolitik & Statecraft', desc: '12 pragmatic laws of realism, consequence analysis, and the 10-Pillar Self-Command Audit.' },
+    { page: 'leverage', num: '03', title: '48 Directives of Leverage', desc: 'Complete searchable matrix of social leverage, strategic silence, and asymmetric positioning.' },
+    { page: 'magnetism', num: '04', title: 'Social Magnetism', desc: 'Outward attention, the 9 magnetic personas, and the 4-phase psychological influence arc.' },
+    { page: 'mind', num: '05', title: 'Subconscious Mind', desc: 'Mental imprinting, the Law of Effortless Impression, and pre-sleep visualization protocols.' },
+    { page: 'frame', num: '06', title: 'Frame & Polarity', desc: 'Outcome independence, the Evaluator Mindset, Mission-First priority, and kinesthetic leadership.' },
+    { page: 'arena', num: '07', title: 'Tactical Arena', desc: 'Interactive 3D flashcards and real-world decision scenarios to test your strategic reflexes.' },
+    { page: 'warroom', num: '08', title: 'War Room & Vault', desc: 'Private browser-saved strategy journal, bookmarked directives, and 34 original aphorisms.' },
+    { page: 'command', num: '01', title: 'Command Telemetry', desc: 'Central executive overview, live Sovereignty Index, and Daily Directive generator.' }
   ];
 
-  const LAWS_12 = [
-    { id: 'l1', num: '01', chapter: 'Chapter XV', title: 'See reality as it is, not as you wish it to be', context: 'Machiavelli distinguishes how people actually behave from how they ought to behave.', learning: 'Judge situations by evidence, behaviour and consequences rather than wishful thinking.', apply: 'If someone repeatedly disappoints you, evaluate the pattern instead of relying only on their promises.' },
-    { id: 'l2', num: '02', chapter: 'Chapters XIII–XIV & XXV', title: 'Build your own strength instead of depending on rescue', context: 'Emphasizes having forces of your own and preparing for adversity instead of depending entirely on others.', learning: 'Your skills, savings, judgment and discipline are your own resources.', apply: 'Build financial reserves, improve your work skills and develop the ability to solve problems independently.' },
-    { id: 'l3', num: '03', chapter: 'Chapter XXV', title: 'Adapt when circumstances change', context: 'A method that succeeds in one situation can fail when circumstances shift.', learning: 'Being consistent with your goals does not mean using the same strategy forever.', apply: 'If your current way of studying, working or managing money is failing, change the method rather than blindly repeating it.' },
-    { id: 'l4', num: '04', chapter: 'Chapters III, XIX & XXI', title: 'Consider consequences before acting', context: 'Examines how one decision creates further consequences, including unintended dangers.', learning: 'Do not judge an action only by its immediate reward.', apply: 'Before spending money, reacting emotionally or making a commitment, ask: What will this decision cost me tomorrow, next month and next year?' },
-    { id: 'l5', num: '05', chapter: 'Chapter XIX', title: 'Protect your reputation through consistency', context: 'Warns against becoming an object of contempt through indecision, fearfulness and inconsistent behaviour.', learning: 'People form judgments from repeated actions.', apply: 'Keep commitments you can realistically fulfil, own your mistakes and make decisions without constantly changing your position to gain approval.' },
-    { id: 'l6', num: '06', chapter: 'Chapter XVIII', title: 'Combine strength with intelligence', context: 'Uses the lion and fox as symbols: the lion represents strength, while the fox recognizes traps.', learning: 'Strength without judgment is vulnerable; cleverness without the ability to act is limited.', apply: 'Be assertive when necessary, but read the situation, understand the risks and choose your response deliberately.' },
-    { id: 'l7', num: '07', chapter: 'Chapters XVII & XIX', title: 'Do not build your life around approval', context: 'Examines the limits of relying on other people’s affection and the importance of maintaining respect.', learning: 'Other people’s feelings and opinions are not fully under your control.', apply: 'Make decisions based on your priorities and principles, not solely to gain attention, avoid rejection or keep everyone pleased.' },
-    { id: 'l8', num: '08', chapter: 'Chapter XXV', title: 'Prepare before a crisis arrives', context: 'Compares fortune to a flooding river: people cannot stop every flood, but they can build protections before it comes.', learning: 'Preparation reduces how much bad luck can damage you.', apply: 'Maintain savings, develop transferable skills and establish routines before you urgently need them.' },
-    { id: 'l9', num: '09', chapter: 'Chapter XXIII', title: 'Seek honest feedback, not flattery', context: 'Advises seeking counsel deliberately, listening patiently to truthful advice and exercising independent judgment.', learning: 'Praise can make you feel capable without helping you improve.', apply: 'Ask specific questions about your weaknesses, listen without immediately defending yourself and decide what evidence supports the feedback.' },
-    { id: 'l10', num: '10', chapter: 'Chapters VI–VII', title: 'Do not confuse a lucky start with lasting ability', context: 'Contrasts power gained through one’s own abilities with power gained through fortune or another person’s support.', learning: 'An opportunity may open a door, but your capabilities determine how well you use it.', apply: 'When you get a job, promotion or opportunity, turn it into competence you can carry into your next situation.' },
-    { id: 'l11', num: '11', chapter: 'Chapter XXI', title: 'Choose the least damaging option when no option is perfect', context: 'Recognizes that decisions carry unavoidable risks; sound judgment involves assessing the dangers and choosing between them.', learning: 'Waiting for a risk-free choice can prevent you from making a necessary decision.', apply: 'Compare realistic alternatives, their costs and likely outcomes, then choose the option that best serves your longer-term objectives.' },
-    { id: 'l12', num: '12', chapter: 'Chapter XXV', title: 'Understand what you can control and what you cannot', context: 'Gives fortune a major role in human affairs while maintaining that people influence outcomes through preparation and action.', learning: 'Do not waste all your energy trying to control circumstances or other people.', apply: 'Focus on your preparation, decisions and response while accepting that results are never completely guaranteed.' }
+  const REALPOLITIK_12 = [
+    { id: 'rp1', num: '01', tag: 'Objective Realism', title: 'Assess the World by Demonstrated Action', principle: 'Separate idealistic wishes from observable human patterns.', execution: 'Audit repeated behavior rather than verbal assurances when extending trust.' },
+    { id: 'rp2', num: '02', tag: 'Sovereign Capacity', title: 'Forge Independent Reserves', principle: 'Borrowed leverage evaporates the moment interests diverge.', execution: 'Build proprietary skills, liquid capital, and emotional self-sufficiency.' },
+    { id: 'rp3', num: '03', tag: 'Tactical Fluidity', title: 'Pivot When the Terrain Shifts', principle: 'Yesterday’s winning formula becomes tomorrow’s liability if markets or environments evolve.', execution: 'Stay rigid on your ultimate objective but ruthlessly adaptable in your methodology.' },
+    { id: 'rp4', num: '04', tag: 'Second-Order Vision', title: 'Calculate Third-Order Consequences', principle: 'Immediate relief often masks long-term structural cost.', execution: 'Before committing capital or emotion, map out the repercussions 6 and 24 months ahead.' },
+    { id: 'rp5', num: '05', tag: 'Unwavering Gravity', title: 'Anchor Your Reputation in Consistency', principle: 'Vacillation and chronic people-pleasing invite disrespect.', execution: 'Speak rarely, honor commitments with precision, and stand firm once a decision is made.' },
+    { id: 'rp6', num: '06', tag: 'Force & Cunning', title: 'Unite Decisive Strength with Vigilance', principle: 'Raw courage without situational awareness walks into traps; cleverness without backbone stalls.', execution: 'Pair assertive execution with sharp discernment of hidden incentives.' },
+    { id: 'rp7', num: '07', tag: 'Internal Validation', title: 'Sever Dependence on External Applause', principle: 'Public sentiment fluctuates with convenience; respect endures through boundaries.', execution: 'Anchor choices in your own code rather than chasing universal popularity.' },
+    { id: 'rp8', num: '08', tag: 'Preemptive Fortification', title: 'Construct Levees During Fair Weather', principle: 'Chaos strikes without warning; only prior preparation limits the damage.', execution: 'Automate financial buffers, physical conditioning, and backup options while conditions are calm.' },
+    { id: 'rp9', num: '09', tag: 'Unvarnished Counsel', title: 'Invite Candor, Reject Flattery', principle: 'Echo chambers dull your edge while targeted critique accelerates mastery.', execution: 'Solicit direct feedback from proven operators while retaining final ownership of the call.' },
+    { id: 'rp10', num: '10', tag: 'Earned Foundation', title: 'Convert Lucky Breaks into Permanent Skill', principle: 'Circumstance may open the gate, but only competence holds the territory.', execution: 'When handed an advantage, immediately build the underlying mastery required to sustain it.' },
+    { id: 'rp11', num: '11', tag: 'Pragmatic Tradeoffs', title: 'Select the Least Costly Imperfect Path', principle: 'Waiting for a zero-risk option guarantees paralysis.', execution: 'Weigh realistic probabilities, accept the manageable downside, and move decisively.' },
+    { id: 'rp12', num: '12', tag: 'Sovereign Dichotomy', title: 'Command Your Effort, Release the Uncontrollable', principle: 'External volatility is inevitable; your preparation and response belong entirely to you.', execution: 'Pour 100% of your bandwidth into execution and adaptability rather than lamenting luck.' }
   ];
 
   const PILLARS_10 = [
-    { id: 'p1', idx: '01', name: 'Self-Command', practice: 'Do not let every urge dictate your next action.' },
-    { id: 'p2', idx: '02', name: 'Independence', practice: 'Develop skills and resources you can rely on yourself.' },
-    { id: 'p3', idx: '03', name: 'Strategic Thinking', practice: 'Think beyond immediate pleasure and consider long-term consequences.' },
-    { id: 'p4', idx: '04', name: 'Adaptability', practice: 'Change your approach when evidence shows it is not working.' },
-    { id: 'p5', idx: '05', name: 'Reputation', practice: 'Make your actions consistent with the standards you claim to have.' },
-    { id: 'p6', idx: '06', name: 'Discernment', practice: 'Judge people by repeated behaviour, not promises alone.' },
-    { id: 'p7', idx: '07', name: 'Preparation', practice: 'Build safeguards before a crisis arrives.' },
-    { id: 'p8', idx: '08', name: 'Decisiveness', practice: 'Evaluate the risks, choose a direction and act deliberately.' },
-    { id: 'p9', idx: '09', name: 'Sound Judgment', practice: 'Listen to honest criticism without surrendering your own thinking.' },
-    { id: 'p10', idx: '10', name: 'Restraint', practice: 'Understand that being capable of acting does not mean every action is worthwhile.' }
+    { id: 'pl1', idx: '01', name: 'Impulse Governance', desc: 'Refuse to let fleeting moods or appetites dictate your next move.' },
+    { id: 'pl2', idx: '02', name: 'Self-Reliance', desc: 'Maintain financial, professional, and emotional autonomy.' },
+    { id: 'pl3', idx: '03', name: 'Long-Horizon Strategy', desc: 'Trade short-term dopamine for compounding multi-year leverage.' },
+    { id: 'pl4', idx: '04', name: 'Methodological Agility', desc: 'Discard ineffective tactics immediately when data disproves them.' },
+    { id: 'pl5', idx: '05', name: 'Behavioral Integrity', desc: 'Align your private habits with the standards you project publicly.' },
+    { id: 'pl6', idx: '06', name: 'Pattern Discernment', desc: 'Read incentives and track records rather than flattering words.' },
+    { id: 'pl7', idx: '07', name: 'Antifragile Preparation', desc: 'Maintain redundancy before turbulence arrives.' },
+    { id: 'pl8', idx: '08', name: 'Deliberate Execution', desc: 'Assess the risk, lock in the vector, and act without hesitation.' },
+    { id: 'pl9', idx: '09', name: 'Independent Judgment', desc: 'Extract value from criticism without surrendering your sovereignty.' },
+    { id: 'pl10', idx: '10', name: 'Measured Restraint', desc: 'Know when holding fire carries greater power than striking.' }
   ];
 
-  const MAXIMS_5 = [
-    { id: 'm1', source: 'Chapter XVIII — The Lion & The Fox', quote: 'The lion cannot protect himself from traps, and the fox cannot defend himself from wolves.', meaning: 'Combine courage with awareness. Do not be so trusting that you miss risks, or so aggressive that you fail to think.' },
-    { id: 'm2', source: 'Chapter XXV — The Flooding River', quote: 'Prepare for the storm while the weather is fair.', meaning: 'Build your financial, professional and personal foundations before you need them.' },
-    { id: 'm3', source: 'Chapter XXV — Fortune & Adaptation', quote: 'A successful approach today may fail tomorrow.', meaning: 'Be committed to your objectives, but flexible about your methods.' },
-    { id: 'm4', source: 'Chapter XXIII — Sovereign Counsel', quote: 'Seek advice, but retain responsibility for your decisions.', meaning: 'Listen to people who understand the subject, test their reasoning and make your own informed decision.' },
-    { id: 'm5', source: 'Chapters VI–VII & XXIV–XXV — True Capability', quote: 'Do not confuse the appearance of success with lasting strength.', meaning: 'Build real ability rather than relying on status, temporary opportunities or other people’s support.' }
+  const CALIBRATIONS_4 = [
+    { tag: 'Calibration 01', title: 'Respect Outlasts Intimidation', desc: 'Coercion breeds covert resistance; genuine authority is built on competence, fairness, and firm boundaries.' },
+    { tag: 'Calibration 02', title: 'Strategic Awareness Is Not Paranoia', desc: 'Understanding human incentives allows you to build mutually beneficial alliances without naive blind spots.' },
+    { tag: 'Calibration 03', title: 'Substance Over Theatrics', desc: 'Posturing collapses under real pressure. Quiet reserves and verified capability require no advertisement.' },
+    { tag: 'Calibration 04', title: 'Effectiveness Anchored in Honor', desc: 'Ambition divorced from personal integrity hollows out the victor. Build an empire you respect in solitude.' }
   ];
 
-  const RAZOR_4 = [
-    { tag: 'Calibration 01', title: 'Fear is not the same as respect.', desc: 'Political security for a ruler is not a blueprint for personal friendships. Command respect through competence and boundaries, not intimidation.' },
-    { tag: 'Calibration 02', title: 'Being strategic is not manipulating everyone.', desc: 'Strategic awareness is most powerful when used to read incentives, anticipate consequences, and navigate risk with integrity.' },
-    { tag: 'Calibration 03', title: 'Appearing strong is not being strong.', desc: 'Public perception crumbles quickly when tested by adversity. True resilience comes from verified skill, reserves, and self-mastery.' },
-    { tag: 'Calibration 04', title: 'Results matter, but character matters too.', desc: 'Raw effectiveness without moral grounding hollows out a man. Build victories you can respect when looking in the mirror.' }
+  const LEVERAGE_FOUNDATIONS = [
+    { tag: 'Foundation I', title: 'Emotional Equilibrium', desc: 'Reactive anger or vanity clouds strategic vision. The man who governs his internal state governs the room.' },
+    { tag: 'Foundation II', title: 'Strategic Indirection', desc: 'Telegraphing every move invites counter-force. Advance smoothly with velvet diplomacy backed by iron resolve.' },
+    { tag: 'Foundation III', title: 'Incentive Realism', desc: 'Evaluate social and professional arenas through the lens of human self-interest and structural leverage.' }
   ];
 
-  // THE 48 LAWS OF POWER DATA
-  const POWER_FOUNDATIONS = [
-    { quote: '“Any man who tries to be good all the time is bound to come to ruin among the great number who are not good.”', note: 'Modern power requires indirection, strategic awareness, and an iron hand in a velvet glove.' },
-    { quote: '“An emotional response to a situation is the single greatest barrier to power...”', note: 'Master your emotional reactions; never let anger or vanity cloud long-term calculation.' },
-    { quote: '“Power is essentially amoral...”', note: 'Judge moves by their strategic effect and consequences rather than moralizing wishful thinking.' }
+  const DIRECTIVES_48 = [
+    'Ensure superiors feel securely elevated by your contributions.',
+    'Verify loyalty through aligned incentives rather than blind familiarity.',
+    'Keep upcoming initiatives private until execution is irreversible.',
+    'Practice strategic brevity; measured silence amplifies authority.',
+    'Treat your reputation as your primary capital asset.',
+    'Command distinct visibility rather than fading into mediocrity.',
+    'Orchestrate collective effort and anchor the strategic vision.',
+    'Draw counterparts onto your home turf through compelling value.',
+    'Demonstrate superiority through undeniable results, never petty debate.',
+    'Quarantine yourself from chronic cynics and chaotic spirals.',
+    'Become the indispensable linchpin within your ecosystem.',
+    'Disarm skepticism through genuine, unexpected acts of candor.',
+    'Frame proposals around the counterpart’s clear self-interest.',
+    'Gather thorough intelligence through observant, cordial presence.',
+    'Resolve persistent threats completely so they cannot resurface.',
+    'Regulate your availability; scarcity heightens perceived value.',
+    'Prevent competitors from mapping your habits through calculated variety.',
+    'Remain connected to the pulse of the network; avoid walled isolation.',
+    'Assess the temperament and leverage of every counterpart before engaging.',
+    'Preserve your autonomy above partisan entanglements.',
+    'Understate your hand so rivals underestimate your preparation.',
+    'Yield tactical ground temporarily to regroup and overtake later.',
+    'Focus your energy on a single decisive breakthrough point.',
+    'Master subtle diplomacy, composure, and institutional grace.',
+    'Author your own identity rather than accepting societal labels.',
+    'Maintain spotless conduct and delegate high-friction tasks wisely.',
+    'Unite people around a bold, transcendent mission.',
+    'Execute with unmistakable conviction; hesitation breeds doubt.',
+    'Architect the entire endgame before taking the first step.',
+    'Conceal the sweat behind your mastery so execution looks effortless.',
+    'Structure the choices so every path advances your objective.',
+    'Speak to people’s highest aspirations rather than bleak mundanity.',
+    'Identify the core insecurity or motivator driving each individual.',
+    'Carry yourself with regal self-respect to command corresponding treatment.',
+    'Read the macro-rhythm of events and strike at the inflection point.',
+    'Starve trivial provocations by refusing to acknowledge them.',
+    'Anchor your message in vivid, memorable symbols and experiences.',
+    'Maintain unconventional clarity inwardly while blending smoothly outwardly.',
+    'Remain the calm center while competitors react to turbulence.',
+    'Pay full price for value; "free" favors carry hidden obligations.',
+    'Carve an original path rather than living in a predecessor’s shadow.',
+    'Address the root source of group resistance to realign the whole.',
+    'Win genuine buy-in by aligning with others’ emotional drivers.',
+    'Reflect counterparts’ reality calmly to neutralize their aggression.',
+    'Introduce bold innovations through familiar, reassuring forms.',
+    'Allow harmless human relatable traits to prevent envious backlash.',
+    'Consolidate victory at the peak rather than overextending.',
+    'Stay fluid, adaptable, and impossible to corner.'
   ];
 
-  const LAWS_48 = [
-    'Never outshine the master.',
-    'Never put too much trust in friends; learn to use enemies.',
-    'Conceal your intentions.',
-    'Always say less than necessary.',
-    'Guard reputation with your life.',
-    'Court attention at all cost.',
-    'Get others to do the work; take the credit.',
-    'Make others come to you — use bait if necessary.',
-    'Win through actions, never through argument.',
-    'Avoid the unhappy and unlucky (infection).',
-    'Keep people dependent on you.',
-    'Use selective honesty and generosity to disarm.',
-    'When asking for help, appeal to self-interest, never mercy or gratitude.',
-    'Pose as a friend, work as a spy.',
-    'Crush the enemy totally.',
-    'Use absence to increase respect.',
-    'Cultivate unpredictability.',
-    'Avoid isolation.',
-    'Know who you’re dealing with.',
-    'Do not commit to anyone.',
-    'Seem dumber than your mark.',
-    'Use the surrender tactic.',
-    'Concentrate your forces.',
-    'Play the perfect courtier.',
-    'Re-create yourself.',
-    'Keep your hands clean.',
-    'Create a cult-like following.',
-    'Enter action with boldness.',
-    'Plan all the way to the end.',
-    'Make accomplishments seem effortless.',
-    'Control the options.',
-    'Play to people’s fantasies.',
-    'Discover each man’s thumbscrew.',
-    'Act like a king to be treated like one.',
-    'Master timing.',
-    'Disdain what you cannot have.',
-    'Create compelling spectacles.',
-    'Think as you like but behave like others.',
-    'Stir up waters to catch fish.',
-    'Despise the free lunch.',
-    'Avoid stepping into a great man’s shoes.',
-    'Strike the shepherd.',
-    'Work on hearts and minds.',
-    'Use the Mirror Effect.',
-    'Preach change but reform gradually.',
-    'Never appear too perfect.',
-    'Do not go past the mark.',
-    'Assume formlessness.'
+  const MAGNETISM_PILLARS = [
+    { tag: 'Principle 01', title: 'Psychological Fascination', desc: 'True magnetism operates on the imagination. It alternates warmth with intrigue, leaving space for the other person’s mind to invest.' },
+    { tag: 'Principle 02', title: 'Emotional Resonance Over Surface Impulse', desc: 'Fleeting excitement fades quickly; inspiring deep emotional wonder and shared meaning creates lasting gravity.' },
+    { tag: 'Principle 03', title: 'Radical Outward Presence', desc: 'Self-consciousness kills charisma. Direct your radar entirely outward to read unspoken desires and make the other person feel deeply seen.' }
   ];
 
-  // THE ART OF SEDUCTION DATA
-  const SEDUCTION_PHILOSOPHY = [
+  const PERSONAS_9 = [
+    { id: 'mp1', name: 'The Enigmatic Siren', trait: 'Radiates elevated sensory presence and liberation from routine.', tactic: 'Combine poise, visual distinction, and an aura of rare adventure.' },
+    { id: 'mp2', name: 'The Unapologetic Pursuer', trait: 'Projects focused, shameless appreciation and expressive intensity.', tactic: 'Communicate bold admiration without fear of judgment or hesitation.' },
+    { id: 'mp3', name: 'The Mirror of Greatness', trait: 'Reflects the target’s highest unfulfilled ideal and noble potential.', tactic: 'Identify what is missing in their world and embody that exact elevation.' },
+    { id: 'mp4', name: 'The Sovereign Nonconformist', trait: 'Defies predictable categories with effortless, self-contained style.', tactic: 'Walk your own line with playful independence and zero need for permission.' },
+    { id: 'mp5', name: 'The Disarming Natural', trait: 'Melts guarded cynicism through genuine spontaneity and warmth.', tactic: 'Drop defensive armor and bring playful, unscripted lightness into heavy rooms.' },
+    { id: 'mp6', name: 'The Master of Contrast', trait: 'Alternates warm engagement with composed, self-sufficient space.', tactic: 'Never over-saturate; let strategic absence sharpen anticipation.' },
+    { id: 'mp7', name: 'The Ego Alchemist', trait: 'Makes counterparts feel articulate, fascinating, and validated.', tactic: 'Spotlight their strengths, listen intently, and sidestep fruitless friction.' },
+    { id: 'mp8', name: 'The Visionary Dynamo', trait: 'Commands gravity through unshakable conviction and inner detachment.', tactic: 'Anchor yourself in a mission larger than yourself while staying calm under fire.' },
+    { id: 'mp9', name: 'The Anti-Magnet (Warning)', trait: 'Repels connection through neediness, over-explaining, and self-absorption.', tactic: 'Eliminate validation-seeking, rigid pedantry, and impatience from your conduct.' }
+  ];
+
+  const INFLUENCE_PHASES = [
+    { phase: 'Phase 01', title: 'Spark Intrigue & Distinct Presence', steps: ['Select receptive ground', 'Establish disarming rapport', 'Project intriguing complexity', 'Demonstrate social value', 'Identify unfulfilled aspirations', 'Plant evocative possibilities', 'Enter their worldview', 'Ignite curiosity'] },
+    { phase: 'Phase 02', title: 'Deepen Engagement & Contrast', steps: ['Maintain playful unpredictability', 'Speak with evocative imagery', 'Notice subtle personal details', 'Balance warm presence with space', 'Show relatable humanity', 'Elevate ordinary moments', 'Create a shared private world'] },
+    { phase: 'Phase 03', title: 'Heighten Emotional Investment', steps: ['Demonstrate decisive action', 'Awaken carefree spontaneity', 'Challenge stale conventions', 'Connect on higher ideals', 'Contrast challenge with warmth'] },
+    { phase: 'Phase 04', title: 'Consolidate the Bond', steps: ['Step back to invite pursuit', 'Lead with composed physical warmth', 'Make the decisive move', 'Sustain mystery after victory'] }
+  ];
+
+  const MIND_LAWS = [
+    { id: 'ml1', tag: 'The Dual Helm', title: 'Conscious Architect, Subconscious Engine', body: 'Your conscious mind selects the coordinates; your subconscious executes whatever blueprint is habitually impressed upon it without questioning.', takeaway: 'Guard your internal monologue—every repeated thought is a command to the engine.' },
+    { id: 'ml2', tag: 'Fertile Ground', title: 'The Law of Impersonal Growth', body: 'Just as soil nurtures any seed planted within it, the deeper mind brings both empowering convictions and neglected doubts into behavioral reality.', takeaway: 'Uproot scarcity narratives and deliberately plant clear, constructive expectations.' },
+    { id: 'ml3', tag: 'Inner Conviction', title: 'Belief as the Catalyst', body: 'External rituals hold zero power on their own; outcomes shift the moment an idea is accepted as true at the subconscious level.', takeaway: 'Align your emotional conviction with your stated objective.' }
+  ];
+
+  const MIND_PROTOCOLS = [
+    { id: 'mp_1', tag: 'Reversed Effort', title: 'Why Imagination Defeats Straining Willpower', body: 'When white-knuckled effort clashes with internal imagination, imagination always wins. Straining reinforces the feeling of lack.', takeaway: 'Replace tense force with relaxed, confident expectancy.' },
+    { id: 'mp_2', tag: 'Alpha Threshold', title: 'Pre-Sleep & Waking Imprinting', body: 'The 10 minutes before sleep and immediately upon waking bypass conscious skepticism, offering direct access to subconscious conditioning.', takeaway: 'Never review anxieties in bed; feed your mind the completed vision before rest.' },
+    { id: 'mp_3', tag: 'Three Techniques', title: 'Cinema, Condensed Phrase & Gratitude', body: '1. Mental Cinema: Replay a vivid 10-second scene of the achieved goal.\n2. Condensed Phrase: Loop a calm, 3-word declaration in a drowsy state.\n3. Prior Gratitude: Experience the calm satisfaction of completion in advance.', takeaway: 'Feel the reality of the outcome until it becomes natural.' }
+  ];
+
+  const MIND_ABUNDANCE = [
+    { id: 'ma1', tag: 'Abundance Conditioning', title: 'Eliminate Resentment Toward Wealth', body: 'Disparaging success or envying peers programs your own mind to view prosperity as alien. Celebrate excellence wherever you see it.', takeaway: 'Treat your mind as a compounding vault of value and capability.' },
+    { id: 'ma2', tag: 'The Mastery Triad', title: 'Three Pillars of Lasting Achievement', body: '1. Cultivate deep passion for the craft.\n2. Specialize until your skill is unmistakable.\n3. Ensure your work delivers real leverage to others.', takeaway: 'Competence paired with service creates unstoppable momentum.' },
+    { id: 'ma3', tag: 'Nocturnal Synthesis', title: 'Overnight Problem Resolution & Habit Swapping', body: 'Review complex challenges calmly before sleep and let the subconscious synthesize solutions overnight. Replace unwanted habits by focusing entirely on the desired opposite.', takeaway: 'Forgive quickly to free mental bandwidth for creation.' }
+  ];
+
+  const FRAME_MINDSET = [
+    { id: 'fm1', tag: 'Law 01 — Investment Balance', title: 'Outcome Independence & Non-Neediness', body: 'Eagerness to please signals low self-valuation. Attraction and respect grow in direct proportion to what the other person invests in earning your attention.', takeaway: 'Match and slightly trail investment early; never over-extend to buy approval.' },
+    { id: 'fm2', tag: 'Law 02 — The Evaluator Stance', title: 'Screen for Standards Beyond Surface Looks', body: 'Replace "I hope I impress her" with "Let’s see if her character, energy, and values match my standards." Qualifying others flips the entire dynamic.', takeaway: 'You are the prize when you genuinely vet who enters your inner circle.' },
+    { id: 'fm3', tag: 'Law 03 — Behavioral Gravity', title: 'Composure, Decisiveness & Social Proof', body: 'Calm authority, unbothered humor, and visible social preselection act as biological amplifiers of respect and attraction.', takeaway: 'Let your conduct demonstrate that you are comfortable in any environment.' },
+    { id: 'fm4', tag: 'Law 04 — Sovereign Mission', title: 'Purpose First, Romance Second', body: 'A man consumed by a compelling life mission naturally radiates ambition, scarcity of time, and emotional stability.', takeaway: 'Command respect like an emperor building a legacy, never a supplicant seeking validation.' }
+  ];
+
+  const FRAME_ESCALATION = [
+    { id: 'fe1', tag: 'Polarity 01', title: 'Subtext, Push-Pull & Playful Challenge', body: 'Avoid sterile interview mode. Use teasing implication, alternate warm validation with playful challenge, and playfully frame her as the one pursuing you.', takeaway: 'Spark emotion through contrast rather than predictable agreement.' },
+    { id: 'fe2', tag: 'Polarity 02', title: 'Progressive Kinesthetic Leadership', body: 'Establish warm, natural physical touch early—handshakes, guiding a shoulder, high-fives—so physical closeness feels effortless rather than abrupt.', takeaway: 'Lead progressively and calibrate smoothly to comfort.' },
+    { id: 'fe3', tag: 'Polarity 03', title: 'Decisive Leadership & Smooth Transitions', body: 'When tension peaks, hold calm eye contact and lead without hesitation. Frame logistical transitions naturally so every step forward feels spontaneous and unforced.', takeaway: 'Confidence removes awkwardness; hesitation creates it.' }
+  ];
+
+  const APHORISMS_24 = [
+    { id: 'ap1', cat: 'Stillness', text: 'Speak less than expected; let your preparation carry the room.' },
+    { id: 'ap2', cat: 'Stillness', text: 'Build in private until the outcome requires no explanation.' },
+    { id: 'ap3', cat: 'Stillness', text: 'Unmoved by noise. Anchored in execution.' },
+    { id: 'ap4', cat: 'Stillness', text: 'Composure under fire is the rarest form of authority.' },
+    { id: 'ap5', cat: 'Stillness', text: 'Those who know their weight never scramble for the spotlight.' },
+    { id: 'ap6', cat: 'Stillness', text: 'Fewer declarations. Higher standards.' },
+    { id: 'ap7', cat: 'Self-Rule', text: 'Conquer your own impulses before seeking to lead anyone else.' },
+    { id: 'ap8', cat: 'Self-Rule', text: 'Discipline keeps the promises that comfort breaks.' },
+    { id: 'ap9', cat: 'Self-Rule', text: 'Your true rank is revealed by what you do in unobserved hours.' },
+    { id: 'ap10', cat: 'Self-Rule', text: 'Govern your appetite, or be governed by anyone who dangles bait.' },
+    { id: 'ap11', cat: 'Self-Rule', text: 'Relentless consistency outlasts bursts of unchanneled intensity.' },
+    { id: 'ap12', cat: 'Self-Rule', text: 'Self-command is the bedrock of all external freedom.' },
+    { id: 'ap13', cat: 'Mystery', text: 'Reveal your work, never your entire blueprint.' },
+    { id: 'ap14', cat: 'Mystery', text: 'Private counsel. Clear vector. Unhurried ambition.' },
+    { id: 'ap15', cat: 'Mystery', text: 'Nothing to prove to the crowd; everything to build for the legacy.' },
+    { id: 'ap16', cat: 'Mystery', text: 'Depth over theatrics. Sovereignty over applause.' },
+    { id: 'ap17', cat: 'Mystery', text: 'Outgrow the need to explain your trajectory to spectators.' },
+    { id: 'ap18', cat: 'Mystery', text: 'Selective with access. Generous with allies.' },
+    { id: 'ap19', cat: 'Boundaries', text: 'Never trade long-term self-respect for momentary relief.' },
+    { id: 'ap20', cat: 'Boundaries', text: 'A man with non-negotiable standards cannot be bought cheaply.' },
+    { id: 'ap21', cat: 'Boundaries', text: 'Step away cleanly from any table that taxes your peace.' },
+    { id: 'ap22', cat: 'Boundaries', text: 'Become the operator you respect when the room is empty.' },
+    { id: 'ap23', cat: 'Boundaries', text: 'Stop auditioning for approval; set the standard instead.' },
+    { id: 'ap24', cat: 'Boundaries', text: 'Treat your word as an iron contract.' }
+  ];
+
+  const BIO_SIGNATURES = [
+    'Forged, not borrowed.',
+    'Quiet velocity.',
+    'Composed under pressure.',
+    'Earned in full.',
+    'Unshaken. Unhurried.',
+    'Mission over mood.',
+    'Anchored in iron.',
+    'Sovereign by design.',
+    'Substance over spectacle.',
+    'Clarity. Command. Consistency.'
+  ];
+
+  const FLASHCARDS_DECK = [
+    { tag: 'REALPOLITIK 01', q: 'How should a sovereign operator evaluate people and alliances?', a: 'By demonstrated behavioral patterns and aligned incentives—never by verbal promises or wishful idealism.' },
+    { tag: 'REALPOLITIK 06', q: 'What is the duality of the Lion and the Fox?', a: 'Uniting decisive strength (to deter wolves) with sharp situational awareness (to spot hidden traps).' },
+    { tag: 'LEVERAGE 04', q: 'Why does strategic brevity amplify authority?', a: 'Saying less than necessary prevents accidental leaks, creates interpretive gravity, and forces others to fill the silence.' },
+    { tag: 'LEVERAGE 29', q: 'What is the principle of Endgame Architecture?', a: 'Map the entire sequence, potential traps, and exit conditions before taking the first public step.' },
+    { tag: 'MAGNETISM 03', q: 'What is the #1 killer of social charisma?', a: 'Inward self-absorption and anxiety. Magnetic presence directs attention 100% outward to read and captivate the counterpart.' },
+    { tag: 'MAGNETISM 06', q: 'How does the Master of Contrast sustain high desire?', a: 'By alternating warm, undivided presence with purposeful space and autonomy—preventing over-saturation.' },
+    { tag: 'SUBCONSCIOUS 02', q: 'What does the Law of Reversed Effort state?', a: 'When tense willpower conflicts with internal imagination, imagination wins. Imprint goals in a calm, drowsy state without strain.' },
+    { tag: 'FRAME 02', q: 'What is the Evaluator Stance in social dynamics?', a: 'Shifting from "Do they approve of me?" to "Do their values, energy, and character meet my standards?"' }
+  ];
+
+  const SCENARIOS = [
     {
-      quote: '“Seduction is a game of psychology, not beauty, and it is within the grasp of any person to become a master at the game.”',
-      note: 'Seduction is a strategic psychological game, not about physical force or innate beauty. It works by inducing surrender through the mind, stirring fantasies, and alternating hope and frustration.'
+      num: 'SCENARIO 01 // WORKPLACE LEVERAGE',
+      q: 'In a high-stakes executive meeting, a colleague attempts to bait you with a sharp, emotional critique of your project timeline. What is the sovereign response?',
+      options: [
+        { text: 'Launch an immediate, loud counter-attack to prove dominance.', correct: false, feedback: 'Reactive emotion lowers your status and validates their bait.' },
+        { text: 'Pause calmly, reflect the core data point without defensiveness, and pivot to the solution you already prepared.', correct: true, feedback: 'Correct (+25 XP). Emotional equilibrium + prepared competence neutralizes provocation instantly.' },
+        { text: 'Apologize profusely and promise to work weekends to make everyone happy.', correct: false, feedback: 'Supplication invites further contempt and erodes your boundaries.' }
+      ]
     },
     {
-      quote: '“As the first seductresses knew, it is much more effective to create love than lust. A person in love is emotional, pliable, and easily misled.”',
-      note: 'Engage the imagination and deeper emotions rather than mere surface appetite.'
+      num: 'SCENARIO 02 // SOCIAL POLARITY & FRAME',
+      q: 'You meet someone intriguing who gives you a playful tease testing your confidence. How do you hold the Evaluator Frame?',
+      options: [
+        { text: 'Over-explain your accomplishments so she realizes you are impressive.', correct: false, feedback: 'Auditioning and seeking validation breaks magnetic tension.' },
+        { text: 'Smirk with unbothered amusement, agree-and-amplify playfully, and flip the qualification back onto her.', correct: true, feedback: 'Correct (+25 XP). Playful composure and Chase Framing demonstrate outcome independence.' },
+        { text: 'Become visibly defensive and withdraw from the conversation.', correct: false, feedback: 'Defensiveness signals fragile ego.' }
+      ]
     },
     {
-      quote: '“Seducers are never self-absorbed. Their gaze is directed outward, not inward. When they meet someone their first move is to get inside that person’s skin, to see the world through their eyes.”',
-      note: 'Stay outward-focused, treat life as theater, and adapt to fill the target’s internal voids.'
+      num: 'SCENARIO 03 // SUBCONSCIOUS CONDITIONING',
+      q: 'You are working toward a major financial and professional milestone, but find yourself straining anxiously before sleep. What protocol applies?',
+      options: [
+        { text: 'Force yourself to stay awake for 3 more hours worrying about every obstacle.', correct: false, feedback: 'Anxious straining triggers the Law of Reversed Effort and programs scarcity.' },
+        { text: 'Enter a relaxed, drowsy state and loop a vivid 10-second mental scene of the completed milestone with calm gratitude.', correct: true, feedback: 'Correct (+25 XP). Alpha-state visualization bypasses conscious resistance and programs expectant faith.' },
+        { text: 'Wait for external luck before believing you are capable.', correct: false, feedback: 'Inner conviction precedes external execution.' }
+      ]
     }
   ];
 
-  const SEDUCTION_ARCHETYPES = [
-    { id: 'sa1', name: 'The Siren', trait: 'Embodies heightened fantasy presence combined with danger or innocence.', quote: 'From Cleopatra we learn that it is not beauty that makes a Siren but rather a theatrical streak that allows a woman to embody a man’s fantasies.' },
-    { id: 'sa2', name: 'The Rake', trait: 'Projects unbridled desire and uses suggestive language; reputation for danger increases appeal.', quote: 'The Ardent Rake teaches us a simple lesson: intense desire has a distracting power on a woman... Remember: it is the form that matters, not the content.' },
-    { id: 'sa3', name: 'The Ideal Lover', trait: 'Reflects exactly what is missing in the target’s life (romance, adventure, greatness).', quote: 'Appeal only to people’s physical side... and they will resent you... But appeal to their better selves... and they will hardly notice that they have been seduced.' },
-    { id: 'sa4', name: 'The Dandy', trait: 'Cultivates ambiguity, androgyny, and radical independence.', quote: 'The key to such power is ambiguity... Be both masculine and feminine, impudent and charming, subtle and outrageous.' },
-    { id: 'sa5', name: 'The Natural', trait: 'Exaggerates childhood traits (spontaneity, innocence) to lower defenses.', quote: 'Defensiveness is deadly in seduction... The undefensive lover... lowers the inhibitions of his or her target...' },
-    { id: 'sa6', name: 'The Coquette', trait: 'Masters delayed satisfaction and calculated withdrawal.', quote: 'Remember: the essence of the Coquette lies not in the tease and temptation but in the subsequent step back, the emotional withdrawal.' },
-    { id: 'sa7', name: 'The Charmer', trait: 'Makes the target the star, soothes, mirrors, and validates ego.', quote: 'And the secret to capturing people’s attention... is to strike at the things they have the least control over: their ego, their vanity, and their self-esteem.' },
-    { id: 'sa8', name: 'The Charismatic', trait: 'Radiates purpose and mystery while remaining inwardly detached.', quote: 'Charisma is not a mysterious quality that inhabits you outside your control; it is an illusion in the eyes of those who see you as having what they lack.' },
-    { id: 'sa9', name: 'The Star / Anti-Seducer', trait: 'Stars invite projection through distance and dreamlike presence.', quote: 'Anti-Seducers repel through insecurity, neediness, and self-absorption. Eliminate every anti-seductive trait.' }
-  ];
-
-  const SEDUCTION_PHASES = [
-    {
-      phase: 'Phase 01',
-      title: 'Separation — Stir Interest & Desire',
-      steps: ['Choose the right victim', 'Create false security', 'Send mixed signals', 'Appear desirable via competition', 'Create need & anxiety', 'Insinuate ideas', 'Enter their spirit', 'Create temptation']
-    },
-    {
-      phase: 'Phase 02',
-      title: 'Lead Astray — Pleasure & Confusion',
-      steps: ['Keep in suspense', 'Use words to flatter & confuse', 'Pay attention to detail', 'Poeticize presence (presence + absence)', 'Disarm with strategic weakness', 'Confuse desire and reality', 'Isolate from normal milieu']
-    },
-    {
-      phase: 'Phase 03',
-      title: 'The Precipice — Deepen the Spell',
-      steps: ['Prove yourself', 'Effect regression', 'Stir the taboo', 'Use spiritual lures', 'Mix pleasure with pain']
-    },
-    {
-      phase: 'Phase 04',
-      title: 'Moving In for the Kill',
-      steps: ['Give space so they pursue', 'Use physical lures', 'Bold move', 'Manage aftereffects']
-    }
-  ];
-
-  // THE POWER OF YOUR SUBCONSCIOUS MIND DATA
-  const SUB_DUAL_MIND = [
-    {
-      id: 'sm1', tag: 'The Navigator', title: 'Conscious Captain vs. Subconscious Crew',
-      body: 'The conscious mind reasons and chooses; the subconscious is impersonal, accepts whatever is impressed upon it, and runs the body.',
-      quote: 'You are like a captain navigating a ship... you must give the right orders (thoughts and images) to your subconscious mind...'
-    },
-    {
-      id: 'sm2', tag: 'Mental Soil', title: 'Impersonal Acceptance of Seeds',
-      body: 'Whatever you habitually think and feel sinks into the subconscious and manifests according to its nature.',
-      quote: 'Your subconscious mind is like the soil, which accepts any kind of seed, good or bad.'
-    },
-    {
-      id: 'sm3', tag: 'The Law of Belief', title: 'Inner Conviction Over Ritual',
-      body: 'Results come from belief in the mind, not external rituals. Suggestions from others only have power if you mentally accept them.',
-      quote: 'Remember, it is not the thing believed in, but the belief in your own mind, which brings about the result.'
-    }
-  ];
-
-  const SUB_HEALING = [
-    {
-      id: 'sm4', tag: 'Expectant Faith', title: 'The Universal Healing Principle',
-      body: 'The healing power is the subconscious mind; faith (confident expectancy) is the process that activates it.',
-      quote: 'There is only one process of healing and that is faith. There is only one healing power, namely, your subconscious mind.'
-    },
-    {
-      id: 'sm5', tag: 'Law of Reversed Effort', title: 'Imagination Defeats Forced Willpower',
-      body: 'Avoid forced willpower. Use relaxed, drowsy states (right before sleep and upon waking) to bypass conscious resistance.',
-      quote: 'When your desires and imagination are in conflict, your imagination invariably gains the day. Never try to compel the subconscious mind to accept your idea by exercising will power.'
-    },
-    {
-      id: 'sm6', tag: '3 Practical Protocols', title: 'Subconscious Imprinting Techniques',
-      body: '1. Visualization / Mental Movie: Play the vivid end-result scene.\n2. Baudoin (Lullaby) Technique: Repeat a short, condensed phrase in a drowsy state.\n3. Thank-You / Affirmative Method: Feel genuine gratitude in advance as if already accomplished.',
-      quote: 'Enter the sleepy, drowsy state where effort is reduced to a minimum, and impress the fulfilled desire.'
-    }
-  ];
-
-  const SUB_WEALTH = [
-    {
-      id: 'sm7', tag: 'Subconscious Bank', title: 'Wealth Conviction & Non-Envy',
-      body: 'Wealth is a subconscious conviction. Never condemn money or envy others’ prosperity, as doing so programs scarcity.',
-      quote: 'The feeling of wealth produces wealth... Your subconscious mind is like a bank...'
-    },
-    {
-      id: 'sm8', tag: 'Architecture of Achievement', title: 'The Three Steps to Success',
-      body: '1. Love the work you do.\n2. Specialize deeply and master the domain.\n3. Make your work benefit humanity and others.',
-      quote: 'True success is aligned with purpose, mastery, and contribution.'
-    },
-    {
-      id: 'sm9', tag: 'Nocturnal Counsel & Substitution', title: 'Sleep, Forgiveness & Habit Mastery',
-      body: 'Sleep is highly productive for the subconscious—turn problems over before rest. Happiness is a chosen habit; true forgiveness removes the emotional sting. Break habits via substitution (focusing on the desired opposite). Age is mental, not chronological.',
-      quote: 'Your future is your current habitual thinking made manifest.'
-    }
-  ];
-
-  // ATTRACTION & ESCALATION DYNAMICS (DOMINIC MANN)
-  const ATTRACTION_MINDSET = [
-    {
-      id: 'ad1', tag: 'Law 01 — Investment Asymmetry', title: 'Eliminate Neediness & Over-Investment',
-      body: 'Neediness is the most repulsive trait. Over-investing early kills attraction. Her investment in you—not yours in her—drives emotional attachment.',
-      quote: 'The more you invest in a woman, the less attracted to you she is.'
-    },
-    {
-      id: 'ad2', tag: 'Law 02 — The Evaluator Frame', title: 'Flip the Qualification Dynamic',
-      body: 'Shift permanently from “I hope she likes me” to “Let’s find out if I like her.” Hold high standards beyond mere physical appearance.',
-      quote: 'A man’s behavior is the most important factor when it comes to female attraction.'
-    },
-    {
-      id: 'ad3', tag: 'Law 03 — Biological Triggers', title: 'Confidence, Indifference & Preselection',
-      body: 'Attraction is biological and behavioral. Women respond viscerally to composure, dominance, outcome independence, and social proof.',
-      quote: 'If girls think that other girls are fighting over you, you become 10X more attractive...'
-    },
-    {
-      id: 'ad4', tag: 'Law 04 — Sovereign Priority', title: 'Higher Mission & Emperor-Like Respect',
-      body: 'Pursue a higher Mission first. Ambitious men naturally display the traits that create attraction and eliminate pedestalization. Aim for “emperor-like” respect rather than friendly, asexual approval.',
-      quote: 'Your mission comes first; attraction is the natural byproduct of a man building an empire.'
-    }
-  ];
-
-  const ATTRACTION_ESCALATION = [
-    {
-      id: 'ae1', tag: 'Protocol 01 — Verbal Polarity', title: 'Implication, Push-Pull & Chase Framing',
-      body: 'Create electric tension via subtext and implication rather than dry small talk. Alternate warmth with playful withdrawal (Push-Pull) and use Chase Framing—playfully accusing her of pursuing you.',
-      quote: 'Tension is built in the space between validation and challenge.'
-    },
-    {
-      id: 'ae2', tag: 'Protocol 02 — Kinesthetic Ladder', title: 'Progressive Physical Escalation',
-      body: 'Escalate physical touch progressively and naturally from the very beginning. Never wait until the end of an interaction to cross the physical barrier.',
-      quote: 'Always be escalating—make physical comfort normal and effortless.'
-    },
-    {
-      id: 'ae3', tag: 'Protocol 03 — The Close', title: 'The Kiss & Plausible Deniability',
-      body: 'For the kiss: establish physical comfort, hold strong eye contact + glance at her lips, then lean in decisively. When transitioning to private locations, always provide plausible deniability so she can rationalize that “it just happened” without feeling judged.',
-      quote: 'Lead smoothly so every transition feels natural, unforced, and inevitable.'
-    }
-  ];
-
-  const QUOTES_24 = [
-    { id: 'q1', cat: 'Quiet Confidence', text: 'A man of few words, but undeniable presence.' },
-    { id: 'q2', cat: 'Quiet Confidence', text: 'Move in silence. Let your results make the noise.' },
-    { id: 'q3', cat: 'Quiet Confidence', text: 'Calm mind. Strong spine. Unshakable standards.' },
-    { id: 'q4', cat: 'Quiet Confidence', text: 'Not everyone needs to understand me.' },
-    { id: 'q5', cat: 'Quiet Confidence', text: 'I don’t compete for attention. I build my own worth.' },
-    { id: 'q6', cat: 'Quiet Confidence', text: 'Less talk. More character.' },
-    { id: 'q7', cat: 'Discipline & Strength', text: 'Master yourself before you try to master the world.' },
-    { id: 'q8', cat: 'Discipline & Strength', text: 'Discipline over desire. Principles over pleasure.' },
-    { id: 'q9', cat: 'Discipline & Strength', text: 'A man is built by what he does when nobody is watching.' },
-    { id: 'q10', cat: 'Discipline & Strength', text: 'Control your impulses, or they will control you.' },
-    { id: 'q11', cat: 'Discipline & Strength', text: 'Comfort makes promises that discipline keeps.' },
-    { id: 'q12', cat: 'Discipline & Strength', text: 'The strongest man is the one who can govern himself.' },
-    { id: 'q13', cat: 'Dark & Mysterious', text: 'More than meets the eye.' },
-    { id: 'q14', cat: 'Dark & Mysterious', text: 'Private life. Clear intentions. Quiet ambition.' },
-    { id: 'q15', cat: 'Dark & Mysterious', text: 'I have nothing to prove and everything to build.' },
-    { id: 'q16', cat: 'Dark & Mysterious', text: 'Depth over attention. Substance over appearance.' },
-    { id: 'q17', cat: 'Dark & Mysterious', text: 'I outgrew the need to be understood by everyone.' },
-    { id: 'q18', cat: 'Dark & Mysterious', text: 'Not cold. Just selective with my energy.' },
-    { id: 'q19', cat: 'Self-Respect & Standards', text: 'Never negotiate your self-respect for temporary pleasure.' },
-    { id: 'q20', cat: 'Self-Respect & Standards', text: 'A man with standards will never be owned by his impulses.' },
-    { id: 'q21', cat: 'Self-Respect & Standards', text: 'Walk away from anything that costs you your peace.' },
-    { id: 'q22', cat: 'Self-Respect & Standards', text: 'Be a man you can respect when you look in the mirror.' },
-    { id: 'q23', cat: 'Self-Respect & Standards', text: 'Don’t chase validation. Become someone you believe in.' },
-    { id: 'q24', cat: 'Self-Respect & Standards', text: 'Your word is your reputation. Keep it sacred.' }
-  ];
-
-  const BIOS_10 = [
-    'Built, not borrowed.',
-    'Silent ambition.',
-    'Composed, not cold.',
-    'Earned, never given.',
-    'Unmoved. Unmatched.',
-    'Purpose over pleasure.',
-    'Rooted in discipline.',
-    'A man apart.',
-    'Quietly becoming.',
-    'Standards. Substance. Self-control.'
-  ];
-
-  // ==========================================
-  // STATE MANAGEMENT
-  // ==========================================
-  let savedCodex = JSON.parse(localStorage.getItem('aether_codex_v3') || '[]');
-  let pillarScores = JSON.parse(localStorage.getItem('aether_pillars_v3') || '{"p1":7,"p2":7,"p3":7,"p4":7,"p5":7,"p6":7,"p7":7,"p8":7,"p9":7,"p10":7}');
-  let lawsCompactMode = false;
-  let lawsLimitSix = false;
-  let activePowerRange = 'all';
-  let activeQuoteCat = 'all';
+  // ============================================================================
+  // STATE & STORAGE
+  // ============================================================================
+  let savedItems = JSON.parse(localStorage.getItem('imperium_saved_v1') || '[]');
+  let journalEntries = JSON.parse(localStorage.getItem('imperium_journal_v1') || '[{"id":"j0","date":"2026","text":"Rule 01: Guard my time, compound my skills in silence, and judge every alliance by demonstrated action."}]');
+  let pillarScores = JSON.parse(localStorage.getItem('imperium_pillars_v1') || '{"pl1":7,"pl2":7,"pl3":7,"pl4":7,"pl5":7,"pl6":7,"pl7":7,"pl8":7,"pl9":7,"pl10":7}');
+  let arenaXp = parseInt(localStorage.getItem('imperium_xp_v1') || '0', 10);
+  let activeLeverageRange = 'all';
+  let activeVaultCat = 'all';
+  let fcIndex = 0;
+  let simIndex = 0;
 
   function showToast(msg) {
-    const t = document.getElementById('toast');
+    const t = document.getElementById('toastMsg');
     t.textContent = msg;
     t.classList.add('show');
-    clearTimeout(window._toastTimer);
-    window._toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+    clearTimeout(window._tTimer);
+    window._tTimer = setTimeout(() => t.classList.remove('show'), 2200);
   }
 
-  function copyText(txt) {
+  function copyToClipboard(txt) {
     navigator.clipboard.writeText(txt).then(() => showToast('Copied to Clipboard'));
   }
 
-  function toggleBookmark(id, text, label) {
-    const idx = savedCodex.findIndex(item => item.id === id);
+  function toggleSave(id, title, body, badge) {
+    const idx = savedItems.findIndex(x => x.id === id);
     if (idx > -1) {
-      savedCodex.splice(idx, 1);
-      showToast('Removed from Saved Codex');
+      savedItems.splice(idx, 1);
+      showToast('Removed from Vault');
     } else {
-      savedCodex.push({ id, text, label });
-      showToast('Saved to Personal Codex');
+      savedItems.push({ id, title, body, badge });
+      showToast('Saved to War Room Vault');
     }
-    localStorage.setItem('aether_codex_v3', JSON.stringify(savedCodex));
-    updateCodexBadge();
+    localStorage.setItem('imperium_saved_v1', JSON.stringify(savedItems));
     renderAll();
   }
 
-  function updateCodexBadge() {
-    document.getElementById('codexCountBadge').textContent = savedCodex.length;
+  // ============================================================================
+  // MULTI-PAGE ROUTER
+  // ============================================================================
+  window.navigateTo = function(pageId) {
+    document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+    const target = document.getElementById('page-' + pageId);
+    if (target) target.classList.add('active');
+
+    document.querySelectorAll('#pageNav .page-link').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.page === pageId);
+    });
+
+    document.getElementById('pageNav').classList.remove('open');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  document.querySelectorAll('#pageNav .page-link').forEach(btn => {
+    btn.addEventListener('click', () => navigateTo(btn.dataset.page));
+  });
+
+  document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+    document.getElementById('pageNav').classList.toggle('open');
+  });
+
+  // ============================================================================
+  // PAGE RENDERERS
+  // ============================================================================
+  function renderCommandCenter() {
+    document.getElementById('wingPortalGrid').innerHTML = WING_PORTALS.map(w => `
+      <div class="lux-card portal-card" onclick="navigateTo('${w.page}')">
+        <div class="card-top-row">
+          <span class="badge-gold">WING ${w.num}</span>
+          <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--gold);">ENTER →</span>
+        </div>
+        <h3 style="font-family:var(--font-display); font-size:1.12rem;">${w.title}</h3>
+        <p style="font-size:0.86rem; color:var(--text-steel);">${w.desc}</p>
+      </div>
+    `).join('');
+
+    document.getElementById('dashArenaScore').textContent = arenaXp + ' XP';
+    document.getElementById('dashVaultCount').textContent = savedItems.length + journalEntries.length;
+    document.getElementById('headerSavedCount').textContent = savedItems.length;
   }
 
-  // ==========================================
-  // RENDERERS
-  // ==========================================
-  function renderTop5() {
-    document.getElementById('top5Container').innerHTML = TOP_5.map(item => {
-      const isSaved = savedCodex.some(b => b.id === item.id);
-      const esc = item.quote.replace(/'/g, "\\'");
+  function generateOracle() {
+    const pool = [
+      ...REALPOLITIK_12.map(r => ({ cat: `REALPOLITIK // LAW ${r.num}`, main: r.title, sub: r.execution })),
+      ...DIRECTIVES_48.map((d, i) => ({ cat: `LEVERAGE // DIRECTIVE ${String(i+1).padStart(2,'0')}`, main: d, sub: 'Operate with emotional composure and long-term calculation.' })),
+      ...APHORISMS_24.map(a => ({ cat: `APHORISM // ${a.cat.toUpperCase()}`, main: a.text, sub: 'Internalize the standard and let actions speak.' }))
+    ];
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    document.getElementById('oracleCategory').textContent = pick.cat;
+    document.getElementById('oracleMainText').textContent = `“${pick.main}”`;
+    document.getElementById('oracleSubText').textContent = pick.sub;
+  }
+
+  document.getElementById('newOracleBtn').addEventListener('click', generateOracle);
+  document.getElementById('copyOracleBtn').addEventListener('click', () => {
+    copyToClipboard(`${document.getElementById('oracleMainText').textContent} — ${document.getElementById('oracleSubText').textContent}`);
+  });
+
+  function renderRealpolitik() {
+    document.getElementById('realpolitikGrid').innerHTML = REALPOLITIK_12.map(r => {
+      const isSaved = savedItems.some(x => x.id === r.id);
+      const esc = `${r.title}: ${r.principle} (${r.execution})`.replace(/'/g, "\\'");
       return `
-        <div class="top5-item spotlight-card">
-          <div class="top5-num">${item.num}</div>
+        <div class="lux-card">
           <div>
-            <p class="top5-quote">“${item.quote}”</p>
-            <p class="top5-note">${item.note}</p>
+            <div class="card-top-row">
+              <span class="badge-gold">LAW ${r.num}</span>
+              <span class="badge-outline">${r.tag}</span>
+              <div class="icon-actions">
+                <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+                <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${r.id}', '${r.title.replace(/'/g,"\\'")}', '${r.execution.replace(/'/g,"\\'")}', 'Realpolitik ${r.num}')">★</button>
+              </div>
+            </div>
+            <h3 style="font-family:var(--font-display); font-size:1.08rem; margin:0.85rem 0 0.5rem;">${r.title}</h3>
+            <p style="font-size:0.88rem; color:var(--text-platinum); margin-bottom:0.65rem;">${r.principle}</p>
           </div>
-          <div class="card-icon-actions">
-            <button class="icon-btn" onclick="copyText('${esc}')" title="Copy Quote">⧉</button>
-            <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${item.id}', '${esc}', 'Top 5 Essential')" title="Save to Codex">★</button>
+          <div style="background:var(--bg-abyss); border-left:2px solid var(--emerald); padding:0.7rem 0.85rem; font-size:0.84rem; color:var(--text-steel);">
+            <strong style="color:var(--emerald); font-family:var(--font-mono); font-size:0.62rem; text-transform:uppercase; display:block;">Execution:</strong>
+            ${r.execution}
           </div>
         </div>
       `;
     }).join('');
-  }
 
-  function renderLaws() {
-    const query = document.getElementById('lawsSearchInput').value.toLowerCase().trim();
-    let filtered = LAWS_12.filter(l =>
-      l.title.toLowerCase().includes(query) ||
-      l.learning.toLowerCase().includes(query) ||
-      l.apply.toLowerCase().includes(query) ||
-      l.chapter.toLowerCase().includes(query)
-    );
-    if (lawsLimitSix && !query) filtered = filtered.slice(0, 6);
-
-    document.getElementById('lawsGrid').innerHTML = filtered.map(l => {
-      const isSaved = savedCodex.some(b => b.id === l.id);
-      const copyPayload = `${l.title} — ${l.learning} Application: ${l.apply}`.replace(/'/g, "\\'");
-      return `
-        <article class="law-card spotlight-card ${lawsCompactMode ? 'compact' : ''}" id="card-${l.id}">
-          <div>
-            <div class="law-cardTop">
-              <div class="law-index-group">
-                <span class="law-num">${l.num}</span>
-                <span class="law-chapter">${l.chapter}</span>
-              </div>
-              <div class="card-icon-actions">
-                <button class="icon-btn" onclick="copyText('${copyPayload}')" title="Copy Law">⧉</button>
-                <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${l.id}', '${copyPayload}', 'The Prince • Law ${l.num}')" title="Bookmark">★</button>
-              </div>
-            </div>
-            <h3 class="law-title" style="margin: 0.85rem 0;">${l.title}</h3>
-            <div class="law-principle-box">
-              <span class="law-principle-lbl">Core Principle</span>
-              <p class="law-principle-text">${l.learning}</p>
-            </div>
-          </div>
-          <div class="law-dossier-details">
-            <p class="law-context">${l.context}</p>
-            <div class="law-apply-box">
-              <span class="law-apply-lbl">Tactical Execution</span>
-              <p class="law-apply-text">${l.apply}</p>
-            </div>
-          </div>
-          <button class="law-expand-trigger" onclick="toggleSingleLawCard('${l.id}')">
-            ${lawsCompactMode ? '+ Expand Tactical Dossier' : '− Collapse Details'}
-          </button>
-        </article>
-      `;
-    }).join('');
-  }
-
-  window.toggleSingleLawCard = function(id) {
-    const card = document.getElementById('card-' + id);
-    if (!card) return;
-    card.classList.toggle('compact');
-    card.querySelector('.law-expand-trigger').textContent =
-      card.classList.contains('compact') ? '+ Expand Tactical Dossier' : '− Collapse Details';
-  };
-
-  function renderPillars() {
-    document.getElementById('pillarsGrid').innerHTML = PILLARS_10.map(p => {
+    document.getElementById('pillarsAuditGrid').innerHTML = PILLARS_10.map(p => {
       const val = pillarScores[p.id] || 7;
       return `
-        <div class="pillar-card spotlight-card">
-          <div class="pillar-top">
-            <div class="pillar-name"><span class="pillar-idx">${p.idx}</span>${p.name}</div>
-            <button class="icon-btn" onclick="copyText('${p.name}: ${p.practice.replace(/'/g, "\\'")}')" title="Copy Pillar">⧉</button>
+        <div class="lux-card" style="padding:1.25rem 1.4rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <strong style="font-family:var(--font-display); font-size:1.02rem;"><span style="color:var(--gold); font-family:var(--font-mono); margin-right:0.4rem;">${p.idx}</span>${p.name}</strong>
+            <span style="font-family:var(--font-mono); font-size:0.78rem; color:var(--gold);" id="pval-${p.id}">${val}/10</span>
           </div>
-          <p class="pillar-practice">${p.practice}</p>
-          <div class="slider-row">
-            <span class="slider-lbl">Command Level</span>
-            <input type="range" min="1" max="10" value="${val}" class="pillar-slider" oninput="updatePillarScore('${p.id}', this.value)">
-            <span class="slider-val" id="val-${p.id}">${val}/10</span>
-          </div>
+          <p style="font-size:0.86rem; color:var(--text-steel);">${p.desc}</p>
+          <input type="range" min="1" max="10" value="${val}" style="width:100%; accent-color:var(--gold); cursor:pointer;" oninput="updatePillar('${p.id}', this.value)">
         </div>
       `;
     }).join('');
-    updateAuditTelemetry();
+
+    document.getElementById('calibrationGrid').innerHTML = CALIBRATIONS_4.map(c => `
+      <div class="lux-card">
+        <span class="badge-outline" style="align-self:flex-start;">${c.tag}</span>
+        <h3 style="font-family:var(--font-display); font-size:1.12rem;">${c.title}</h3>
+        <p style="font-size:0.88rem; color:var(--text-steel);">${c.desc}</p>
+      </div>
+    `).join('');
+
+    updatePillarTotals();
   }
 
-  window.updatePillarScore = function(id, val) {
+  window.updatePillar = function(id, val) {
     pillarScores[id] = parseInt(val, 10);
-    document.getElementById('val-' + id).textContent = val + '/10';
-    localStorage.setItem('aether_pillars_v3', JSON.stringify(pillarScores));
-    updateAuditTelemetry();
+    document.getElementById('pval-' + id).textContent = val + '/10';
+    localStorage.setItem('imperium_pillars_v1', JSON.stringify(pillarScores));
+    updatePillarTotals();
   };
 
-  function updateAuditTelemetry() {
-    const total = Object.values(pillarScores).reduce((acc, v) => acc + v, 0);
-    const pct = Math.round((total / 100) * 100);
-    document.getElementById('auditScoreDisplay').textContent = pct + '%';
-    document.getElementById('heroSovereigntyStat').textContent = pct + '%';
-
+  function updatePillarTotals() {
+    const sum = Object.values(pillarScores).reduce((a, b) => a + b, 0);
+    document.getElementById('pillarTotalPct').textContent = sum + '%';
+    document.getElementById('dashCommandPct').textContent = sum + '%';
     let rank = 'INITIATE';
-    if (pct >= 90) rank = 'SOVEREIGN ARCHITECT';
-    else if (pct >= 75) rank = 'HIGH COMMANDER';
-    else if (pct >= 60) rank = 'CENTURION';
-    document.getElementById('auditRankBadge').textContent = rank;
+    if (sum >= 88) rank = 'SOVEREIGN ARCHITECT';
+    else if (sum >= 72) rank = 'HIGH COMMANDER';
+    else if (sum >= 55) rank = 'CENTURION';
+    document.getElementById('dashRankLabel').textContent = rank;
   }
 
-  function renderMaxims() {
-    document.getElementById('maximsStack').innerHTML = MAXIMS_5.map(m => {
-      const isSaved = savedCodex.some(b => b.id === m.id);
-      const payload = `${m.quote} — ${m.meaning}`.replace(/'/g, "\\'");
-      return `
-        <div class="maxim-block spotlight-card">
-          <div>
-            <span class="maxim-source">${m.source}</span>
-            <h3 class="maxim-quote">“${m.quote}”</h3>
-            <p class="maxim-meaning">${m.meaning}</p>
-          </div>
-          <div class="card-icon-actions">
-            <button class="icon-btn" onclick="copyText('${payload}')" title="Copy Maxim">⧉</button>
-            <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${m.id}', '${payload}', 'Machiavellian Maxim')" title="Save">★</button>
-          </div>
-        </div>
-      `;
-    }).join('');
-  }
+  document.getElementById('resetPillarsBtn').addEventListener('click', () => {
+    PILLARS_10.forEach(p => pillarScores[p.id] = 7);
+    localStorage.setItem('imperium_pillars_v1', JSON.stringify(pillarScores));
+    renderRealpolitik();
+    showToast('Calibration Reset to 70%');
+  });
 
-  function renderRazor() {
-    document.getElementById('razorGrid').innerHTML = RAZOR_4.map(r => `
-      <div class="razor-card spotlight-card">
-        <span class="razor-tag">${r.tag}</span>
-        <h3 class="razor-title">${r.title}</h3>
-        <p class="razor-desc">${r.desc}</p>
-      </div>
-    `).join('');
-  }
-
-  // RENDER SECTION 06: 48 LAWS OF POWER
-  function renderPower48() {
-    document.getElementById('powerFoundationsGrid').innerHTML = POWER_FOUNDATIONS.map(f => `
-      <div class="foundation-card spotlight-card">
-        <p class="foundation-quote">${f.quote}</p>
-        <p class="foundation-note">${f.note}</p>
+  function renderLeverage48() {
+    document.getElementById('leverageFoundationsGrid').innerHTML = LEVERAGE_FOUNDATIONS.map(f => `
+      <div class="lux-card" style="border-top:2px solid var(--gold);">
+        <span class="badge-outline" style="align-self:flex-start;">${f.tag}</span>
+        <h3 style="font-family:var(--font-display); font-size:1.08rem;">${f.title}</h3>
+        <p style="font-size:0.88rem; color:var(--text-steel);">${f.desc}</p>
       </div>
     `).join('');
 
-    const q = document.getElementById('power48SearchInput').value.toLowerCase().trim();
-    const indexed = LAWS_48.map((text, i) => ({
-      id: `pw${i + 1}`,
-      num: String(i + 1).padStart(2, '0'),
-      idx: i + 1,
+    const q = document.getElementById('leverageSearchInput').value.toLowerCase().trim();
+    const list = DIRECTIVES_48.map((text, idx) => ({
+      id: `d48_${idx+1}`,
+      num: String(idx + 1).padStart(2, '0'),
+      i: idx + 1,
       text
-    }));
-
-    const filtered = indexed.filter(item => {
+    })).filter(item => {
       if (q && !item.text.toLowerCase().includes(q) && !item.num.includes(q)) return false;
-      if (!q && activePowerRange === '1-15') return item.idx >= 1 && item.idx <= 15;
-      if (!q && activePowerRange === '16-32') return item.idx >= 16 && item.idx <= 32;
-      if (!q && activePowerRange === '33-48') return item.idx >= 33 && item.idx <= 48;
+      if (!q && activeLeverageRange === '1-12') return item.i >= 1 && item.i <= 12;
+      if (!q && activeLeverageRange === '13-24') return item.i >= 13 && item.i <= 24;
+      if (!q && activeLeverageRange === '25-36') return item.i >= 25 && item.i <= 36;
+      if (!q && activeLeverageRange === '37-48') return item.i >= 37 && item.i <= 48;
       return true;
     });
 
-    document.getElementById('power48Grid').innerHTML = filtered.map(item => {
-      const isSaved = savedCodex.some(b => b.id === item.id);
-      const payload = `Law ${item.num}: ${item.text}`.replace(/'/g, "\\'");
+    document.getElementById('directives48Grid').innerHTML = list.map(item => {
+      const isSaved = savedItems.some(x => x.id === item.id);
+      const esc = `Directive ${item.num}: ${item.text}`.replace(/'/g, "\\'");
       return `
-        <div class="power48-card spotlight-card">
-          <div class="power48-left">
-            <span class="power48-num">LAW ${item.num}</span>
-            <h4 class="power48-title">${item.text}</h4>
+        <div class="lux-card" style="padding:1.2rem 1.35rem; flex-direction:row; align-items:center; justify-content:space-between;">
+          <div style="display:flex; align-items:flex-start; gap:0.8rem;">
+            <span class="badge-gold">${item.num}</span>
+            <p style="font-size:0.92rem; font-weight:500;">${item.text}</p>
           </div>
-          <div class="card-icon-actions">
-            <button class="icon-btn" onclick="copyText('${payload}')" title="Copy Law">⧉</button>
-            <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${item.id}', '${payload}', '48 Laws of Power')" title="Save">★</button>
+          <div class="icon-actions">
+            <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+            <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${item.id}', 'Directive ${item.num}', '${item.text.replace(/'/g,"\\'")}', '48 Directives')">★</button>
           </div>
         </div>
       `;
     }).join('');
   }
 
-  // RENDER SECTION 07: THE ART OF SEDUCTION
-  function renderSeduction() {
-    document.getElementById('seductionPhilosophyGrid').innerHTML = SEDUCTION_PHILOSOPHY.map(p => `
-      <div class="foundation-card spotlight-card">
-        <p class="foundation-quote">${p.quote}</p>
-        <p class="foundation-note">${p.note}</p>
+  document.getElementById('leverageSearchInput').addEventListener('input', renderLeverage48);
+  document.querySelectorAll('#leverageRangeChips .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#leverageRangeChips .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeLeverageRange = chip.dataset.range;
+      renderLeverage48();
+    });
+  });
+
+  function renderMagnetism() {
+    document.getElementById('magnetismPillarsGrid').innerHTML = MAGNETISM_PILLARS.map(p => `
+      <div class="lux-card">
+        <span class="badge-gold" style="align-self:flex-start;">${p.tag}</span>
+        <h3 style="font-family:var(--font-display); font-size:1.1rem;">${p.title}</h3>
+        <p style="font-size:0.88rem; color:var(--text-steel);">${p.desc}</p>
       </div>
     `).join('');
 
-    document.getElementById('seductionArchetypesGrid').innerHTML = SEDUCTION_ARCHETYPES.map(a => {
-      const isSaved = savedCodex.some(b => b.id === a.id);
-      const payload = `${a.name}: ${a.trait} — "${a.quote}"`.replace(/'/g, "\\'");
+    document.getElementById('personasGrid').innerHTML = PERSONAS_9.map(p => {
+      const isSaved = savedItems.some(x => x.id === p.id);
+      const esc = `${p.name}: ${p.trait} (${p.tactic})`.replace(/'/g, "\\'");
       return `
-        <div class="archetype-card spotlight-card">
+        <div class="lux-card">
           <div>
-            <div class="archetype-header">
-              <h4 class="archetype-name">${a.name}</h4>
-              <div class="card-icon-actions">
-                <button class="icon-btn" onclick="copyText('${payload}')" title="Copy Archetype">⧉</button>
-                <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${a.id}', '${payload}', 'Seductive Archetype')" title="Save">★</button>
+            <div class="card-top-row">
+              <strong style="font-family:var(--font-display); color:var(--gold); font-size:1.05rem;">${p.name}</strong>
+              <div class="icon-actions">
+                <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+                <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${p.id}', '${p.name}', '${p.tactic.replace(/'/g,"\\'")}', 'Persona')">★</button>
               </div>
             </div>
-            <p class="archetype-trait" style="margin-top: 0.55rem;">${a.trait}</p>
+            <p style="font-size:0.9rem; margin-top:0.7rem;">${p.trait}</p>
           </div>
-          <p class="archetype-quote">“${a.quote}”</p>
+          <p style="font-size:0.82rem; color:var(--emerald); border-left:2px solid var(--emerald); padding-left:0.65rem;">${p.tactic}</p>
         </div>
       `;
     }).join('');
 
-    document.getElementById('seductionPhasesGrid').innerHTML = SEDUCTION_PHASES.map(p => `
-      <div class="phase-card spotlight-card">
-        <span class="phase-badge">${p.phase}</span>
-        <h4 class="phase-title">${p.title}</h4>
-        <div class="maneuver-chain">
-          ${p.steps.map((s, idx) => `
-            <span class="maneuver-step">${s}</span>
-            ${idx < p.steps.length - 1 ? '<span class="maneuver-arrow">→</span>' : ''}
-          `).join('')}
+    document.getElementById('influencePhasesGrid').innerHTML = INFLUENCE_PHASES.map(ph => `
+      <div class="lux-card">
+        <div>
+          <span class="badge-outline">${ph.phase}</span>
+          <h3 style="font-family:var(--font-display); font-size:1.15rem; margin:0.55rem 0 0.9rem;">${ph.title}</h3>
+          <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+            ${ph.steps.map((s, i) => `
+              <span style="background:var(--bg-abyss); border:1px solid var(--border-bright); padding:0.32rem 0.65rem; font-family:var(--font-mono); font-size:0.7rem;">
+                <strong style="color:var(--gold);">${i+1}.</strong> ${s}
+              </span>
+            `).join('')}
+          </div>
         </div>
       </div>
     `).join('');
   }
 
-  // RENDER SECTION 08: SUBCONSCIOUS MIND
-  function renderSubconsciousGroup(arr, containerId, labelTag) {
+  function renderCardDeck(arr, containerId, badgeLabel) {
     document.getElementById(containerId).innerHTML = arr.map(item => {
-      const isSaved = savedCodex.some(b => b.id === item.id);
-      const payload = `${item.title}: ${item.body.replace(/\n/g, ' ')} — "${item.quote}"`.replace(/'/g, "\\'");
+      const isSaved = savedItems.some(x => x.id === item.id);
+      const esc = `${item.title}: ${item.body.replace(/\n/g,' ')} — ${item.takeaway}`.replace(/'/g, "\\'");
       return `
-        <div class="sub-card spotlight-card">
+        <div class="lux-card">
           <div>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.45rem;">
-              <span class="sub-card-tag">${item.tag}</span>
-              <div class="card-icon-actions">
-                <button class="icon-btn" onclick="copyText('${payload}')" title="Copy">⧉</button>
-                <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${item.id}', '${payload}', '${labelTag}')" title="Save">★</button>
+            <div class="card-top-row">
+              <span class="badge-outline">${item.tag}</span>
+              <div class="icon-actions">
+                <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+                <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${item.id}', '${item.title.replace(/'/g,"\\'")}', '${item.takeaway.replace(/'/g,"\\'")}', '${badgeLabel}')">★</button>
               </div>
             </div>
-            <h4 class="sub-card-title" style="margin-bottom:0.55rem;">${item.title}</h4>
-            <p class="sub-card-body" style="white-space: pre-line;">${item.body}</p>
+            <h3 style="font-family:var(--font-display); font-size:1.08rem; margin:0.75rem 0 0.5rem;">${item.title}</h3>
+            <p style="font-size:0.88rem; color:var(--text-steel); white-space:pre-line;">${item.body}</p>
           </div>
-          <div class="sub-card-quote">“${item.quote}”</div>
-        </div>
-      `;
-    }).join('');
-  }
-
-  function renderSubconscious() {
-    renderSubconsciousGroup(SUB_DUAL_MIND, 'subDualMindGrid', 'Subconscious Mind');
-    renderSubconsciousGroup(SUB_HEALING, 'subHealingGrid', 'Subconscious Healing');
-    renderSubconsciousGroup(SUB_WEALTH, 'subWealthGrid', 'Subconscious Wealth');
-  }
-
-  // RENDER SECTION 09: ATTRACTION DYNAMICS
-  function renderAttraction() {
-    renderSubconsciousGroup(ATTRACTION_MINDSET, 'attractionMindsetGrid', 'Attraction Mindset');
-    renderSubconsciousGroup(ATTRACTION_ESCALATION, 'attractionEscalationGrid', 'Escalation Protocol');
-  }
-
-  // RENDER SECTION 10: QUOTE VAULT
-  function renderQuotes() {
-    const filtered = activeQuoteCat === 'all'
-      ? QUOTES_24
-      : QUOTES_24.filter(q => q.cat === activeQuoteCat);
-
-    document.getElementById('quotesGrid').innerHTML = filtered.map(q => {
-      const isSaved = savedCodex.some(b => b.id === q.id);
-      const escaped = q.text.replace(/'/g, "\\'");
-      return `
-        <div class="quote-card spotlight-card">
-          <div>
-            <span class="quote-cat-label">${q.cat}</span>
-            <p class="quote-text">“${q.text}”</p>
-          </div>
-          <div class="card-icon-actions">
-            <button class="icon-btn" onclick="copyText('${escaped}')" title="Copy">⧉</button>
-            <button class="icon-btn ${isSaved ? 'bookmarked' : ''}" onclick="toggleBookmark('${q.id}', '${escaped}', '${q.cat}')" title="Save">★</button>
+          <div style="background:var(--bg-abyss); border-left:2px solid var(--gold); padding:0.65rem 0.8rem; font-size:0.83rem; color:var(--text-platinum);">
+            ${item.takeaway}
           </div>
         </div>
       `;
     }).join('');
+  }
 
-    document.getElementById('bioStrip').innerHTML = BIOS_10.map(bio => `
-      <button class="bio-chip" onclick="copyText('${bio.replace(/'/g, "\\'")}')">
-        <span>${bio}</span>
-        <span class="copy-hint">⧉</span>
+  function renderMindAndFrame() {
+    renderCardDeck(MIND_LAWS, 'mindLawsGrid', 'Subconscious');
+    renderCardDeck(MIND_PROTOCOLS, 'mindProtocolsGrid', 'Subconscious');
+    renderCardDeck(MIND_ABUNDANCE, 'mindAbundanceGrid', 'Subconscious');
+    renderCardDeck(FRAME_MINDSET, 'frameMindsetGrid', 'Frame Dynamics');
+    renderCardDeck(FRAME_ESCALATION, 'frameEscalationGrid', 'Polarity');
+  }
+
+  // ============================================================================
+  // PAGE 07: TACTICAL ARENA (FLASHCARDS & SCENARIOS)
+  // ============================================================================
+  function renderFlashcard() {
+    const item = FLASHCARDS_DECK[fcIndex];
+    document.getElementById('flashcardStage').classList.remove('flipped');
+    document.getElementById('fcDeckTag').textContent = item.tag;
+    document.getElementById('fcCounter').textContent = `${fcIndex + 1} / ${FLASHCARDS_DECK.length}`;
+    document.getElementById('fcFrontTitle').textContent = item.q;
+    document.getElementById('fcBackBody').textContent = item.a;
+  }
+
+  window.flipFlashcard = function() {
+    document.getElementById('flashcardStage').classList.toggle('flipped');
+  };
+  window.nextFlashcard = function() {
+    fcIndex = (fcIndex + 1) % FLASHCARDS_DECK.length;
+    renderFlashcard();
+  };
+  window.prevFlashcard = function() {
+    fcIndex = (fcIndex - 1 + FLASHCARDS_DECK.length) % FLASHCARDS_DECK.length;
+    renderFlashcard();
+  };
+
+  function renderScenario() {
+    const s = SCENARIOS[simIndex];
+    document.getElementById('simScenarioNum').textContent = s.num;
+    document.getElementById('simXpDisplay').textContent = `XP: ${arenaXp}`;
+    document.getElementById('simQuestion').textContent = s.q;
+    const fb = document.getElementById('simFeedbackBox');
+    fb.style.display = 'none';
+
+    document.getElementById('simOptionsBox').innerHTML = s.options.map((opt, idx) => `
+      <button class="scenario-option" id="simOpt-${idx}" onclick="answerScenario(${idx})">
+        ${opt.text}
       </button>
     `).join('');
   }
 
-  function renderAll() {
-    renderTop5();
-    renderLaws();
-    renderPillars();
-    renderMaxims();
-    renderRazor();
-    renderPower48();
-    renderSeduction();
-    renderSubconscious();
-    renderAttraction();
-    renderQuotes();
-    bindSpotlightCards();
-  }
+  window.answerScenario = function(idx) {
+    const s = SCENARIOS[simIndex];
+    const chosen = s.options[idx];
+    const btn = document.getElementById('simOpt-' + idx);
+    const fb = document.getElementById('simFeedbackBox');
 
-  // ==========================================
-  // NAVIGATION & MASTER MODE LOGIC
-  // ==========================================
-  function setMasterMode(mode) {
-    document.querySelectorAll('#masterModeTabs .mode-tab').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.mode === mode);
-    });
-
-    document.querySelectorAll('section.codex-section').forEach(sec => {
-      const group = sec.dataset.group;
-      const shouldShow = (mode === 'all') || (mode === group);
-      sec.classList.toggle('mode-hidden', !shouldShow);
-    });
-
-    document.querySelectorAll('#sideRail .rail-item').forEach(item => {
-      const targetId = item.getAttribute('data-scroll');
-      if (targetId === 'hero') return;
-      const sec = document.getElementById(targetId);
-      if (sec) item.classList.toggle('hidden-by-mode', sec.classList.contains('mode-hidden'));
-    });
-  }
-
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    if (el.classList.contains('mode-hidden')) setMasterMode('all');
-
-    const offset = 115;
-    const top = el.getBoundingClientRect().top + window.pageYOffset - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-    document.getElementById('navLinks').classList.remove('open');
-  }
-
-  document.addEventListener('click', e => {
-    const scrollTrigger = e.target.closest('[data-scroll]');
-    if (scrollTrigger) {
-      e.preventDefault();
-      scrollToSection(scrollTrigger.getAttribute('data-scroll'));
+    document.querySelectorAll('.scenario-option').forEach(b => b.disabled = true);
+    if (chosen.correct) {
+      btn.classList.add('correct');
+      arenaXp += 25;
+      localStorage.setItem('imperium_xp_v1', String(arenaXp));
+      document.getElementById('simXpDisplay').textContent = `XP: ${arenaXp}`;
+      document.getElementById('dashArenaScore').textContent = `${arenaXp} XP`;
+    } else {
+      btn.classList.add('wrong');
     }
-  });
+    fb.textContent = chosen.feedback;
+    fb.style.display = 'block';
+  };
 
-  document.querySelectorAll('#masterModeTabs .mode-tab').forEach(btn => {
-    btn.addEventListener('click', () => {
-      setMasterMode(btn.dataset.mode);
-      showToast(`Tome Filter: ${btn.textContent.trim()}`);
-    });
-  });
+  window.nextScenario = function() {
+    simIndex = (simIndex + 1) % SCENARIOS.length;
+    renderScenario();
+  };
 
-  // Machiavelli Laws Controls
-  document.getElementById('lawsSearchInput').addEventListener('input', renderLaws);
-  document.getElementById('viewFullBtn').addEventListener('click', () => {
-    lawsCompactMode = false;
-    document.getElementById('viewFullBtn').classList.add('active');
-    document.getElementById('viewCompactBtn').classList.remove('active');
-    renderLaws();
-  });
-  document.getElementById('viewCompactBtn').addEventListener('click', () => {
-    lawsCompactMode = true;
-    document.getElementById('viewCompactBtn').classList.add('active');
-    document.getElementById('viewFullBtn').classList.remove('active');
-    renderLaws();
-  });
-  document.getElementById('toggleLimitBtn').addEventListener('click', function() {
-    lawsLimitSix = !lawsLimitSix;
-    this.textContent = lawsLimitSix ? 'Showing: First 6 (Show All 12)' : 'Showing: All 12';
-    this.classList.toggle('active', lawsLimitSix);
-    renderLaws();
-  });
+  // ============================================================================
+  // PAGE 08: WAR ROOM & APHORISM VAULT
+  // ============================================================================
+  function renderWarRoom() {
+    document.getElementById('warroomSavedCount').textContent = savedItems.length;
 
-  // 48 Laws Controls
-  document.getElementById('power48SearchInput').addEventListener('input', renderPower48);
-  document.querySelectorAll('#power48RangeTabs .mini-toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('#power48RangeTabs .mini-toggle-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      activePowerRange = btn.dataset.range;
-      renderPower48();
-      bindSpotlightCards();
-    });
-  });
+    const jList = document.getElementById('journalList');
+    jList.innerHTML = journalEntries.map(j => `
+      <div class="lux-card" style="padding:1.1rem 1.3rem;">
+        <div class="card-top-row">
+          <span class="badge-emerald">PERSONAL LOG</span>
+          <button class="mini-icon-btn" onclick="deleteJournal('${j.id}')">✕</button>
+        </div>
+        <p style="font-size:0.92rem;">${j.text}</p>
+      </div>
+    `).join('');
 
-  // Quote Vault Tabs
-  document.querySelectorAll('#vaultTabs .vault-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('#vaultTabs .vault-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      activeQuoteCat = tab.dataset.cat;
-      renderQuotes();
-      bindSpotlightCards();
-    });
-  });
-
-  document.getElementById('resetAuditBtn').addEventListener('click', () => {
-    PILLARS_10.forEach(p => pillarScores[p.id] = 7);
-    localStorage.setItem('aether_pillars_v3', JSON.stringify(pillarScores));
-    renderPillars();
-    showToast('Audit Reset to 70%');
-  });
-
-  document.getElementById('menuToggle').addEventListener('click', () => {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
-
-  // Scroll Telemetry & Section Spy
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.scrollY;
-    const docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const pct = Math.min(100, Math.max(0, Math.round((scrollTop / docHeight) * 100)));
-
-    document.getElementById('scrollProgressBar').style.width = pct + '%';
-    document.getElementById('fabScrollPct').textContent = pct + '%';
-    document.getElementById('backToTopFab').classList.toggle('visible', scrollTop > 420);
-
-    const sections = ['hero', 'top5', 'laws', 'pillars', 'maxims', 'razor', 'power48', 'seduction', 'subconscious', 'attraction', 'vault'];
-    let current = 'hero';
-    for (const id of sections) {
-      const el = document.getElementById(id);
-      if (el && !el.classList.contains('mode-hidden')) {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= 230) current = id;
-      }
+    const bList = document.getElementById('savedBookmarksList');
+    if (savedItems.length === 0) {
+      bList.innerHTML = `<div class="lux-card"><p style="color:var(--text-steel); font-size:0.88rem;">No saved directives yet. Click the ★ icon on any card across the 8 pages to store it here.</p></div>`;
+    } else {
+      bList.innerHTML = savedItems.map(s => `
+        <div class="lux-card" style="padding:1.1rem 1.3rem;">
+          <div class="card-top-row">
+            <span class="badge-gold">${s.badge}</span>
+            <div class="icon-actions">
+              <button class="mini-icon-btn" onclick="copyToClipboard('${(s.title + ' — ' + s.body).replace(/'/g,"\\'")}')">⧉</button>
+              <button class="mini-icon-btn saved" onclick="toggleSave('${s.id}','','','')">✕</button>
+            </div>
+          </div>
+          <strong style="font-family:var(--font-display); font-size:1rem;">${s.title}</strong>
+          <p style="font-size:0.86rem; color:var(--text-steel);">${s.body}</p>
+        </div>
+      `).join('');
     }
 
-    document.querySelectorAll('#navLinks a').forEach(a => {
-      a.classList.toggle('active', a.getAttribute('data-scroll') === current);
-    });
-    document.querySelectorAll('#sideRail .rail-item').forEach(b => {
-      b.classList.toggle('active', b.getAttribute('data-scroll') === current);
+    const filteredAph = activeVaultCat === 'all'
+      ? APHORISMS_24
+      : APHORISMS_24.filter(a => a.cat === activeVaultCat);
+
+    document.getElementById('aphorismsGrid').innerHTML = filteredAph.map(a => {
+      const isSaved = savedItems.some(x => x.id === a.id);
+      const esc = a.text.replace(/'/g, "\\'");
+      return `
+        <div class="lux-card" style="flex-direction:row; align-items:center; justify-content:space-between;">
+          <div>
+            <span style="font-family:var(--font-mono); font-size:0.62rem; color:var(--gold); text-transform:uppercase;">${a.cat}</span>
+            <p style="font-size:1rem; font-weight:600; margin-top:0.25rem;">“${a.text}”</p>
+          </div>
+          <div class="icon-actions">
+            <button class="mini-icon-btn" onclick="copyToClipboard('${esc}')">⧉</button>
+            <button class="mini-icon-btn ${isSaved ? 'saved' : ''}" onclick="toggleSave('${a.id}', '${esc}', '${a.cat}', 'Aphorism')">★</button>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+    document.getElementById('bioSignaturesStrip').innerHTML = BIO_SIGNATURES.map(b => `
+      <button class="filter-chip" onclick="copyToClipboard('${b.replace(/'/g,"\\'")}')">${b} ⧉</button>
+    `).join('');
+  }
+
+  document.getElementById('addJournalBtn').addEventListener('click', () => {
+    const inp = document.getElementById('journalInput');
+    const txt = inp.value.trim();
+    if (!txt) return;
+    journalEntries.unshift({ id: 'j_' + Date.now(), date: '2026', text: txt });
+    localStorage.setItem('imperium_journal_v1', JSON.stringify(journalEntries));
+    inp.value = '';
+    renderAll();
+    showToast('Logged to War Room');
+  });
+
+  window.deleteJournal = function(id) {
+    journalEntries = journalEntries.filter(x => x.id !== id);
+    localStorage.setItem('imperium_journal_v1', JSON.stringify(journalEntries));
+    renderAll();
+  };
+
+  document.querySelectorAll('#vaultCatChips .filter-chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('#vaultCatChips .filter-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      activeVaultCat = chip.dataset.cat;
+      renderWarRoom();
     });
   });
 
-  // ==========================================
-  // GLOBAL SEARCH, COUNSEL & CODEX MODALS
-  // ==========================================
+  // ============================================================================
+  // GLOBAL SEARCH MODAL
+  // ============================================================================
   const searchModal = document.getElementById('searchModal');
   const globalSearchInput = document.getElementById('globalSearchInput');
 
-  function openSearch() {
+  function openSearchModal() {
     searchModal.classList.add('open');
     globalSearchInput.value = '';
-    renderGlobalSearch('');
+    renderSearchResults('');
     setTimeout(() => globalSearchInput.focus(), 50);
   }
 
-  document.getElementById('openSearchBtn').addEventListener('click', openSearch);
-  document.getElementById('mobileSearchDockBtn').addEventListener('click', openSearch);
-  document.getElementById('closeSearchBtn').addEventListener('click', () => searchModal.classList.remove('open'));
+  document.getElementById('openSearchModalBtn').addEventListener('click', openSearchModal);
+  document.getElementById('closeSearchModalBtn').addEventListener('click', () => searchModal.classList.remove('open'));
 
   window.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
-      openSearch();
+      openSearchModal();
     } else if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-backdrop').forEach(m => m.classList.remove('open'));
+      searchModal.classList.remove('open');
     }
   });
 
-  function renderGlobalSearch(q) {
+  function renderSearchResults(q) {
     const query = q.toLowerCase().trim();
     const pool = [
-      ...LAWS_12.map(l => ({ type: `The Prince • Law ${l.num}`, text: `${l.title} — ${l.learning}`, sec: 'laws' })),
-      ...LAWS_48.map((t, i) => ({ type: `48 Laws • Law ${String(i + 1).padStart(2, '0')}`, text: t, sec: 'power48' })),
-      ...SEDUCTION_ARCHETYPES.map(a => ({ type: `Seduction Archetype`, text: `${a.name}: ${a.trait}`, sec: 'seduction' })),
-      ...SUB_DUAL_MIND.concat(SUB_HEALING, SUB_WEALTH).map(s => ({ type: `Subconscious Mind`, text: `${s.title} — ${s.quote}`, sec: 'subconscious' })),
-      ...ATTRACTION_MINDSET.concat(ATTRACTION_ESCALATION).map(a => ({ type: `Attraction & Frame`, text: `${a.title} — ${a.quote}`, sec: 'attraction' })),
-      ...QUOTES_24.map(qt => ({ type: qt.cat, text: qt.text, sec: 'vault' }))
+      ...REALPOLITIK_12.map(r => ({ page: 'statecraft', badge: `Page 02 • Realpolitik ${r.num}`, text: `${r.title} — ${r.execution}` })),
+      ...DIRECTIVES_48.map((d, i) => ({ page: 'leverage', badge: `Page 03 • Directive ${String(i+1).padStart(2,'0')}`, text: d })),
+      ...PERSONAS_9.map(p => ({ page: 'magnetism', badge: `Page 04 • Persona`, text: `${p.name}: ${p.trait}` })),
+      ...MIND_LAWS.concat(MIND_PROTOCOLS, MIND_ABUNDANCE).map(m => ({ page: 'mind', badge: `Page 05 • Subconscious`, text: `${m.title} — ${m.takeaway}` })),
+      ...FRAME_MINDSET.concat(FRAME_ESCALATION).map(f => ({ page: 'frame', badge: `Page 06 • Frame & Polarity`, text: `${f.title} — ${f.takeaway}` })),
+      ...APHORISMS_24.map(a => ({ page: 'warroom', badge: `Page 08 • Aphorism`, text: a.text }))
     ];
 
     const matches = query
-      ? pool.filter(item => item.text.toLowerCase().includes(query) || item.type.toLowerCase().includes(query))
-      : pool.slice(0, 12);
+      ? pool.filter(x => x.text.toLowerCase().includes(query) || x.badge.toLowerCase().includes(query))
+      : pool.slice(0, 10);
 
     document.getElementById('globalSearchResults').innerHTML = matches.map(m => `
-      <div class="cmd-item" onclick="jumpFromSearch('${m.sec}', '${m.text.replace(/'/g, "\\'")}')">
+      <div style="padding:0.75rem 1rem; border-bottom:1px solid var(--border-dim); cursor:pointer; display:flex; justify-content:space-between; align-items:center;" onclick="jumpToPageFromSearch('${m.page}', '${m.text.replace(/'/g,"\\'")}')">
         <div>
-          <span class="cmd-item-type">${m.type}</span>
-          <p style="font-size: 0.88rem; color: var(--text-ivory);">${m.text}</p>
+          <span style="font-family:var(--font-mono); font-size:0.62rem; color:var(--gold); text-transform:uppercase;">${m.badge}</span>
+          <p style="font-size:0.88rem; color:var(--text-platinum);">${m.text}</p>
         </div>
-        <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-slate);">Jump →</span>
+        <span style="font-family:var(--font-mono); font-size:0.68rem; color:var(--emerald);">Open Page →</span>
       </div>
     `).join('');
   }
 
-  window.jumpFromSearch = function(sec, text) {
+  window.jumpToPageFromSearch = function(page, text) {
     searchModal.classList.remove('open');
-    scrollToSection(sec);
-    copyText(text);
+    navigateTo(page);
+    copyToClipboard(text);
   };
 
-  globalSearchInput.addEventListener('input', e => renderGlobalSearch(e.target.value));
+  globalSearchInput.addEventListener('input', e => renderSearchResults(e.target.value));
 
-  // Daily Counsel Modal
-  const counselModal = document.getElementById('counselModal');
-  function drawRandomCounsel() {
-    const pool = [
-      ...LAWS_12.map(l => ({ type: `THE PRINCE • LAW ${l.num}`, quote: l.title, sub: l.apply })),
-      ...LAWS_48.map((t, i) => ({ type: `48 LAWS OF POWER • LAW ${String(i + 1).padStart(2, '0')}`, quote: t, sub: 'Maintain emotional control, indirection, and strategic foresight.' })),
-      ...SEDUCTION_ARCHETYPES.map(a => ({ type: `ART OF SEDUCTION • ${a.name.toUpperCase()}`, quote: a.quote, sub: a.trait })),
-      ...SUB_DUAL_MIND.concat(SUB_HEALING, SUB_WEALTH).map(s => ({ type: `SUBCONSCIOUS MIND • ${s.tag.toUpperCase()}`, quote: s.quote, sub: s.body })),
-      ...ATTRACTION_MINDSET.map(a => ({ type: `ATTRACTION DYNAMICS • ${a.tag.toUpperCase()}`, quote: a.quote, sub: a.body })),
-      ...TOP_5.map(t => ({ type: `ESSENTIAL STANDARD ${t.num}`, quote: t.quote, sub: t.note }))
-    ];
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    document.getElementById('counselType').textContent = pick.type;
-    document.getElementById('counselQuote').textContent = `“${pick.quote}”`;
-    document.getElementById('counselSub').textContent = pick.sub;
+  function renderAll() {
+    renderCommandCenter();
+    renderRealpolitik();
+    renderLeverage48();
+    renderMagnetism();
+    renderMindAndFrame();
+    renderFlashcard();
+    renderScenario();
+    renderWarRoom();
   }
 
-  document.getElementById('openCounselBtn').addEventListener('click', () => {
-    drawRandomCounsel();
-    counselModal.classList.add('open');
-  });
-  document.getElementById('drawAnotherCounselBtn').addEventListener('click', drawRandomCounsel);
-  document.getElementById('closeCounselBtn').addEventListener('click', () => counselModal.classList.remove('open'));
-  document.getElementById('copyCounselBtn').addEventListener('click', () => {
-    const q = document.getElementById('counselQuote').textContent;
-    const s = document.getElementById('counselSub').textContent;
-    copyText(`${q} — ${s}`);
-  });
-
-  // Personal Saved Codex Modal
-  const codexModal = document.getElementById('codexModal');
-  function renderSavedCodexModal() {
-    const container = document.getElementById('codexListContainer');
-    if (savedCodex.length === 0) {
-      container.innerHTML = `<p style="color: var(--text-ash); font-family: var(--font-mono); font-size: 0.8rem; text-align: center; padding: 2rem 0;">Your Personal Codex is empty. Click the ★ icon on any law, archetype, principle, or quote to save it here.</p>`;
-      return;
-    }
-    container.innerHTML = savedCodex.map(item => `
-      <div class="cmd-item">
-        <div>
-          <span class="cmd-item-type">${item.label}</span>
-          <p style="font-size: 0.9rem; color: var(--text-ivory);">${item.text}</p>
-        </div>
-        <div class="card-icon-actions">
-          <button class="icon-btn" onclick="copyText('${item.text.replace(/'/g, "\\'")}')" title="Copy">⧉</button>
-          <button class="icon-btn bookmarked" onclick="toggleBookmark('${item.id}', '', ''); renderSavedCodexModal();" title="Remove">✕</button>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  document.getElementById('openCodexBtn').addEventListener('click', () => {
-    renderSavedCodexModal();
-    codexModal.classList.add('open');
-  });
-  document.getElementById('closeCodexBtn').addEventListener('click', () => codexModal.classList.remove('open'));
-
-  document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-    backdrop.addEventListener('click', e => {
-      if (e.target === backdrop) backdrop.classList.remove('open');
-    });
-  });
-
-  function bindSpotlightCards() {
-    document.querySelectorAll('.spotlight-card').forEach(card => {
-      card.onmousemove = e => {
-        const rect = card.getBoundingClientRect();
-        card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-        card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-      };
-    });
-  }
-
-  updateCodexBadge();
+  generateOracle();
   renderAll();
 </script>
 </body>
